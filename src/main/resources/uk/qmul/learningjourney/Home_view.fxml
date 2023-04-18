@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="450.0" fitWidth="720.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../image/home_bg.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="118.0" fitWidth="284.0" layoutX="26.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../image/qm_lable.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="26.0" layoutY="185.0" prefHeight="26.0" prefWidth="200.0" style="-fx-border-color: black; -fx-border-width: 3; -fx-background-color: white;" text="    Name:">
+         <font>
+            <Font name="SansSerif Bold Italic" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="26.0" layoutY="225.0" prefHeight="26.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 3;" text="   Stunum:">
+         <font>
+            <Font name="SansSerif Bold Italic" size="16.0" />
+         </font></Label>
+      <Label layoutX="26.0" layoutY="265.0" prefHeight="26.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 3;" text="   Academy:">
+         <font>
+            <Font name="SansSerif Bold Italic" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="26.0" layoutY="305.0" prefHeight="26.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-width: 3;" text="   Major:">
+         <font>
+            <Font name="SansSerif Bold Italic" size="16.0" />
+         </font>
+      </Label>
+      <Button layoutX="420.0" layoutY="80.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Home" textFill="#002bff">
+         <font>
+            <Font name="SansSerif Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="470.0" layoutY="80.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="University" textFill="#002bff">
+         <font>
+            <Font name="SansSerif Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="545.0" layoutY="80.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Blog" textFill="#002bff">
+         <font>
+            <Font name="SansSerif Bold" size="12.0" />
+         </font></Button>
+      <TextField layoutX="362.0" layoutY="128.0" prefHeight="23.0" prefWidth="290.0" />
+      <Button layoutX="364.0" layoutY="213.0" mnemonicParsing="false" style="-fx-background-color: #e0da76;" text="Historical grades" />
+      <Button layoutX="560.0" layoutY="213.0" mnemonicParsing="false" style="-fx-background-color: E0DA76FF;" text="Grade analysis" />
+      <Button layoutX="375.0" layoutY="294.0" mnemonicParsing="false" style="-fx-background-color: E0DA76FF;" text="Achievement">
+         <font>
+            <Font name="SansSerif Regular" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="554.0" layoutY="294.0" mnemonicParsing="false" style="-fx-background-color: E0DA76FF;" text="Course selection" />
+   </children>
+</Pane>

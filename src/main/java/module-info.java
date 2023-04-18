@@ -8,7 +8,7 @@ module uk.qmul.learningjourney {
     requires net.synedra.validatorfx;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
-    requires eu.hansolo.tilesfx;
+    //requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
 
     opens uk.qmul.learningjourney to javafx.fxml;
