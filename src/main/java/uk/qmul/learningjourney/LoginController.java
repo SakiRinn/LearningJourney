@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 
-public class Log_inCon {
+public class LoginController {
 
 
     @FXML
@@ -47,7 +47,7 @@ public class Log_inCon {
 class myWindow {
 
     public myWindow(String number, String password) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Log_inApp.class.getResource("Home_view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(LoginApplication.class.getResource("home-view.fxml"));
 
         Scene scene = new Scene(fxmlLoader.load(), 720, 449);
         Stage stage = new Stage();

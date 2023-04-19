@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="458.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.qmul.learningjourney.GradeController">
+   <children>
+      <ImageView fitHeight="458.1" fitWidth="720.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../image/grade_bg.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="120.0" fitWidth="200.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+         <image>
+            <Image url="@../../../image/qm_label.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="13.0" layoutY="143.0" prefHeight="101.0" prefWidth="200.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="150.0">
+         <children>
+            <Pane prefHeight="25.0" prefWidth="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#86c0e7" height="24.5" stroke="BLACK" strokeType="INSIDE" width="59.5" />
+                  <Label alignment="CENTER" prefHeight="24.5" prefWidth="59.5" text="Name" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutY="39.0" prefHeight="24.5" prefWidth="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e2f9fa" height="24.5" stroke="BLACK" strokeType="INSIDE" width="59.5" />
+                  <Label alignment="CENTER" prefHeight="24.5" prefWidth="59.5" text="Stu.num" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="10.0" layoutY="35.0" prefHeight="25.0" prefWidth="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="50.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e2f9fa" height="24.5" stroke="BLACK" strokeType="INSIDE" width="59.5" />
+                  <Label alignment="CENTER" prefHeight="24.5" prefWidth="59.5" text="Academy" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="10.0" layoutY="60.0" prefHeight="25.0" prefWidth="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="75.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e2f9fa" height="24.5" stroke="BLACK" strokeType="INSIDE" width="59.5" />
+                  <Label alignment="CENTER" prefHeight="24.5" prefWidth="59.5" text="Major" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="10.0" layoutY="85.0" prefHeight="25.0" prefWidth="140.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="24.5" stroke="BLACK" strokeType="INSIDE" width="139.5" />
+                  <Label fx:id="name" alignment="CENTER" prefHeight="24.5" prefWidth="139.5" text="Name" textAlignment="CENTER" />
+               </children>
+            </Pane>
+            <Pane layoutX="70.0" layoutY="10.0" prefHeight="25.0" prefWidth="140.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="24.5" stroke="BLACK" strokeType="INSIDE" width="139.5" />
+                  <Label fx:id="stuNum" alignment="CENTER" prefHeight="24.5" prefWidth="139.5" text="Student Number" textAlignment="CENTER" />
+               </children>
+            </Pane>
+            <Pane layoutX="70.0" layoutY="35.0" prefHeight="25.0" prefWidth="140.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="24.5" stroke="BLACK" strokeType="INSIDE" width="139.5" />
+                  <Label fx:id="academy" alignment="CENTER" prefHeight="24.5" prefWidth="139.5" text="Academy" textAlignment="CENTER" />
+               </children>
+            </Pane>
+            <Pane layoutX="70.0" layoutY="60.0" prefHeight="25.0" prefWidth="140.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="24.5" stroke="BLACK" strokeType="INSIDE" width="139.5" />
+                  <Label fx:id="major" alignment="CENTER" prefHeight="24.5" prefWidth="139.5" text="Major" textAlignment="CENTER" />
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+      <Label alignment="CENTER" layoutX="250.0" layoutY="34.0" text="The Online Learning Environment for QMUL students" textAlignment="CENTER" textFill="#050505" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="40.0">
+         <font>
+            <Font name="Berlin Sans FB" size="20.0" />
+         </font>
+      </Label>
+      <Hyperlink fx:id="home" alignment="CENTER" contentDisplay="CENTER" layoutX="330.0" layoutY="80.0" text="Home" textFill="#005eff" AnchorPane.rightAnchor="330.0" AnchorPane.topAnchor="80.0">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="18.0" />
+         </font>
+      </Hyperlink>
+      <Hyperlink fx:id="university" alignment="CENTER" contentDisplay="CENTER" layoutX="424.0" layoutY="80.0" text="University" textFill="#005eff" AnchorPane.rightAnchor="205.0" AnchorPane.topAnchor="80.0">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="18.0" />
+         </font>
+      </Hyperlink>
+      <Hyperlink fx:id="blog" alignment="CENTER" contentDisplay="CENTER" layoutX="555.0" layoutY="80.0" text="Blog" textFill="#005eff" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="80.0">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="18.0" />
+         </font>
+      </Hyperlink>
+      <Line endX="10.0" layoutX="408.0" layoutY="94.0" rotate="90.0" startX="-10.0" strokeWidth="2.5" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="92.75" />
+      <Line endX="10.0" layoutX="532.0" layoutY="94.0" rotate="90.0" startX="-10.0" strokeWidth="2.5" AnchorPane.rightAnchor="175.0" AnchorPane.topAnchor="92.75" />
+      <StackPane fx:id="pages" layoutX="250.0" layoutY="126.0" prefHeight="300.0" prefWidth="440.0" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="30.0">
+         <children>
+            <AnchorPane fx:id="mainPage" layoutX="10.0" layoutY="10.0" prefHeight="300.0" prefWidth="440.0">
+               <children>
+                  <Label text="Your GPA is " textFill="#000000" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="25.0">
+                     <font>
+                        <Font name="Britannic Bold" size="36.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="gpa" text="4.00" textFill="#6e2a2a" AnchorPane.leftAnchor="230.0" AnchorPane.topAnchor="25.0">
+                     <font>
+                        <Font name="Britannic Bold" size="36.0" />
+                     </font>
+                  </Label>
+                  <Label text="/4.00" textFill="#000000" AnchorPane.leftAnchor="315.0" AnchorPane.topAnchor="25.0">
+                     <font>
+                        <Font name="Britannic Bold" size="36.0" />
+                     </font>
+                  </Label>
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="25.0" layoutY="103.0" mnemonicParsing="false" onAction="#toCheckPage" styleClass="grade-button" stylesheets="@grade-button.css" text="Check Grades" textAlignment="CENTER" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="100.0">
+                     <font>
+                        <Font name="Berlin Sans FB" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" styleClass="grade-button" stylesheets="@grade-button.css" text="Grade Analysis" textAlignment="CENTER" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="100.0">
+                     <font>
+                        <Font name="Berlin Sans FB" size="20.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="checkPage" prefHeight="300.0" prefWidth="440.0" visible="false">
+               <children>
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="83.0" layoutY="218.0" mnemonicParsing="false" styleClass="grade-button" stylesheets="@grade-button.css" text="Sort Grade" textAlignment="CENTER" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="83.0">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="265.0" layoutY="218.0" mnemonicParsing="false" styleClass="grade-button" stylesheets="@grade-button.css" text="List Grade" textAlignment="CENTER" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="87.0">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="277.0" layoutY="258.0" mnemonicParsing="false" onAction="#toMainPage" styleClass="grade-button" stylesheets="@grade-button.css" text="return" textAlignment="CENTER" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="100.0">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="75.0" layoutY="250.0" mnemonicParsing="false" styleClass="grade-button" stylesheets="@grade-button.css" text="Export Grade" textAlignment="CENTER" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="75.0">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Button>
+                  <TableView layoutX="20.0" layoutY="6.0" prefHeight="200.0" prefWidth="400.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                      <TableColumn prefWidth="125.0" text="Course" />
+                      <TableColumn prefWidth="75.0" text="Grade" />
+                        <TableColumn prefWidth="75.0" text="GPA" />
+                        <TableColumn prefWidth="125.0" text="Semister" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>

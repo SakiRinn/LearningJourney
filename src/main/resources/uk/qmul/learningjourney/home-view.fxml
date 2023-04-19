@@ -14,7 +14,7 @@
       </ImageView>
       <ImageView fitHeight="118.0" fitWidth="284.0" layoutX="26.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../image/qm_lable.jpg" />
+            <Image url="@../../../image/qm_label.jpg" />
          </image>
       </ImageView>
       <Label layoutX="26.0" layoutY="185.0" prefHeight="26.0" prefWidth="200.0" style="-fx-border-color: black; -fx-border-width: 3; -fx-background-color: white;" text="    Name:">

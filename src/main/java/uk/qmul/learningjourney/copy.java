@@ -13,7 +13,6 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -28,7 +27,7 @@ public class copy extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(Log_inApp.class.getResource("Log_in_view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(LoginApplication.class.getResource("login-view.fxml"));
 
         TextField t_name = new TextField();
         t_name.setUserData("a");//给一个测试数据
@@ -47,7 +46,7 @@ public class copy extends Application {
         Button login = new Button("Login");
         Button clear = new Button("Clear");
 
-        Image img = new Image("D:\\Code_field\\LearningJourney\\src\\main\\resources\\image\\log_in_bg.jpg");
+        Image img = new Image("D:\\Code_field\\LearningJourney\\src\\main\\resources\\image\\login_bg.jpg");
         BackgroundImage bimg = new BackgroundImage(img, BackgroundRepeat.NO_REPEAT,BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
         Background bg = new Background(bimg);
 

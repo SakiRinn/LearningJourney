@@ -128,7 +128,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>uk.qmul.learningjourney/uk.qmul.learningjourney.HelloApplication</mainClass>
+                            <mainClass>uk.qmul.learningjourney/uk.qmul.learningjourney.LoginApplication</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>
