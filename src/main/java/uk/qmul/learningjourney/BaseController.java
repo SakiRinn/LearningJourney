@@ -3,11 +3,14 @@ package uk.qmul.learningjourney;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 
 public class BaseController {
 
     @FXML
     private Button homeButton;
+    @FXML
+    private Button backButton;
     @FXML
     private Label nameLabel;
     @FXML
@@ -26,7 +29,8 @@ public class BaseController {
         setIdLabel("2020213171");
         setCollegeLabel("International School");
         setMajorLabel("Telecommunication and Management");
-
+        setHomeButton();
+        setBackButton();
     }
 
     public void setNameLabel(String name) {
@@ -43,5 +47,23 @@ public class BaseController {
 
     public void setMajorLabel(String major) {
         majorLabel.setText(major);
+    }
+
+    public void setHomeButton() {
+        ImageView img = new ImageView(getClass().getResource("home_icon.png").toString());
+        img.setFitHeight(20);
+        img.setFitWidth(20);
+        homeButton.setGraphic(img);
+        homeButton.setOnAction(actionEvent -> {
+            Context.stage.setScene(Context.homeScene);
+        });
+    }
+
+    public void setBackButton() {
+        ImageView img = new ImageView(getClass().getResource("back_icon.png").toString());
+        img.setFitHeight(20);
+        img.setFitWidth(20);
+        backButton.setGraphic(img);
+        backButton.setOnAction(actionEvent -> Context.toLastScene());
     }
 }

@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
+<?import java.lang.String?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0"
             prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="uk.qmul.learningjourney.BaseController">
@@ -54,10 +55,11 @@
                     AnchorPane.topAnchor="110.0">
             <children>
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0e337380" height="1.0" stroke="BLACK"
-                           strokeType="INSIDE" strokeWidth="0.0" width="800.0" AnchorPane.topAnchor="39.0"/>
-                <HBox alignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           strokeType="INSIDE" strokeWidth="0.0" width="800.0" AnchorPane.topAnchor="40.0"/>
+                <HBox alignment="CENTER_LEFT" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                     <children>
-                        <Button fx:id="homeButton" mnemonicParsing="false" styleClass="rounded" text="Home">
+                        <Button fx:id="homeButton" mnemonicParsing="false" prefHeight="30.0" styleClass="rounded"
+                                text="Home">
                             <HBox.margin>
                                 <Insets left="10.0" right="10.0"/>
                             </HBox.margin>
@@ -65,21 +67,17 @@
                                 <Font name="Calibri Bold" size="16.0"/>
                             </font>
                         </Button>
-                        <Button mnemonicParsing="false" styleClass="rounded" text="University">
+                        <Button fx:id="backButton" mnemonicParsing="false" prefWidth="20.0" textAlignment="CENTER">
                             <HBox.margin>
                                 <Insets left="10.0" right="10.0"/>
                             </HBox.margin>
                             <font>
                                 <Font name="Calibri Bold" size="16.0"/>
                             </font>
-                        </Button>
-                        <Button mnemonicParsing="false" styleClass="rounded" text="Blog">
-                            <HBox.margin>
-                                <Insets left="10.0" right="10.0"/>
-                            </HBox.margin>
-                            <font>
-                                <Font name="Calibri Bold" size="16.0"/>
-                            </font>
+                            <styleClass>
+                                <String fx:value="rounded"/>
+                                <String fx:value="button-icon"/>
+                            </styleClass>
                         </Button>
                     </children>
                 </HBox>
