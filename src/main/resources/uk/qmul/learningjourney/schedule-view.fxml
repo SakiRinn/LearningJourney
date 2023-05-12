@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane prefHeight="520.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.14-internal"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.qmul.learningjourney.ClassScheduleController">
+    <fx:include source="base-view.fxml"/>
+    <AnchorPane layoutX="236.0" layoutY="100.0" prefHeight="370.0" prefWidth="555.0" AnchorPane.bottomAnchor="10.0"
+                AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="170.0">
+        <children>
+            <ComboBox fx:id="comboBox" prefWidth="150.0" AnchorPane.topAnchor="0.0"/>
+            <ScrollPane AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                        AnchorPane.topAnchor="50.0">
+                <content>
+                    <GridPane fx:id="classSchedule" alignment="CENTER">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES"/>
+                            <RowConstraints prefHeight="30.0" vgrow="SOMETIMES"/>
+                            <RowConstraints prefHeight="30.0" vgrow="SOMETIMES"/>
+                            <RowConstraints prefHeight="30.0" vgrow="SOMETIMES"/>
+                            <RowConstraints prefHeight="30.0" vgrow="SOMETIMES"/>
+                            <RowConstraints prefHeight="30.0" vgrow="SOMETIMES"/>
+                            <RowConstraints prefHeight="30.0" vgrow="SOMETIMES"/>
+                            <RowConstraints prefHeight="30.0" vgrow="SOMETIMES"/>
+                            <RowConstraints prefHeight="30.0" vgrow="SOMETIMES"/>
+                            <RowConstraints prefHeight="30.0" vgrow="SOMETIMES"/>
+                            <RowConstraints prefHeight="30.0" vgrow="SOMETIMES"/>
+                            <RowConstraints prefHeight="30.0" vgrow="SOMETIMES"/>
+                            <RowConstraints prefHeight="30.0" vgrow="SOMETIMES"/>
+                            <RowConstraints prefHeight="30.0" vgrow="SOMETIMES"/>
+                            <RowConstraints prefHeight="30.0" vgrow="SOMETIMES"/>
+                        </rowConstraints>
+                        <children>
+                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Monday" GridPane.columnIndex="1"
+                                  GridPane.halignment="CENTER">
+                                <GridPane.margin>
+                                    <Insets/>
+                                </GridPane.margin>
+                            </Text>
+                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tuesday" GridPane.columnIndex="2"
+                                  GridPane.halignment="CENTER"/>
+                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Wednesday" GridPane.columnIndex="3"
+                                  GridPane.halignment="CENTER"/>
+                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Thursday" GridPane.columnIndex="4"
+                                  GridPane.halignment="CENTER"/>
+                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Friday" GridPane.columnIndex="5"
+                                  GridPane.halignment="CENTER"/>
+                            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="1&#10;8:00-8:45" textAlignment="CENTER"
+                                  GridPane.halignment="CENTER" GridPane.rowIndex="1"/>
+                            <Text layoutX="28.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                                  text="2&#10;8:50-9:35" textAlignment="CENTER" GridPane.halignment="CENTER"
+                                  GridPane.rowIndex="2"/>
+                            <Text layoutX="28.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                                  text="3&#10;9:50-10:35" textAlignment="CENTER" GridPane.halignment="CENTER"
+                                  GridPane.rowIndex="3"/>
+                            <Text layoutX="10.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                                  text="4&#10;10:40-11:25" textAlignment="CENTER" GridPane.halignment="CENTER"
+                                  GridPane.rowIndex="4"/>
+                            <Text layoutX="10.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                                  text="6&#10;13:00-13:45" textAlignment="CENTER" GridPane.halignment="CENTER"
+                                  GridPane.rowIndex="6"/>
+                            <Text layoutX="10.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                                  text="5&#10;11:30-12:15" textAlignment="CENTER" GridPane.halignment="CENTER"
+                                  GridPane.rowIndex="5"/>
+                            <Text layoutX="10.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                                  text="10&#10;16:35-17:20" textAlignment="CENTER" GridPane.halignment="CENTER"
+                                  GridPane.rowIndex="10"/>
+                            <Text layoutX="10.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                                  text="9&#10;15:40-16:25" textAlignment="CENTER" GridPane.halignment="CENTER"
+                                  GridPane.rowIndex="9"/>
+                            <Text layoutX="10.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                                  text="8&#10;14:45-15:30" textAlignment="CENTER" GridPane.halignment="CENTER"
+                                  GridPane.rowIndex="8"/>
+                            <Text layoutX="10.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                                  text="7&#10;13:50-14:35" textAlignment="CENTER" GridPane.halignment="CENTER"
+                                  GridPane.rowIndex="7"/>
+                            <Text layoutX="10.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                                  text="11&#10;17:25-18:10" textAlignment="CENTER" GridPane.halignment="CENTER"
+                                  GridPane.rowIndex="11"/>
+                            <Text layoutX="10.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                                  text="12&#10;18:30-19:15" textAlignment="CENTER" GridPane.halignment="CENTER"
+                                  GridPane.rowIndex="12"/>
+                            <Text layoutX="10.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                                  text="13&#10;19:20-20:05" textAlignment="CENTER" GridPane.halignment="CENTER"
+                                  GridPane.rowIndex="13"/>
+                            <Text layoutX="28.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                                  text="14&#10;20:10-20:55" textAlignment="CENTER" GridPane.halignment="CENTER"
+                                  GridPane.rowIndex="14"/>
+                        </children>
+                    </GridPane>
+                </content>
+            </ScrollPane>
+        </children>
+    </AnchorPane>
+</AnchorPane>

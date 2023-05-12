@@ -10,6 +10,7 @@ module uk.qmul.learningjourney {
     requires org.kordamp.bootstrapfx.core;
     //requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires atlantafx.base;
 
     opens uk.qmul.learningjourney to javafx.fxml;
     exports uk.qmul.learningjourney;

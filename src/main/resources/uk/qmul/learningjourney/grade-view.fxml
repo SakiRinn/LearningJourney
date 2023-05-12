@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
-
-<AnchorPane prefHeight="458.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.qmul.learningjourney.GradeController">
-   <children>
-      <ImageView fitHeight="458.1" fitWidth="720.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../image/grade_bg.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="120.0" fitWidth="200.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
-         <image>
-            <Image url="@../../../image/qm_label.jpg" />
-         </image>
+<AnchorPane prefHeight="458.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/11.0.14-internal"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.qmul.learningjourney.GradeController">
+    <children>
+        <ImageView fitHeight="458.1" fitWidth="720.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../image/grade_bg.jpg"/>
+            </image>
+        </ImageView>
+        <ImageView fitHeight="120.0" fitWidth="200.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true"
+                   preserveRatio="true" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+            <image>
+                <Image url="@../../../image/qm_label.jpg"/>
+            </image>
       </ImageView>
       <AnchorPane layoutX="13.0" layoutY="143.0" prefHeight="101.0" prefWidth="200.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="150.0">
          <children>
@@ -86,11 +88,13 @@
             </Pane>
          </children>
       </AnchorPane>
-      <Label alignment="CENTER" layoutX="250.0" layoutY="34.0" text="The Online Learning Environment for QMUL students" textAlignment="CENTER" textFill="#050505" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="40.0">
-         <font>
-            <Font name="Berlin Sans FB" size="20.0" />
-         </font>
-      </Label>
+        <Label alignment="CENTER" layoutX="227.0" layoutY="34.0" prefHeight="25.0" prefWidth="463.0"
+               text="The Online Learning Environment for QMUL students" textAlignment="CENTER" textFill="#050505"
+               AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="40.0">
+            <font>
+                <Font name="Berlin Sans FB" size="20.0"/>
+            </font>
+        </Label>
       <Hyperlink fx:id="home" alignment="CENTER" contentDisplay="CENTER" layoutX="330.0" layoutY="80.0" text="Home" textFill="#005eff" AnchorPane.rightAnchor="330.0" AnchorPane.topAnchor="80.0">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="18.0" />
@@ -127,16 +131,19 @@
                         <Font name="Britannic Bold" size="36.0" />
                      </font>
                   </Label>
-                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="25.0" layoutY="103.0" mnemonicParsing="false" onAction="#toCheckPage" styleClass="grade-button" stylesheets="@grade-button.css" text="Check Grades" textAlignment="CENTER" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="100.0">
-                     <font>
-                        <Font name="Berlin Sans FB" size="20.0" />
-                     </font>
-                  </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" styleClass="grade-button" stylesheets="@grade-button.css" text="Grade Analysis" textAlignment="CENTER" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="100.0">
-                     <font>
-                        <Font name="Berlin Sans FB" size="20.0" />
-                     </font>
-                  </Button>
+                   <Button alignment="CENTER" contentDisplay="CENTER" layoutX="25.0" layoutY="103.0"
+                           mnemonicParsing="false" onAction="#toCheckPage" text="Check Grades" textAlignment="CENTER"
+                           AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="100.0">
+                       <font>
+                           <Font name="Berlin Sans FB" size="20.0"/>
+                       </font>
+                   </Button>
+                   <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Grade Analysis"
+                           textAlignment="CENTER" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="100.0">
+                       <font>
+                           <Font name="Berlin Sans FB" size="20.0"/>
+                       </font>
+                   </Button>
                </children>
             </AnchorPane>
             <AnchorPane fx:id="checkPage" prefHeight="300.0" prefWidth="440.0" visible="false">

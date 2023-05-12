@@ -1,17 +1,13 @@
 package uk.qmul.learningjourney;
 
+import java.util.ArrayList;
+
 public class ClassSchedule {
-    public static final int CLASSHOUR = 45;
-    public static final int CLASSCOUNT = 14;
-
-    Course[] courses;
-    int semester;
-    int week;
     String Sid;
+    int week;
+    ArrayList<String> courses = new ArrayList<>(98);
 
-
-    public Course getCourse(int day) {
-
+    public Course getCourse(int week) {
         return null;
     }
 
@@ -28,24 +24,4 @@ public class ClassSchedule {
     }
 }
 
-class Course {
-    String name;
-    String id;
-    String teacher;
 
-    static class Time {
-        int[] day;
-        int start;
-        int end;
-    }
-
-    Time[] time;
-    int type;
-    int level = 0;
-    int credit;
-    int score = -1;
-    String room;
-    int semester;
-
-
-}
