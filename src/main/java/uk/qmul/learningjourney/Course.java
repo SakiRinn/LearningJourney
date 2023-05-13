@@ -11,6 +11,9 @@ public class Course {
     private int semester;
 
     private int[] weeks;
+    private int[] days;
+
+
     private int[] times;
 
     public String getName() {
@@ -85,6 +88,14 @@ public class Course {
         this.weeks = weeks;
     }
 
+    public int[] getDays() {
+        return days;
+    }
+
+    public void setDays(int[] days) {
+        this.days = days;
+    }
+
     public int[] getTimes() {
         return times;
     }
@@ -93,7 +104,7 @@ public class Course {
         this.times = times;
     }
 
-    public Course(String name, String id, String teacher, int type, int credit, String room, int semester, int[] weeks, int[] times) {
+    public Course(String name, String id, String teacher, int type, int credit, String room, int semester, int[] weeks, int[] days, int[] times) {
         this.name = name;
         this.id = id;
         this.teacher = teacher;
@@ -102,6 +113,7 @@ public class Course {
         this.room = room;
         this.semester = semester;
         this.weeks = weeks;
+        this.days = days;
         this.times = times;
     }
 
@@ -126,6 +138,7 @@ public class Course {
         this.room = null;
         this.semester = 0;
         this.weeks = null;
+        this.days = null;
         this.times = null;
     }
 }

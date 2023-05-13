@@ -14,6 +14,12 @@
       9,
       13
     ],
+    "days": [
+      1,
+      2,
+      3,
+      4
+    ],
     "times": [
       10,
       11
@@ -31,13 +37,16 @@
     "weeks": [
       9
     ],
+    "days": [
+      2
+    ],
     "times": [
       8,
       9
     ]
   },
   {
-    "name": "Image and Video Processing",
+    "name": "Image and Videorocessing",
     "id": "EBU6230",
     "teacher": "Gokop Goteng",
     "type": 0,
@@ -45,21 +54,9 @@
     "credit": 4,
     "room": "3-535",
     "semester": 6,
-    "weeks": [
-      1,
-      2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10,
-      11,
-      12,
-      13,
-      14
+    "weeks": null,
+    "days": [
+      5
     ],
     "times": [
       1,
