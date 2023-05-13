@@ -16,15 +16,6 @@ public class Context {
     public static Scene homeScene;
     public static Stack<Scene> sceneStack = new Stack<>();
 
-    private Context() {
-    }
-
-    public static Context getContext() {
-        if (context == null)
-            context = new Context();
-        return context;
-    }
-
     public static void toNextScene(Scene scene) {
         sceneStack.add(scene);
         stage.setScene(scene);
@@ -63,6 +54,5 @@ public class Context {
             if (!sceneStack.empty())
                 stage.setScene(sceneStack.pop());
         }
-
     }
 }
