@@ -1,24 +1,38 @@
 package uk.qmul.learningjourney;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import java.io.IOException;
+import javafx.scene.Node;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
+
+
 
 public class PositionController {
 
     @FXML
-    private void switchToContest() throws IOException {
-        //showcontest
-    }
+    private StackPane pages;
     @FXML
-    private void switchToPosition() throws IOException {
-        //showposition
-    }
+    private AnchorPane acedamic;
     @FXML
-    private void switchToVolunteer() throws IOException {
-        //showvolunteer
-    }
+    private AnchorPane extracuri;
+
     @FXML
-    private void switchToHonor() throws IOException {
-        //showhonor
+    private void switchToContest(ActionEvent event) {
+        for (Node page: pages.getChildren()) {
+            page.setVisible(false);
+        }
+        acedamic.setVisible(true);
     }
+
+    @FXML
+    private void switchToPosition(ActionEvent event) {
+        for (Node page: pages.getChildren()) {
+            page.setVisible(false);
+        }
+        extracuri.setVisible(true);
+    }
+
+
+
 }

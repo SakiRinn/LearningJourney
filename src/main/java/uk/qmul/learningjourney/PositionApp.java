@@ -16,7 +16,7 @@ public class PositionApp extends Application {
 
         FXMLLoader fxmlLoader = new FXMLLoader(uk.qmul.learningjourney.LoginApplication.class.getResource("position.fxml"));
 
-        Scene scene = new Scene(fxmlLoader.load(), 1600, 900);
+        Scene scene = new Scene(fxmlLoader.load(), 900, 600);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Achievement");
         primaryStage.setResizable(false);
