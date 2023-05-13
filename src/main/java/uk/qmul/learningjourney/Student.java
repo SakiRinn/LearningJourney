@@ -12,18 +12,6 @@ public class Student {
 
     private ArrayList<Course> courses;
 
-//    @JsonCreator
-//    public Student(Map<String, Object> property) {
-//        try {
-//            for (Field field : this.getClass().getDeclaredFields()) {
-//                field.setAccessible(true);
-//                field.set(this, property.get(field.getName()));
-//            }
-//        } catch (IllegalAccessException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
-
     public Student() {
         this.id = null;
         this.name = null;
@@ -41,6 +29,7 @@ public class Student {
         this.college = college;
         this.major = major;
         this.classId = classId;
+        this.courses = null;
     }
 
     public Student(String id, String name, String password, String college, String major, String classId, ArrayList<Course> courses) {

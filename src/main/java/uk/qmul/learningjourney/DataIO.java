@@ -43,10 +43,10 @@ public class DataIO {
         return mapper.readValue(file, CollectionsTypeFactory.listOf(cls));
     }
 
-    public static ArrayList<?> loadObjects(Class<?> cls, String str) throws IOException {
+    public static ArrayList<?> loadObjects(Class<?> cls, String fileName) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
 
-        File file = new File(dataPath + str + ".json");
+        File file = new File(dataPath + fileName + ".json");
         if (!file.exists() || file.length() == 0)
             return null;
         return mapper.readValue(file, CollectionsTypeFactory.listOf(cls));

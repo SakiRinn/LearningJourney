@@ -14,6 +14,9 @@ module uk.qmul.learningjourney {
     requires com.fasterxml.jackson.core;
     requires com.fasterxml.jackson.annotation;
     requires com.fasterxml.jackson.databind;
+
     opens uk.qmul.learningjourney to javafx.fxml;
     exports uk.qmul.learningjourney;
+    exports uk.qmul.learningjourney.grade;
+    opens uk.qmul.learningjourney.grade to javafx.fxml;
 }

@@ -6,7 +6,7 @@ public class Course {
     private String teacher;
     private int type;
     private int level = 0;
-    private int credit;
+    private double credit;
     private String room;
     private int semester;
 
@@ -56,7 +56,7 @@ public class Course {
         this.level = level;
     }
 
-    public int getCredit() {
+    public double getCredit() {
         return credit;
     }
 
@@ -134,7 +134,7 @@ public class Course {
         this.id = null;
         this.teacher = null;
         this.type = 0;
-        this.credit = 0;
+        this.credit = 0.0;
         this.room = null;
         this.semester = 0;
         this.weeks = null;
