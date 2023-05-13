@@ -1,0 +1,69 @@
+[
+  {
+    "name": "Software Management",
+    "id": "EBU6304",
+    "teacher": "Gokop Goteng",
+    "type": 0,
+    "level": 0,
+    "credit": 4,
+    "room": "3-535",
+    "semester": 6,
+    "weeks": [
+      1,
+      4,
+      9,
+      13
+    ],
+    "times": [
+      10,
+      11
+    ]
+  },
+  {
+    "name": "PDP",
+    "id": "EBC5001",
+    "teacher": "Mona JABER",
+    "type": 0,
+    "level": 0,
+    "credit": 1,
+    "room": "3-208",
+    "semester": 6,
+    "weeks": [
+      9
+    ],
+    "times": [
+      8,
+      9
+    ]
+  },
+  {
+    "name": "Image and Video Processing",
+    "id": "EBU6230",
+    "teacher": "Gokop Goteng",
+    "type": 0,
+    "level": 0,
+    "credit": 4,
+    "room": "3-535",
+    "semester": 6,
+    "weeks": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    "times": [
+      1,
+      2
+    ]
+  }
+]

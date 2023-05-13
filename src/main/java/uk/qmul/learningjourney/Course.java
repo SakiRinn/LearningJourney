@@ -7,7 +7,6 @@ public class Course {
     private int type;
     private int level = 0;
     private int credit;
-    private int score = -1;
     private String room;
     private int semester;
 
@@ -60,14 +59,6 @@ public class Course {
 
     public void setCredit(int credit) {
         this.credit = credit;
-    }
-
-    public int getScore() {
-        return score;
-    }
-
-    public void setScore(int score) {
-        this.score = score;
     }
 
     public String getRoom() {
