@@ -14,7 +14,7 @@ public class MainApplication extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(LoginApplication.class.getResource("login-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("login-view.fxml"));
         Application.setUserAgentStylesheet(new PrimerLight().getUserAgentStylesheet());
         Context.stage = stage;
         Scene scene = new Scene(fxmlLoader.load(), 720, 449);

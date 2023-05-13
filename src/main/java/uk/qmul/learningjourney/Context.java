@@ -31,14 +31,14 @@ public class Context {
     }
 
     public static void toNextScene(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(LoginApplication.class.getResource(fxml));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource(fxml));
         Scene scene = new Scene(fxmlLoader.load());
         sceneStack.add(scene);
         stage.setScene(scene);
     }
 
     public static void toNextScene(String fxml, double v, double v1) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(LoginApplication.class.getResource(fxml));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource(fxml));
         Scene scene = new Scene(fxmlLoader.load(), v, v1);
         sceneStack.add(scene);
         stage.setScene(scene);
@@ -53,7 +53,7 @@ public class Context {
     }
 
     public static void setHomeScene() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(LoginApplication.class.getResource("new-home-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("new-home-view.fxml"));
         homeScene = new Scene(fxmlLoader.load(), 800, 600);
     }
 

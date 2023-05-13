@@ -7,17 +7,17 @@ import java.util.ArrayList;
 import java.util.Map;
 
 public class Course {
-    String name;
-    String id;
-    String teacher;
-    int type;
-    int level = 0;
-    int credit;
-    int score = -1;
-    String room;
-    int semester;
+    private String name;
+    private String id;
+    private String teacher;
+    private int type;
+    private int level = 0;
+    private int credit;
+    private int score = -1;
+    private String room;
+    private int semester;
 
-    ArrayList<int[]> times;
+    private ArrayList<int[]> times;
 
     public String getName() {
         return name;
