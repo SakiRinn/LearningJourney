@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.qmul.learningjourney.GradeCheckView">
+    <fx:include source="base-view.fxml"/>
+    <AnchorPane fx:id="checkPage" prefHeight="300.0" prefWidth="440.0" AnchorPane.bottomAnchor="20.0"
+                AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="170.0">
+
+        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="83.0" layoutY="218.0" mnemonicParsing="false"
+                styleClass="grade-button" stylesheets="@grade-button.css" text="Sort Grade" textAlignment="CENTER"
+                AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="83.0">
+            <font>
+                <Font name="Berlin Sans FB" size="15.0"/>
+            </font>
+        </Button>
+        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="265.0" layoutY="218.0" mnemonicParsing="false"
+                styleClass="grade-button" stylesheets="@grade-button.css" text="List Grade" textAlignment="CENTER"
+                AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="87.0">
+            <font>
+                <Font name="Berlin Sans FB" size="15.0"/>
+            </font>
+        </Button>
+        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="277.0" layoutY="258.0" mnemonicParsing="false"
+                onAction="#toMainPage" styleClass="grade-button" stylesheets="@grade-button.css" text="return"
+                textAlignment="CENTER" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="100.0">
+            <font>
+                <Font name="Berlin Sans FB" size="15.0"/>
+            </font>
+        </Button>
+        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="75.0" layoutY="250.0" mnemonicParsing="false"
+                styleClass="grade-button" stylesheets="@grade-button.css" text="Export Grade" textAlignment="CENTER"
+                AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="75.0">
+            <font>
+                <Font name="Berlin Sans FB" size="15.0"/>
+            </font>
+        </Button>
+        <TableView layoutX="20.0" layoutY="6.0" prefHeight="200.0" prefWidth="400.0" AnchorPane.leftAnchor="20.0"
+                   AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+            <columns>
+                <TableColumn prefWidth="125.0" text="Course"/>
+                <TableColumn prefWidth="75.0" text="Grade"/>
+                <TableColumn prefWidth="75.0" text="GPA"/>
+                <TableColumn prefWidth="125.0" text="Semister"/>
+            </columns>
+        </TableView>
+
+    </AnchorPane>
+
+</AnchorPane>

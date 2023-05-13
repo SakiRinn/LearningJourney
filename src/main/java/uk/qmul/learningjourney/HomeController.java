@@ -56,7 +56,7 @@ public class HomeController extends BaseController {
     public void setCourseSelectionButton() {
         courseSelectionButton.setOnAction(e -> {
             try {
-                Context.toNextScene("course-selection-view.fxml.fxml");
+                Context.toNextScene("course-selection-view.fxml");
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }

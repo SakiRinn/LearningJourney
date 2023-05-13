@@ -7,8 +7,6 @@ import com.fasterxml.jackson.databind.type.TypeFactory;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class DataIO {
@@ -28,12 +26,11 @@ public class DataIO {
         mapper.writeValue(file, data);
     }
 
-    public static void saveObjects(ArrayList<?> list) throws IOException {
+    public static void saveObjects(ArrayList<?> list, Class<?> cls) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(SerializationFeature.INDENT_OUTPUT, true);
 
-        Type elementType = ((ParameterizedType) list.getClass().getGenericSuperclass()).getActualTypeArguments()[0];
-        File file = new File(dataPath + elementType.getTypeName() + ".json");
+        File file = new File(dataPath + cls.getSimpleName() + ".json");
         mapper.writeValue(file, list);
     }
 
@@ -41,6 +38,15 @@ public class DataIO {
         ObjectMapper mapper = new ObjectMapper();
 
         File file = new File(dataPath + cls.getSimpleName() + ".json");
+        if (!file.exists() || file.length() == 0)
+            return null;
+        return mapper.readValue(file, CollectionsTypeFactory.listOf(cls));
+    }
+
+    public static ArrayList<?> loadObjects(Class<?> cls, String str) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+
+        File file = new File(dataPath + str + ".json");
         if (!file.exists() || file.length() == 0)
             return null;
         return mapper.readValue(file, CollectionsTypeFactory.listOf(cls));

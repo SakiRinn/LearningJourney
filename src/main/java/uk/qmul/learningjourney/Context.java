@@ -15,6 +15,7 @@ public class Context {
     public static HashMap<String, Object> controllers = new HashMap<>();
     public static Scene homeScene;
     public static Stack<Scene> sceneStack = new Stack<>();
+    public static Student student;
 
     public static void toNextScene(Scene scene) {
         sceneStack.add(scene);

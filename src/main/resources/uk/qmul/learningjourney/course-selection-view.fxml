@@ -25,7 +25,7 @@
                             <Label text="Course ID"/>
                             <Label text="Course Name" GridPane.columnIndex="1"/>
                             <Label text="Credit" GridPane.columnIndex="2"/>
-                            <Label text="Label" GridPane.columnIndex="3"/>
+                            <Label text="Classroom" GridPane.columnIndex="3"/>
                             <Label text="Select Couse" GridPane.columnIndex="4"/>
                         </children>
                     </GridPane>

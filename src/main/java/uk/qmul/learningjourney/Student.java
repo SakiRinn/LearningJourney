@@ -1,10 +1,6 @@
 package uk.qmul.learningjourney;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-
-import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.Map;
 
 public class Student {
     private String id;
@@ -16,16 +12,26 @@ public class Student {
 
     private ArrayList<Course> courses;
 
-    @JsonCreator
-    public Student(Map<String, Object> property) {
-        try {
-            for (Field field : this.getClass().getDeclaredFields()) {
-                field.setAccessible(true);
-                field.set(this, property.get(field.getName()));
-            }
-        } catch (IllegalAccessException e) {
-            throw new RuntimeException(e);
-        }
+//    @JsonCreator
+//    public Student(Map<String, Object> property) {
+//        try {
+//            for (Field field : this.getClass().getDeclaredFields()) {
+//                field.setAccessible(true);
+//                field.set(this, property.get(field.getName()));
+//            }
+//        } catch (IllegalAccessException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
+
+    public Student() {
+        this.id = null;
+        this.name = null;
+        this.password = null;
+        this.college = null;
+        this.major = null;
+        this.classId = null;
+        this.courses = null;
     }
 
     public Student(String id, String name, String password, String college, String major, String classId) {
@@ -35,6 +41,16 @@ public class Student {
         this.college = college;
         this.major = major;
         this.classId = classId;
+    }
+
+    public Student(String id, String name, String password, String college, String major, String classId, ArrayList<Course> courses) {
+        this.id = id;
+        this.name = name;
+        this.password = password;
+        this.college = college;
+        this.major = major;
+        this.classId = classId;
+        this.courses = courses;
     }
 
     public String getId() {

@@ -27,11 +27,12 @@ public class LoginController {
     //登录
     @FXML
     public void onlogin() throws IOException {
-        t_num.setUserData("a");
-        p_pswd.setUserData("aa");
+
+//        t_num.setUserData("a");
+//        p_pswd.setUserData("aa");
         String num = t_num.getText();
         String pswd = p_pswd.getText();
-        if (t_num.getUserData().equals(num) && p_pswd.getUserData().equals(pswd)) {
+        if (Util.login(num, pswd)) {
             Context.stage.close();
             Context.setHomeScene();
             Context.toNextScene(Context.homeScene);

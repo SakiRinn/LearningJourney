@@ -25,10 +25,10 @@ public class BaseController {
     }
 
     public void initialize() {
-        setNameLabel("Wu lyuhua");
-        setIdLabel("2020213171");
-        setCollegeLabel("International School");
-        setMajorLabel("Telecommunication and Management");
+        setNameLabel(Context.student.getName());
+        setIdLabel(Context.student.getId());
+        setCollegeLabel(Context.student.getCollege());
+        setMajorLabel(Context.student.getMajor());
         setHomeButton();
         setBackButton();
     }

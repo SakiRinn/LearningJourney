@@ -1,11 +1,7 @@
 package uk.qmul.learningjourney;
 
-import java.util.ArrayList;
-
 public class ClassSchedule {
     String Sid;
-    int week;
-    ArrayList<String> courses = new ArrayList<>(98);
 
     public Course getCourse(int week) {
         return null;

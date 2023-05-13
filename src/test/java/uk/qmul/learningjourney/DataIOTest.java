@@ -11,19 +11,19 @@ import java.util.ArrayList;
 
 class DataIOTest {
 
-    @Test
-    void saveObject() {
-        try {
-            ArrayList<int[]> times = new ArrayList<>();
-            for (int i = 0; i < 3; i++) {
-                times.add(new int[]{i, 2*i, 3*i});
-            }
-            for (int i = 0; i < 10; i++)
-                DataIO.saveObject(new Course("同性原理", "114514", "捧月星", 100 + i, 4, "B205", 6, times));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
+//    @Test
+//    void saveObject() {
+//        try {
+//            ArrayList<int[]> times = new ArrayList<>();
+//            for (int i = 0; i < 3; i++) {
+//                times.add(new int[]{i, 2*i, 3*i});
+//            }
+//            for (int i = 0; i < 10; i++)
+//                DataIO.saveObject(new Course("同性原理", "114514", "捧月星", 100 + i, 4, "B205", 6, times));
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
 
     @Test
     void loadObjects() {
@@ -31,10 +31,19 @@ class DataIOTest {
 
     @Test
     void addStudentTest() throws IOException {
+        Course course1 = new Course("Software Management", "EBU6304", "Gokop Goteng",
+                0, 4, "3-535", 6, new int[]{1, 4, 9, 13}, new int[]{10, 11});
+        ArrayList<Course> courses = new ArrayList<>();
+        courses.add(course1);
         Student student1 = new Student("2020213181", "Wu lyuhua", "123456",
-                "International School", "Telecommunication and management", "2020215105");
+                "International School", "Telecommunication and management", "2020215105", courses);
         DataIO.saveObject(student1);
         System.out.println(student1.getClass());
+    }
+
+    @Test
+    void addCourseScheduleTest() {
+
     }
 
 
@@ -62,6 +71,20 @@ class DataIOTest {
             throw new RuntimeException(ex);
         }
         Assertions.assertEquals("2020213181", students.get(0).getId());
+    }
+
+    @Test
+    void addCourseTest() throws IOException {
+
+        Course course1 = new Course("Software Management", "EBU6304", "Gokop Goteng",
+                0, 4, "3-535", 6, new int[]{1, 4, 9, 13}, new int[]{10, 11});
+        Course course2 = new Course("PDP", "EBC5001", "Mona JABER",
+                0, 1, "3-208", 6, new int[]{9}, new int[]{8, 9});
+        Course course3 = new Course("Image and Video Processing", "EBU6230", "Gokop Goteng",
+                0, 4, "3-535", 6, new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14}, new int[]{1, 2});
+        DataIO.saveObject(course1);
+        DataIO.saveObject(course2);
+        DataIO.saveObject(course3);
     }
 
 

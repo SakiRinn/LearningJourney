@@ -1,11 +1,5 @@
 package uk.qmul.learningjourney;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Map;
-
 public class Course {
     private String name;
     private String id;
@@ -17,7 +11,8 @@ public class Course {
     private String room;
     private int semester;
 
-    private ArrayList<int[]> times;
+    private int[] weeks;
+    private int[] times;
 
     public String getName() {
         return name;
@@ -91,15 +86,23 @@ public class Course {
         this.semester = semester;
     }
 
-    public ArrayList<int[]> getTimes() {
+    public int[] getWeeks() {
+        return weeks;
+    }
+
+    public void setWeeks(int[] weeks) {
+        this.weeks = weeks;
+    }
+
+    public int[] getTimes() {
         return times;
     }
 
-    public void setTimes(ArrayList<int[]> times) {
+    public void setTimes(int[] times) {
         this.times = times;
     }
 
-    public Course(String name, String id, String teacher, int type, int credit, String room, int semester, ArrayList<int[]> times) {
+    public Course(String name, String id, String teacher, int type, int credit, String room, int semester, int[] weeks, int[] times) {
         this.name = name;
         this.id = id;
         this.teacher = teacher;
@@ -107,18 +110,31 @@ public class Course {
         this.credit = credit;
         this.room = room;
         this.semester = semester;
+        this.weeks = weeks;
         this.times = times;
     }
 
-    @JsonCreator
-    public Course(Map<String, Object> property) {
-        try {
-            for (Field field: this.getClass().getDeclaredFields()) {
-                field.setAccessible(true);
-                field.set(this, property.get(field.getName()));
-            }
-        } catch (IllegalAccessException e) {
-            throw new RuntimeException(e);
-        }
+//    @JsonCreator
+//    public Course(Map<String, Object> property) {
+//        try {
+//            for (Field field: this.getClass().getDeclaredFields()) {
+//                field.setAccessible(true);
+//                field.set(this, property.get(field.getName()));
+//            }
+//        } catch (IllegalAccessException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
+
+    public Course() {
+        this.name = null;
+        this.id = null;
+        this.teacher = null;
+        this.type = 0;
+        this.credit = 0;
+        this.room = null;
+        this.semester = 0;
+        this.weeks = null;
+        this.times = null;
     }
 }
