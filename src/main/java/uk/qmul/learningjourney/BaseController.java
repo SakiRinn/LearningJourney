@@ -50,7 +50,7 @@ public class BaseController {
     }
 
     public void setHomeButton() {
-        ImageView img = new ImageView(getClass().getResource("home_icon.png").toString());
+        ImageView img = new ImageView(getClass().getResource("image/home_icon.png").toString());
         img.setFitHeight(20);
         img.setFitWidth(20);
         homeButton.setGraphic(img);
@@ -60,7 +60,7 @@ public class BaseController {
     }
 
     public void setBackButton() {
-        ImageView img = new ImageView(getClass().getResource("back_icon.png").toString());
+        ImageView img = new ImageView(getClass().getResource("image/back_icon.png").toString());
         img.setFitHeight(20);
         img.setFitWidth(20);
         backButton.setGraphic(img);
