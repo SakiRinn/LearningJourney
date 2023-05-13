@@ -1,12 +1,12 @@
 package uk.qmul.learningjourney;
 
-import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.databind.type.TypeFactory;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.TypeVariable;
 import java.util.ArrayList;
 
 public class DataIO {
@@ -36,6 +36,12 @@ public class DataIO {
         File file = new File(dataPath + cls.getSimpleName() + ".json");
         if (!file.exists() || file.length() == 0)
             return null;
-        return mapper.readValue(file, new TypeReference<ArrayList<?>>(){});
+        return mapper.readValue(file, CollectionsTypeFactory.listOf(cls));
+    }
+}
+
+class CollectionsTypeFactory {
+    static JavaType listOf(Class clazz) {
+        return TypeFactory.defaultInstance().constructCollectionType(ArrayList.class, clazz);
     }
 }
