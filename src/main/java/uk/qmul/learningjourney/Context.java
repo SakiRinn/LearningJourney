@@ -53,7 +53,7 @@ public class Context {
         if (!sceneStack.empty()) {
             sceneStack.pop();
             if (!sceneStack.empty())
-                stage.setScene(sceneStack.pop());
+                stage.setScene(sceneStack.peek());
         }
     }
 }

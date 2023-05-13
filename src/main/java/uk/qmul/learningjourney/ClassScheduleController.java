@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 
@@ -18,6 +19,7 @@ public class ClassScheduleController extends BaseController {
     private final ArrayList<String> weeks = new ArrayList<>();
     @FXML
     private Button exportButton;
+    private ArrayList<Label> labels = new ArrayList<>();
 
 
     @FXML
@@ -31,6 +33,7 @@ public class ClassScheduleController extends BaseController {
     public void initialize() {
         setComboBox();
         setExportButton();
+        changeSchedule(0);
     }
 
     @FXML
@@ -39,7 +42,10 @@ public class ClassScheduleController extends BaseController {
         ObservableList<String> items = FXCollections.observableArrayList(weeks);
         comboBox.getItems().addAll(items);
         comboBox.setValue(weeks.get(0));
-        comboBox.setOnAction(e -> changeSchedule(items.indexOf(comboBox.getValue())));
+        comboBox.setOnAction(e -> {
+            changeSchedule(items.indexOf(comboBox.getValue()));
+
+        });
 
     }
 
@@ -58,7 +64,43 @@ public class ClassScheduleController extends BaseController {
     }
 
     public void changeSchedule(int index) {
+        ArrayList<Course> courses = Context.student.getCourses();
+        clearPane();
+        for (Course course : courses) {
+            boolean hasCourse = false;
+            int[] weeks = course.getWeeks();
+            if (weeks == null) {
+                hasCourse = true;
+            } else {
+                for (int week : weeks) {
+                    if (week == index + 1) {
+                        hasCourse = true;
+                        break;
+                    }
+                }
+            }
+            if (hasCourse) {
+                int[] days = course.getDays();
+                int start = course.getTimes()[0];
+                int end = course.getTimes()[1];
+                for (int day : days) {
+                    for (int j = start; j <= end; j++) {
+                        Label label = new Label();
+                        String name = course.getName();
+                        String room = course.getRoom();
+                        label.setText(name + "\n" + room);
+                        labels.add(label);
+                        gridPane.add(label, day, j);
+                    }
+                }
+            }
 
+
+        }
+    }
+
+    public void clearPane() {
+        gridPane.getChildren().removeAll(labels);
     }
 
 
