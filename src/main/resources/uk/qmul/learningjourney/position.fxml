@@ -4,35 +4,38 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.TextFlow?>
 
-<VBox alignment="CENTER" fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" spacing="20.0" styleClass="vbox" stylesheets="@application.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.qmul.learningjourney.PositionController">
+<VBox alignment="CENTER" fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="601.0" prefWidth="903.0" spacing="20.0" styleClass="vbox" stylesheets="@application.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.qmul.learningjourney.PositionController">
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
    </padding>
    <children>
       <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
         <columnConstraints>
-          <ColumnConstraints hgrow="ALWAYS" maxWidth="615.0" minWidth="10.0" prefWidth="300.0" />
-            <ColumnConstraints hgrow="ALWAYS" maxWidth="615.0" minWidth="10.0" prefWidth="86.0" />
-          <ColumnConstraints hgrow="ALWAYS" maxWidth="1240.0" minWidth="10.0" prefWidth="1137.0" />
+          <ColumnConstraints hgrow="ALWAYS" maxWidth="615.0" minWidth="10.0" prefWidth="252.0" />
+            <ColumnConstraints hgrow="ALWAYS" maxWidth="615.0" minWidth="6.0" prefWidth="39.0" />
+          <ColumnConstraints hgrow="ALWAYS" maxWidth="1240.0" minWidth="10.0" prefWidth="582.0" />
         </columnConstraints>
         <rowConstraints>
             <RowConstraints maxHeight="216.0" minHeight="10.0" prefHeight="81.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="216.0" minHeight="10.0" prefHeight="93.0" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="574.0" minHeight="10.0" prefHeight="574.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="216.0" minHeight="10.0" prefHeight="148.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="574.0" minHeight="10.0" prefHeight="395.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
@@ -40,15 +43,29 @@
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                  <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3">
                      <center>
-                        <Button fx:id="positionButton" onAction="#switchToPosition" styleClass="achievement" stylesheets="@application.css" text="Position">
+                        <Button fx:id="export" prefWidth="75.0" styleClass="achievement" stylesheets="@application.css" text="Export" BorderPane.alignment="CENTER">
+                           <effect>
+                              <Glow>
+                                 <input>
+                                    <DropShadow />
+                                 </input>
+                              </Glow>
+                           </effect>
+                        </Button>
+                     </center>
+                  </BorderPane>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                     <center>
+                        <Button fx:id="positionButton" onAction="#switchToPosition" prefWidth="75.0" styleClass="achievement" stylesheets="@application.css" text="Activities" BorderPane.alignment="CENTER">
                            <BorderPane.margin>
                               <Insets />
                            </BorderPane.margin>
@@ -62,103 +79,90 @@
                         </Button>
                      </center>
                   </BorderPane>
-                  <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
                      <center>
-                         <Button fx:id="contestButton" onAction="#switchToContest" styleClass="achievement" stylesheets="@application.css" text="Contest">
+                         <Button fx:id="contestButton" onAction="#switchToContest" styleClass="achievement" stylesheets="@application.css" text="Academic" BorderPane.alignment="CENTER">
                            <effect>
                               <Glow>
                                  <input>
                                     <DropShadow />
                                  </input>
                               </Glow>
-                           </effect></Button>
+                           </effect>
+                        </Button>
+                     </center>
+                  </BorderPane>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4">
+                     <center>
+                        <Button fx:id="back" prefWidth="75.0" styleClass="achievement" stylesheets="@application.css" text="Return" BorderPane.alignment="CENTER">
+                           <effect>
+                              <Glow>
+                                 <input>
+                                    <DropShadow />
+                                 </input>
+                              </Glow>
+                           </effect>
+                        </Button>
                      </center>
                   </BorderPane>
                   <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
                      <center>
-                         <Button fx:id="volunteerButton" onAction="#switchToVolunteer" styleClass="achievement" stylesheets="@application.css" text="Volunteer">
+                        <Button fx:id="sort" prefWidth="75.0" styleClass="achievement" stylesheets="@application.css" text="Sort" BorderPane.alignment="CENTER">
                            <effect>
                               <Glow>
                                  <input>
                                     <DropShadow />
                                  </input>
                               </Glow>
-                           </effect></Button>
-                     </center>
-                  </BorderPane>
-                  <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3">
-                     <center>
-                         <Button fx:id="honorButton" onAction="#switchToHonor" styleClass="achievement" stylesheets="@application.css" text="Honor">
-                           <effect>
-                              <Glow>
-                                 <input>
-                                    <DropShadow />
-                                 </input>
-                              </Glow>
-                           </effect></Button>
+                           </effect>
+                        </Button>
                      </center>
                   </BorderPane>
                </children>
             </GridPane>
             <BorderPane GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
-               <top>
-                  <Pane prefHeight="109.0" prefWidth="300.0" BorderPane.alignment="CENTER" />
-               </top>
-               <bottom>
-                  <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
-               </bottom>
                <center>
-                  <GridPane gridLinesVisible="true" opacity="0.8" styleClass="gridpane" stylesheets="@application.css" BorderPane.alignment="CENTER">
+                  <GridPane gridLinesVisible="true" opacity="0.8" prefWidth="225.0" styleClass="gridpane" stylesheets="@application.css" BorderPane.alignment="CENTER">
                     <columnConstraints>
-                        <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="68.0" />
-                      <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="212.0" />
+                        <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="80.0" />
+                      <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="134.0" />
                     </columnConstraints>
                     <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="47.0" minHeight="10.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="98.0" minHeight="10.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="99.0" minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="53.0" minHeight="10.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <BorderPane prefHeight="200.0" prefWidth="200.0">
-                           <center>
-                              <Label text="Name" BorderPane.alignment="CENTER">
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                              </Label>
-                           </center>
-                        </BorderPane>
-                        <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
-                           <center>
-                              <Label text="Stu.num" BorderPane.alignment="CENTER">
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                              </Label>
-                           </center>
-                        </BorderPane>
-                        <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
-                           <center>
-                              <Label text="Academy" BorderPane.alignment="CENTER">
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                              </Label>
-                           </center>
-                        </BorderPane>
-                        <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3">
-                           <center>
-                              <Label text="Major" BorderPane.alignment="CENTER">
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                              </Label>
-                           </center>
-                        </BorderPane>
+                        <Label alignment="CENTER" prefHeight="15.0" prefWidth="75.0" text="Name">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" prefHeight="19.0" prefWidth="80.0" text="Stu.Num" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" prefHeight="15.0" prefWidth="80.0" text="Academy" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" prefHeight="15.0" prefWidth="80.0" text="Label" GridPane.rowIndex="3">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
                      </children>
                   </GridPane>
                </center>
+               <top>
+                  <Pane prefHeight="91.0" prefWidth="248.0" BorderPane.alignment="CENTER" />
+               </top>
+               <bottom>
+                  <Pane prefHeight="89.0" prefWidth="248.0" BorderPane.alignment="CENTER" />
+               </bottom>
             </BorderPane>
             <TextFlow prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                <children>
@@ -183,9 +187,9 @@
                <children>
                   <BorderPane prefHeight="200.0" prefWidth="200.0">
                      <top>
-                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" text="The Online Learning Environment For Queen Mary University Of London" textFill="WHITE" BorderPane.alignment="CENTER">
+                        <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefHeight="37.0" prefWidth="579.0" text="The Online Learning Environment For Queen Mary University Of London" textFill="WHITE" BorderPane.alignment="CENTER">
                            <font>
-                              <Font name="Berlin Sans FB" size="26.0" />
+                              <Font name="Berlin Sans FB" size="19.0" />
                            </font>
                         </Label>
                      </top>
@@ -242,37 +246,28 @@
                   </Label>
                </center>
             </BorderPane>
-            <ScrollPane opacity="0.6" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
-               <content>
-                  <GridPane gridLinesVisible="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" opacity="0.6" prefHeight="930.0" prefWidth="1129.0" styleClass="gridpane" stylesheets="@application.css">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
+            <StackPane fx:id="pages" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <children>
+                  <AnchorPane fx:id="acedamic" prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <TextFlow prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="8" />
-                        <TextFlow prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="6" />
-                        <TextFlow prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="5" />
-                        <TextFlow opacity="0.6" prefHeight="200.0" prefWidth="200.0" styleClass="gridpane" stylesheets="@application.css" />
-                        <TextFlow prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="7" />
-                        <TextFlow prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="9" />
-                        <TextFlow prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="10" />
+                        <TableView prefHeight="374.0" prefWidth="579.0">
+                          <columns>
+                            <TableColumn prefWidth="578.0" text="C1" />
+                          </columns>
+                        </TableView>
                      </children>
-                  </GridPane>
-               </content>
-            </ScrollPane>
+                  </AnchorPane>
+                  <AnchorPane fx:id="extracuri" prefHeight="200.0" prefWidth="200.0" visible="false">
+                     <children>
+                        <TableView prefHeight="374.0" prefWidth="579.0">
+                          <columns>
+                            <TableColumn maxWidth="1.7976931348623157E308" prefWidth="578.0" text="C1" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </StackPane>
          </children>
       </GridPane>
    </children>
