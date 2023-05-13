@@ -2,7 +2,6 @@ package uk.qmul.learningjourney;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -18,14 +17,22 @@ public class Student {
 
     @JsonCreator
     public Student(Map<String, Object> property) {
-        try {
-            for (Field field : this.getClass().getDeclaredFields()) {
-                field.setAccessible(true);
-                field.set(this, property.get(field.getName()));
-            }
-        } catch (IllegalAccessException e) {
-            throw new RuntimeException(e);
-        }
+        id = (String) property.get("id");
+        name = (String) property.get("name");
+        password = (String) property.get("password");
+        college = (String) property.get("college");
+        major = (String) property.get("major");
+        classId = (String) property.get("classId");
+        courses = (ArrayList<Course>) property.get("courses");
+    }
+
+    public Student(String id, String name, String password, String college, String major, String classId) {
+        this.id = id;
+        this.name = name;
+        this.password = password;
+        this.college = college;
+        this.major = major;
+        this.classId = classId;
     }
 
     public String getId() {
