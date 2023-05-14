@@ -12,7 +12,7 @@
                 <Font name="Berlin Sans FB" size="15.0" />
             </font>
         </Button>
-        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="75.0" layoutY="250.0" mnemonicParsing="false" text="Export Grade" textAlignment="CENTER" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="75.0">
+        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="75.0" layoutY="250.0" mnemonicParsing="false" onMouseClicked="#export" text="Export Grade" textAlignment="CENTER" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="75.0">
             <font>
                 <Font name="Berlin Sans FB" size="15.0" />
             </font>

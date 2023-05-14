@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import uk.qmul.learningjourney.Context;
 import uk.qmul.learningjourney.DataIO;
 
@@ -34,9 +35,18 @@ public class GradeCheckController implements Initializable {
     }
 
     @FXML
-    public void toMainPage() {
+    public void toMainPage(MouseEvent event) {
         try {
             Context.toNextScene("grade-view.fxml");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    public void export(MouseEvent event) {
+        try {
+            GradeModel.generateWord(GradeModel.getGrades(), "./test.docx");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

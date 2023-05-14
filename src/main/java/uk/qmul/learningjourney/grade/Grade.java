@@ -1,6 +1,7 @@
 package uk.qmul.learningjourney.grade;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import uk.qmul.learningjourney.Context;
 import uk.qmul.learningjourney.Course;
 import uk.qmul.learningjourney.Student;
 
@@ -13,7 +14,7 @@ public class Grade {
 
     public Grade() {
         this.course = null;
-        this.student = null;
+        this.student = Context.student;
         this.score = 0;
     }
 

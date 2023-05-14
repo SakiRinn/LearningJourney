@@ -68,8 +68,7 @@ public class GradeModel {
 
     }
 
-    public static void generateWord(ArrayList<Grade> grades) throws IOException {
-
+    public static void generateWord(ArrayList<Grade> grades, String path) throws IOException {
         //Creating Word Document Objects
         XWPFDocument document = new XWPFDocument();
         //Create Title
@@ -130,16 +129,8 @@ public class GradeModel {
             j++;
         }
         //File stream output
-        FileOutputStream fos = new FileOutputStream(new File("D://aaaaaaaaaa.docx"));
+        FileOutputStream fos = new FileOutputStream(new File(path));
         document.write(fos);
         fos.close();
-
-
-
-
-
-
-
-
     }
 }
