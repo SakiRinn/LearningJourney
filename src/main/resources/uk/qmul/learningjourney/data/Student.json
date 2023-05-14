@@ -11,15 +11,29 @@
       "id": "EBU6304",
       "teacher": "Gokop Goteng",
       "type": 0,
-    "level" : 0,
-    "credit" : 4.0,
-    "room" : "3-535",
-    "semester" : 6,
-    "weeks" : [ 1, 4, 9, 13 ],
-    "days" : [ 1, 2, 3, 4 ],
-    "times" : [ 10, 11 ]
-  }, {
-    "name" : "PDP",
+      "level": 0,
+      "credit": 4.0,
+      "room": "3-535",
+      "semester": 6,
+      "weeks": [
+        1,
+        4,
+        9,
+        13
+      ],
+      "days": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "times": [
+        10,
+        11
+      ]
+    },
+    {
+      "name": "PDP",
       "id": "EBC5001",
       "teacher": "Mona JABER",
       "type": 0,
