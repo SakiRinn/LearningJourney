@@ -13,7 +13,7 @@
     "times" : [ 10, 11 ]
   },
   "student" : null,
-  "score" : 12
+  "score" : 80
 }, {
   "course" : {
     "name" : "PDP",
@@ -29,7 +29,7 @@
     "times" : [ 8, 9 ]
   },
   "student" : null,
-  "score" : 46
+  "score" : 88
 }, {
   "course" : {
     "name" : "Image and Videorocessing",
@@ -45,5 +45,5 @@
     "times" : [ 1, 2 ]
   },
   "student" : null,
-  "score" : 19
+  "score" : 66
 } ]

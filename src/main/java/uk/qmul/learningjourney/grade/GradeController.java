@@ -16,7 +16,7 @@ public class GradeController implements Initializable {
     private Label gpa;
 
     public void initialize(URL location, ResourceBundle resources) {
-        gpa.setText(Double.valueOf(3.97).toString());
+        gpa.setText(Double.valueOf(GradeModel.getAverageGPA()).toString());
     }
 
     @FXML
