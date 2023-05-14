@@ -3,21 +3,42 @@ package uk.qmul.learningjourney.grade;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import uk.qmul.learningjourney.Context;
+import uk.qmul.learningjourney.DataIO;
 
-public class GradeCheckController {
+import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
+
+public class GradeCheckController implements Initializable {
 
     @FXML
-    TableView<Grade> table;
+    private TableView<Grade> table;
 
-    @FXML
-    public void initialize() {
-        ObservableList<Grade> gradeList = FXCollections.observableArrayList(GradeModel.getGrades());
+    public void initialize(URL location, ResourceBundle resources) {
+        ObservableList<Grade> gradeList = null;
+        try {
+            gradeList = FXCollections.observableArrayList((ArrayList<Grade>) DataIO.loadObjects(Grade.class));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        table.getItems().setAll(gradeList);
         table.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("name"));
         table.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("credit"));
         table.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("score"));
-        table.setItems(gradeList);
+    }
+
+    @FXML
+    public void toMainPage() {
+        try {
+            Context.toNextScene("grade-view.fxml");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

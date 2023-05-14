@@ -60,7 +60,7 @@ public class Course {
         return credit;
     }
 
-    public void setCredit(int credit) {
+    public void setCredit(double credit) {
         this.credit = credit;
     }
 
@@ -104,31 +104,6 @@ public class Course {
         this.times = times;
     }
 
-    public Course(String name, String id, String teacher, int type, int credit, String room, int semester, int[] weeks, int[] days, int[] times) {
-        this.name = name;
-        this.id = id;
-        this.teacher = teacher;
-        this.type = type;
-        this.credit = credit;
-        this.room = room;
-        this.semester = semester;
-        this.weeks = weeks;
-        this.days = days;
-        this.times = times;
-    }
-
-//    @JsonCreator
-//    public Course(Map<String, Object> property) {
-//        try {
-//            for (Field field: this.getClass().getDeclaredFields()) {
-//                field.setAccessible(true);
-//                field.set(this, property.get(field.getName()));
-//            }
-//        } catch (IllegalAccessException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
-
     public Course() {
         this.name = null;
         this.id = null;
@@ -140,5 +115,18 @@ public class Course {
         this.weeks = null;
         this.days = null;
         this.times = null;
+    }
+
+    public Course(String name, String id, String teacher, int type, double credit, String room, int semester, int[] weeks, int[] days, int[] times) {
+        this.name = name;
+        this.id = id;
+        this.teacher = teacher;
+        this.type = type;
+        this.credit = credit;
+        this.room = room;
+        this.semester = semester;
+        this.weeks = weeks;
+        this.days = days;
+        this.times = times;
     }
 }

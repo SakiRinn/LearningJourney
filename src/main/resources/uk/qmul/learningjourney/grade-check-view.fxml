@@ -7,18 +7,7 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.qmul.learningjourney.grade.GradeCheckController">
     <fx:include source="base-view.fxml" />
     <AnchorPane fx:id="mainPage" layoutX="281.0" layoutY="175.0" prefHeight="300.0" prefWidth="475.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="50.0">
-
-        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="83.0" layoutY="218.0" mnemonicParsing="false" text="Sort Grade" textAlignment="CENTER" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="83.0">
-            <font>
-                <Font name="Berlin Sans FB" size="15.0" />
-            </font>
-        </Button>
-        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="265.0" layoutY="218.0" mnemonicParsing="false" text="List Grade" textAlignment="CENTER" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="87.0">
-            <font>
-                <Font name="Berlin Sans FB" size="15.0" />
-            </font>
-        </Button>
-        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="277.0" layoutY="258.0" mnemonicParsing="false" text="return" textAlignment="CENTER" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="100.0">
+        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="277.0" layoutY="258.0" mnemonicParsing="false" onMouseClicked="#toMainPage" text="return" textAlignment="CENTER" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="100.0">
             <font>
                 <Font name="Berlin Sans FB" size="15.0" />
             </font>
@@ -28,11 +17,11 @@
                 <Font name="Berlin Sans FB" size="15.0" />
             </font>
         </Button>
-        <TableView fx:id="table" layoutX="20.0" layoutY="6.0" prefHeight="200.0" prefWidth="400.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+        <TableView fx:id="table" layoutX="20.0" layoutY="6.0" prefHeight="200.0" prefWidth="400.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="0.0">
             <columns>
-                <TableColumn editable="false" prefWidth="280.0" text="Course" />
-                <TableColumn prefWidth="90.0" text="Credit" />
-                <TableColumn prefWidth="90.0" text="Score" />
+                <TableColumn editable="false" prefWidth="267.0" resizable="false" text="Course" />
+                <TableColumn prefWidth="90.0" resizable="false" text="Credit" />
+                <TableColumn prefWidth="90.0" resizable="false" text="Score" />
             </columns>
         </TableView>
 

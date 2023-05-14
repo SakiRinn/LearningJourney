@@ -76,11 +76,11 @@ class DataIOTest {
     @Test
     void addCourseTest() throws IOException {
 
-        Course course1 = new Course("Software Management", "EBU6304", "Gokop Goteng", 0, 4,
+        Course course1 = new Course("Software Management", "EBU6304", "Gokop Goteng", 0, 4.0,
                 "3-535", 6, new int[]{1, 4, 9, 13}, new int[]{1, 2, 3, 4}, new int[]{10, 11});
-        Course course2 = new Course("PDP", "EBC5001", "Mona JABER", 0, 1,
+        Course course2 = new Course("PDP", "EBC5001", "Mona JABER", 0, 0.5,
                 "3-208", 6, new int[]{9}, new int[]{2}, new int[]{8, 9});
-        Course course3 = new Course("Image and Videorocessing", "EBU6230", "Gokop Goteng", 0, 4,
+        Course course3 = new Course("Image and Videorocessing", "EBU6230", "Gokop Goteng", 0, 3.0,
                 "3-535", 6, null, new int[]{5}, new int[]{1, 2});
         DataIO.saveObject(course1);
         DataIO.saveObject(course2);

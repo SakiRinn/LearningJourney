@@ -5,7 +5,7 @@
     "teacher": "Gokop Goteng",
     "type": 0,
     "level": 0,
-    "credit": 4,
+    "credit": 4.0,
     "room": "3-535",
     "semester": 6,
     "weeks": [
@@ -31,7 +31,7 @@
     "teacher": "Mona JABER",
     "type": 0,
     "level": 0,
-    "credit": 1,
+    "credit": 0.5,
     "room": "3-208",
     "semester": 6,
     "weeks": [
@@ -51,7 +51,7 @@
     "teacher": "Gokop Goteng",
     "type": 0,
     "level": 0,
-    "credit": 4,
+    "credit": 3.0,
     "room": "3-535",
     "semester": 6,
     "weeks": null,
