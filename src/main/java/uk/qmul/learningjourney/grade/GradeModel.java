@@ -2,6 +2,7 @@ package uk.qmul.learningjourney.grade;
 
 import org.apache.poi.xwpf.usermodel.*;
 import org.openxmlformats.schemas.wordprocessingml.x2006.main.*;
+import uk.qmul.learningjourney.Context;
 import uk.qmul.learningjourney.DataIO;
 
 import java.io.File;
@@ -21,7 +22,7 @@ public class GradeModel {
             ArrayList<Grade> allGrades = (ArrayList<Grade>) DataIO.loadObjects(Grade.class);
             if (allGrades != null) {
                 for (Grade grade : allGrades) {
-//                    if (grade.getStudent() == Context.student)
+                    if (grade.getStudent().getName().equals(Context.student.getName()))
                         grades.add(grade);
                 }
             }
