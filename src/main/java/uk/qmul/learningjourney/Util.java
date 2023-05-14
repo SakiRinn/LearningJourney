@@ -1,6 +1,15 @@
 package uk.qmul.learningjourney;
 
+import fr.opensagres.xdocreport.core.XDocReportException;
+import fr.opensagres.xdocreport.document.IXDocReport;
+import fr.opensagres.xdocreport.document.registry.XDocReportRegistry;
+import fr.opensagres.xdocreport.template.IContext;
+import fr.opensagres.xdocreport.template.TemplateEngineKind;
+
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -48,5 +57,29 @@ public class Util {
         }
         students.add(Context.student);
         DataIO.saveObjects(students, Context.student.getClass());
+    }
+    public void generateWord(String name, String weeknum,ArrayList<String> arr,String path) throws IOException, XDocReportException {
+        //获取Word模板，模板存放路径在项目的resources目录下
+        InputStream ins = this.getClass().getResourceAsStream("/sceduletest.docx");
+        //注册xdocreport实例并加载FreeMarker模板引擎
+        IXDocReport report = XDocReportRegistry.getRegistry().loadReport(ins,
+                TemplateEngineKind.Freemarker);
+        //创建xdocreport上下文对象
+        IContext context = report.createContext();
+
+        //创建要替换的文本变量
+
+        context.put("name", name);
+        context.put("weeknum", weeknum);
+        for(int i=0;i<arr.size();i++){
+            context.put("course"+(i+1), arr.get(i));
+        }
+
+
+
+
+        //输出到本地目录
+        FileOutputStream out = new FileOutputStream(new File(path));
+        report.process(context, out);
     }
 }

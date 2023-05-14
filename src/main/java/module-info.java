@@ -17,6 +17,9 @@ module uk.qmul.learningjourney {
 
     requires poi.ooxml;
     requires poi.ooxml.schemas;
+    requires fr.opensagres.xdocreport.document;
+    requires fr.opensagres.xdocreport.template;
+    requires fr.opensagres.xdocreport.core;
 
     opens uk.qmul.learningjourney to javafx.fxml;
     exports uk.qmul.learningjourney;
