@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.AnchorPane?>
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="uk.qmul.learningjourney.grade.GradeAnalysisController"
-            prefHeight="400.0" prefWidth="600.0">
-    <fx:include source="base-view.fxml"/>
-    <AnchorPane fx:id="mainPage" layoutX="281.0" layoutY="175.0" prefHeight="300.0" prefWidth="475.0"
-                AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="50.0"></AnchorPane>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.qmul.learningjourney.grade.GradeAnalysisController">
+    <fx:include source="base-view.fxml" />
+    <AnchorPane fx:id="mainPage" layoutX="281.0" layoutY="175.0" prefHeight="300.0" prefWidth="475.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="50.0">
+      <children>
+          <Label text="Your GPA is " textFill="#000000" fx:id="text">
+            <font>
+               <Font name="Berlin Sans FB" size="33.0" />
+            </font>
+         </Label>
+      </children>
+    </AnchorPane>
 </AnchorPane>

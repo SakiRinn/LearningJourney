@@ -19,10 +19,15 @@ class GradeModelTest {
         try {
             ArrayList<Student> students = (ArrayList<Student>) DataIO.loadObjects(Student.class);
             courses = (ArrayList<Course>) DataIO.loadObjects(Course.class);
-            Context.student = students.get(0);
-            for (Course course : courses) {
-                Grade grade = new Grade(60 + new Random().nextInt(40), course, Context.student);
-                DataIO.saveObject(grade);
+            for (int i = 0; i < students.size(); i++) {
+                Context.student = students.get(i);
+                for (Course course : courses) {
+                    Grade grade = new Grade(60 + new Random().nextInt(40), course, Context.student);
+                    for (Course c : Context.student.getCourses()) {
+                        if (c.getId().equals(course.getId()))
+                            DataIO.saveObject(grade);
+                    }
+                }
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -50,5 +55,15 @@ class GradeModelTest {
         GradeModel.generateWord(GradeModel.getGrades(), "./test.docx");
     }
 
-
+    @Test
+    void getRank() {
+        try {
+            ArrayList<Student> students = (ArrayList<Student>) DataIO.loadObjects(Student.class);
+            Context.student = students.get(0);
+            System.out.println(GradeModel.getRank());
+            System.out.printf("%.2f%%\n", (double)GradeModel.getRank()/students.size()*100);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
