@@ -15,6 +15,9 @@ module uk.qmul.learningjourney {
     requires com.fasterxml.jackson.annotation;
     requires com.fasterxml.jackson.databind;
 
+    requires poi.ooxml;
+    requires poi.ooxml.schemas;
+
     opens uk.qmul.learningjourney to javafx.fxml;
     exports uk.qmul.learningjourney;
     exports uk.qmul.learningjourney.grade;

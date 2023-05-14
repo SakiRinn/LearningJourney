@@ -40,6 +40,11 @@ class GradeModelTest {
     void getAverageGPA() {
         System.out.println(GradeModel.getAverageGPA());
     }
+    @Test
+    void exportGrade() throws IOException {
+
+        GradeModel.generateWord(GradeModel.getGrades());
+    }
 
 
 }
