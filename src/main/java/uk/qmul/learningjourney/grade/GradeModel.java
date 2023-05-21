@@ -4,6 +4,7 @@ import org.apache.poi.xwpf.usermodel.*;
 import org.openxmlformats.schemas.wordprocessingml.x2006.main.*;
 import uk.qmul.learningjourney.Context;
 import uk.qmul.learningjourney.DataIO;
+import uk.qmul.learningjourney.Student;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -15,24 +16,9 @@ import java.util.HashMap;
 public class GradeModel {
 
     public static HashMap<Integer, Double> score2GPA = getGPAMap();
+    public static HashMap<String, Double> studentId2Score = getScoreMap();
 
-    public static ArrayList<Grade> getGrades() {
-        ArrayList<Grade> grades = new ArrayList<>();
-        try {
-            ArrayList<Grade> allGrades = (ArrayList<Grade>) DataIO.loadObjects(Grade.class);
-            if (allGrades != null) {
-                for (Grade grade : allGrades) {
-                    if (grade.getStudent().getName().equals(Context.student.getName()))
-                        grades.add(grade);
-                }
-            }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        return grades;
-    }
-
-    public static HashMap<Integer, Double> getGPAMap() {
+    private static HashMap<Integer, Double> getGPAMap() {
         int[] scores = new int[]{59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69,
                                  70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80,
                                  81, 82, 83, 84, 85, 86, 87, 88, 89, 90,
@@ -47,6 +33,49 @@ public class GradeModel {
         return map;
     }
 
+    private static HashMap<String, Double> getScoreMap() {
+        HashMap<String, Double> map = new HashMap<>();
+        try {
+            for (Student student : (ArrayList<Student>) DataIO.loadObjects(Student.class))
+                map.put(student.getId(), getAverageScore(student));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return map;
+    }
+
+    public static ArrayList<Grade> getGrades() {
+        ArrayList<Grade> grades = new ArrayList<>();
+        try {
+            ArrayList<Grade> allGrades = (ArrayList<Grade>) DataIO.loadObjects(Grade.class);
+            if (allGrades != null) {
+                for (Grade grade : allGrades) {
+                    if (grade.getStudent().getName().equals(Context.student.getName()))
+                        grades.add(grade);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return grades;
+    }
+
+    public static ArrayList<Grade> getGrades(Student student) {
+        ArrayList<Grade> grades = new ArrayList<>();
+        try {
+            ArrayList<Grade> allGrades = (ArrayList<Grade>) DataIO.loadObjects(Grade.class);
+            if (allGrades != null) {
+                for (Grade grade : allGrades) {
+                    if (grade.getStudent().getName().equals(student.getName()))
+                        grades.add(grade);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return grades;
+    }
+
     public static double getAverageScore() {
         double totalScore = 0.0;
         for (Grade grade : getGrades())
@@ -54,14 +83,53 @@ public class GradeModel {
         return totalScore / getGrades().size();
     }
 
+    public static double getAverageScore(Student student) {
+        double totalScore = 0.0;
+        for (Grade grade : getGrades(student))
+            totalScore += grade.getScore();
+        return totalScore / getGrades().size();
+    }
+
     public static double getAverageGPA() {
         return score2GPA.get((int) Math.round(getAverageScore()));
     }
-    private static void  setCellText(XWPFTableCell cell, String text, String bgcolor, Integer width){
+
+    public static double getAverageGPA(Student student) {
+        return score2GPA.get((int) Math.round(getAverageScore(student)));
+    }
+
+    public static int getRank() {
+        double currentScore = studentId2Score.get(Context.student.getId());
+        int rank = 1;
+        try {
+            for (Student stu : (ArrayList<Student>) DataIO.loadObjects(Student.class)) {
+                if (studentId2Score.get(stu.getId()) > currentScore)
+                    rank++;
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return rank;
+    }
+
+    public static int getRank(Student student) {
+        double currentScore = studentId2Score.get(student.getId());
+        int rank = 1;
+        try {
+            for (Student stu : (ArrayList<Student>) DataIO.loadObjects(Student.class)) {
+                if (studentId2Score.get(stu.getId()) > currentScore)
+                    rank++;
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return rank;
+    }
+
+    private static void setCellText(XWPFTableCell cell, String text, Integer width) {
         CTTc ctTc = cell.getCTTc();
         CTTcPr ctTcPr = ctTc.addNewTcPr();
         ctTcPr.addNewTcW().setW(BigInteger.valueOf(width));
-//        cell.setColor(bgcolor);
         cell.setVerticalAlignment(XWPFTableCell.XWPFVertAlign.CENTER);
         CTTcPr ctPr = ctTc.addNewTcPr();
         ctPr.addNewVAlign().setVal(STVerticalJc.CENTER);
@@ -76,52 +144,52 @@ public class GradeModel {
         XWPFParagraph title = document.createParagraph();
         //Set paragraph center
         title.setAlignment(ParagraphAlignment.valueOf(STJc.INT_CENTER));
-//        //Set paragraph left alignment
-//        title.setAlignment(ParagraphAlignment.valueOf(STJc.INT_LEFT));
-//        //Set paragraph right alignment
-//        title.setAlignment(ParagraphAlignment.valueOf(STJc.INT_RIGHT));
         XWPFRun titleRun = title.createRun();
-//        titleRun.setColor("00000");
+
         titleRun.setFontSize(20);
         titleRun.setFontFamily("Candara");
         titleRun.setBold(true);
         titleRun.setText("transcript");
-        titleRun.addBreak(); //wrap
-        //3 is the number of columns and can be adjusted independently
-        XWPFTable table = document.createTable(1,3);
+        titleRun.addBreak();
+
+        // 3 is the number of columns and can be adjusted independently
+        XWPFTable table = document.createTable(1, 3);
         CTTbl tTbl = table.getCTTbl();
         CTTblPr tTblPr = tTbl.getTblPr() == null ? tTbl.addNewTblPr() : tTbl.getTblPr();
         CTTblWidth tTblWidth = tTblPr.isSetTblW() ? tTblPr.getTblW() : tTblPr.getTblW();
+
         //This width is for the entire large table, not for local or specific individual sizes
         tTblWidth.setW(new BigInteger("10000"));
         tTblWidth.setType(STTblWidth.DXA);
+
         //Set header
         table.getRow(0).setHeight(500);
-        setCellText(table.getRow(0).getCell(0),"Course name",null,1000);
-        setCellText(table.getRow(0).getCell(1),"Credit",null,2000);
-        setCellText(table.getRow(0).getCell(2),"Score",null,2000);
-        Integer j = 0;
+        setCellText(table.getRow(0).getCell(0), "Course name", 1000);
+        setCellText(table.getRow(0).getCell(1), "Credit", 2000);
+        setCellText(table.getRow(0).getCell(2), "Score", 2000);
+
+        int j = 0;
         for (Grade grade : grades) {
             //This is the addition in the table, which row is it added to
-            XWPFTableRow row = table.insertNewTableRow(j+1);
+            XWPFTableRow row = table.insertNewTableRow(j + 1);
             //Set Cell Height
             row.setHeight(1000);
-            for (int i = 0; i < 3; i++ ) {
+            for (int i = 0; i < 3; i++) {
 
                 XWPFTableCell cell = row.createCell();
                 CTTc ctTc = cell.getCTTc();
                 CTTcPr ctTcPr = ctTc.addNewTcPr();
-                if(i == 0){//name
+                if (i == 0) {   // name
                     ctTcPr.addNewTcW().setW(BigInteger.valueOf(1000));
                     cell.getCTTc().addNewTcPr().addNewHMerge().setVal(STMerge.RESTART);
                     cell.setText(grade.getName());
                 }
-                if(i == 1){  //credit
+                if (i == 1) {   // credit
                     ctTcPr.addNewTcW().setW(BigInteger.valueOf(2000));
                     cell.getCTTc().addNewTcPr().addNewHMerge().setVal(STMerge.RESTART);
                     cell.setText(String.valueOf(grade.getCredit()));
                 }
-                if(i == 2){  // score
+                if (i == 2) {   // score
                     ctTcPr.addNewTcW().setW(BigInteger.valueOf(2000));
                     cell.getCTTc().addNewTcPr().addNewHMerge().setVal(STMerge.RESTART);
                     cell.setText(String.valueOf(grade.getScore()));
@@ -129,6 +197,7 @@ public class GradeModel {
             }
             j++;
         }
+
         //File stream output
         FileOutputStream fos = new FileOutputStream(new File(path));
         document.write(fos);

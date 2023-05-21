@@ -23,11 +23,7 @@ public class GradeCheckController implements Initializable {
 
     public void initialize(URL location, ResourceBundle resources) {
         ObservableList<Grade> gradeList = null;
-        try {
-            gradeList = FXCollections.observableArrayList((ArrayList<Grade>) DataIO.loadObjects(Grade.class));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        gradeList = FXCollections.observableArrayList(GradeModel.getGrades());
         table.getItems().setAll(gradeList);
         table.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("name"));
         table.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("credit"));
