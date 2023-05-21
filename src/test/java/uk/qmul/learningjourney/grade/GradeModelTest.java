@@ -23,8 +23,8 @@ class GradeModelTest {
                 Context.student = students.get(i);
                 for (Course course : courses) {
                     Grade grade = new Grade(60 + new Random().nextInt(40), course, Context.student);
-                    for (Course c : Context.student.getCourses()) {
-                        if (c.getId().equals(course.getId()))
+                    for (String c : Context.student.getCourses()) {
+                        if (c.equals(course.getId()))
                             DataIO.saveObject(grade);
                     }
                 }

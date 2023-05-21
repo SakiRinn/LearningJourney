@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 
 class DataIOTest {
 
@@ -31,20 +33,14 @@ class DataIOTest {
 
     @Test
     void addStudentTest() throws IOException {
-        Course course1 = new Course("Software Management", "EBU6304", "Gokop Goteng", 0, 4,
-                "3-535", 6, new int[]{1, 4, 9, 13}, new int[]{1, 2, 3, 4}, new int[]{10, 11});
-        ArrayList<Course> courses = new ArrayList<>();
-        courses.add(course1);
+        ArrayList<String> courses = new ArrayList<>();
+        courses.add("EBU6304");
         Student student1 = new Student("2020213171", "Wu lyuhua", "123456",
                 "International School", "Telecommunication and management", "2020215105", courses);
-        Course course2 = new Course("PDP", "EBC5001", "Mona JABER", 0, 0.5,
-                "3-208", 6, new int[]{9}, new int[]{2}, new int[]{8, 9});
-        courses.add(course2);
+        courses.add("EBC5001");
         Student student2 = new Student("2020213160", "Huang Xiyuan", "123456",
                 "International School", "Telecommunication and management", "2020215105", courses);
-        Course course3 = new Course("Image and Video Processing", "EBU6230", "Gokop Goteng", 0, 3.0,
-                "3-535", 6, null, new int[]{5}, new int[]{1, 2});
-        courses.add(course3);
+        courses.add("EBU6230");
         Student student3 = new Student("2020213156", "Liu Zekai", "123456",
                 "International School", "Telecommunication and management", "2020215105", courses);
 
@@ -90,13 +86,21 @@ class DataIOTest {
     void addCourseTest() throws IOException {
 
         Course course1 = new Course("Software Management", "EBU6304", "Gokop Goteng", 0, 4.0,
-                "3-535", 6, new int[]{1, 4, 9, 13}, new int[]{1, 2, 3, 4}, new int[]{10, 11});
+                "3-535", 6, new HashMap<>() {{
+            put(0, Arrays.stream(new int[]{10, 11}).boxed().toArray(Integer[]::new));
+        }});
         Course course2 = new Course("PDP", "EBC5001", "Mona JABER", 0, 0.5,
-                "3-208", 6, new int[]{9}, new int[]{2}, new int[]{8, 9});
+                "3-208", 6, new HashMap<>() {{
+            put(9, Arrays.stream(new int[]{18, 19}).boxed().toArray(Integer[]::new));
+        }});
         Course course3 = new Course("Image and Video Processing", "EBU6230", "Gokop Goteng", 0, 3.0,
-                "3-535", 6, null, new int[]{5}, new int[]{1, 2});
+                "3-535", 6, new HashMap<>() {{
+            put(0, Arrays.stream(new int[]{29, 30}).boxed().toArray(Integer[]::new));
+        }});
         Course course4 = new Course("Internet Application", "BBU1234", "Huang Xiaohong", 0, 3.0,
-                "3-535", 6, null, new int[]{1}, new int[]{3, 4});
+                "3-535", 6, new HashMap<>() {{
+            put(0, Arrays.stream(new int[]{3, 4, 5}).boxed().toArray(Integer[]::new));
+        }});
         DataIO.saveObject(course1);
         DataIO.saveObject(course2);
         DataIO.saveObject(course3);

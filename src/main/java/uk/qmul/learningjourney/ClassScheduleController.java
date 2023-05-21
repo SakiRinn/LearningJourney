@@ -20,6 +20,7 @@ public class ClassScheduleController extends BaseController {
     @FXML
     private Button exportButton;
     private ArrayList<Label> labels = new ArrayList<>();
+    private int currentWeek;
 
 
     @FXML
@@ -61,41 +62,34 @@ public class ClassScheduleController extends BaseController {
         img.setFitWidth(18);
         exportButton.setGraphic(img);
         exportButton.setText("Export");
+        exportButton.setOnAction(event -> {
+            Util.getInstance().exportSchedule(Context.student.getName(), currentWeek, Context.student.getCourses());
+        });
     }
 
     public void changeSchedule(int index) {
-        ArrayList<Course> courses = Context.student.getCourses();
+        ArrayList<String> courses = Context.student.getCourses();
         clearPane();
-        for (Course course : courses) {
-            boolean hasCourse = false;
-            int[] weeks = course.getWeeks();
-            if (weeks == null) {
-                hasCourse = true;
-            } else {
-                for (int week : weeks) {
-                    if (week == index + 1) {
-                        hasCourse = true;
-                        break;
-                    }
-                }
+        currentWeek = index + 1;
+        for (String id : courses) {
+            Course course = Util.getCourse(id);
+            int week = 0;
+            if (course.getSchedule().containsKey(index + 1)) {
+                week = index + 1;
+            } else if (!course.getSchedule().containsKey(0)) {
+                continue;
             }
-            if (hasCourse) {
-                int[] days = course.getDays();
-                int start = course.getTimes()[0];
-                int end = course.getTimes()[1];
-                for (int day : days) {
-                    for (int j = start; j <= end; j++) {
-                        Label label = new Label();
-                        String name = course.getName();
-                        String room = course.getRoom();
-                        label.setText(name + "\n" + room);
-                        labels.add(label);
-                        gridPane.add(label, day, j);
-                    }
-                }
+            String name = course.getName();
+            String room = course.getRoom();
+            String str = name + "\n" + room;
+            for (int i : course.getSchedule().get(week)) {
+                int day = i / 14 + 1;
+                int num = i % 14;
+                Label label = new Label();
+                label.setText(str);
+                labels.add(label);
+                gridPane.add(label, day, num);
             }
-
-
         }
     }
 

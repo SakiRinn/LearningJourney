@@ -15,7 +15,7 @@ void Test() throws IOException, XDocReportException {
     schedule.add("333");
     schedule.add("444");
     schedule.add("555");
-    Util util = new Util();
+    Util util = Util.getInstance();
     util.generateWord("wulvh","2",schedule,"./tests.docx");
     }
 }

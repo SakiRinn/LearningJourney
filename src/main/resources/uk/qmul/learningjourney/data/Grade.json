@@ -1,313 +1,239 @@
 [ {
   "course" : {
-    "name" : "Software Management",
-    "id" : "EBU6304",
-    "teacher" : "Gokop Goteng",
-    "type" : 0,
-    "level" : 0,
-    "credit" : 4.0,
-    "room" : "3-535",
-    "semester" : 6,
-    "weeks" : [ 1, 4, 9, 13 ],
-    "days" : [ 1, 2, 3, 4 ],
-    "times" : [ 10, 11 ]
+    "name": "Software Management",
+    "id": "EBU6304",
+    "teacher": "Gokop Goteng",
+    "type": 0,
+    "level": 0,
+    "credit": 4.0,
+    "room": "3-535",
+    "semester": 6,
+    "weeks": [
+      1,
+      4,
+      9,
+      13
+    ],
+    "days": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "times": [
+      10,
+      11
+    ]
   },
-  "student" : {
-    "id" : "2020213171",
-    "name" : "Wu lyuhua",
-    "password" : "123456",
-    "college" : "International School",
-    "major" : "Telecommunication and management",
-    "classId" : "2020215105",
-    "courses" : [ {
-      "name" : "Software Management",
-      "id" : "EBU6304",
-      "teacher" : "Gokop Goteng",
-      "type" : 0,
-      "level" : 0,
-      "credit" : 4.0,
-      "room" : "3-535",
-      "semester" : 6,
-      "weeks" : [ 1, 4, 9, 13 ],
-      "days" : [ 1, 2, 3, 4 ],
-      "times" : [ 10, 11 ]
-    }, {
-      "name" : "PDP",
-      "id" : "EBC5001",
-      "teacher" : "Mona JABER",
-      "type" : 0,
-      "level" : 0,
-      "credit" : 0.5,
-      "room" : "3-208",
-      "semester" : 6,
-      "weeks" : [ 9 ],
-      "days" : [ 2 ],
-      "times" : [ 8, 9 ]
-    } ]
+  "student": {
+    "id": "2020213181",
+    "name": "Wu lyuhua",
+    "password": "123456",
+    "college": "International School",
+    "major": "Telecommunication and management",
+    "classId": "2020215105",
+    "courses": [
+      {
+        "name": "Software Management",
+        "id": "EBU6304",
+        "teacher": "Gokop Goteng",
+        "type": 0,
+        "level": 0,
+        "credit": 4.0,
+        "room": "3-535",
+        "semester": 6,
+        "weeks": [
+          1,
+          4,
+          9,
+          13
+        ],
+        "days": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "times": [
+          10,
+          11
+        ]
+      },
+      {
+        "name": "PDP",
+        "id": "EBC5001",
+        "teacher": "Mona JABER",
+        "type": 0,
+        "level": 0,
+        "credit": 0.5,
+        "room": "3-208",
+        "semester": 6,
+        "weeks": [
+          9
+        ],
+        "days": [
+          2
+        ],
+        "times": [
+          8,
+          9
+        ]
+      }
+    ]
   },
-  "score" : 81
+  "score": 91
 }, {
   "course" : {
-    "name" : "PDP",
-    "id" : "EBC5001",
-    "teacher" : "Mona JABER",
-    "type" : 0,
-    "level" : 0,
-    "credit" : 0.5,
-    "room" : "3-208",
-    "semester" : 6,
-    "weeks" : [ 9 ],
-    "days" : [ 2 ],
-    "times" : [ 8, 9 ]
+    "name": "PDP",
+    "id": "EBC5001",
+    "teacher": "Mona JABER",
+    "type": 0,
+    "level": 0,
+    "credit": 0.5,
+    "room": "3-208",
+    "semester": 6,
+    "weeks": [
+      9
+    ],
+    "days": [
+      2
+    ],
+    "times": [
+      8,
+      9
+    ]
   },
-  "student" : {
-    "id" : "2020213171",
-    "name" : "Wu lyuhua",
-    "password" : "123456",
-    "college" : "International School",
-    "major" : "Telecommunication and management",
-    "classId" : "2020215105",
-    "courses" : [ {
-      "name" : "Software Management",
-      "id" : "EBU6304",
-      "teacher" : "Gokop Goteng",
-      "type" : 0,
-      "level" : 0,
-      "credit" : 4.0,
-      "room" : "3-535",
-      "semester" : 6,
-      "weeks" : [ 1, 4, 9, 13 ],
-      "days" : [ 1, 2, 3, 4 ],
-      "times" : [ 10, 11 ]
-    }, {
-      "name" : "PDP",
-      "id" : "EBC5001",
-      "teacher" : "Mona JABER",
-      "type" : 0,
-      "level" : 0,
-      "credit" : 0.5,
-      "room" : "3-208",
-      "semester" : 6,
-      "weeks" : [ 9 ],
-      "days" : [ 2 ],
-      "times" : [ 8, 9 ]
-    } ]
+  "student": {
+    "id": "2020213181",
+    "name": "Wu lyuhua",
+    "password": "123456",
+    "college": "International School",
+    "major": "Telecommunication and management",
+    "classId": "2020215105",
+    "courses": [
+      {
+        "name": "Software Management",
+        "id": "EBU6304",
+        "teacher": "Gokop Goteng",
+        "type": 0,
+        "level": 0,
+        "credit": 4.0,
+        "room": "3-535",
+        "semester": 6,
+        "weeks": [
+          1,
+          4,
+          9,
+          13
+        ],
+        "days": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "times": [
+          10,
+          11
+        ]
+      },
+      {
+        "name": "PDP",
+        "id": "EBC5001",
+        "teacher": "Mona JABER",
+        "type": 0,
+        "level": 0,
+        "credit": 0.5,
+        "room": "3-208",
+        "semester": 6,
+        "weeks": [
+          9
+        ],
+        "days": [
+          2
+        ],
+        "times": [
+          8,
+          9
+        ]
+      }
+    ]
   },
-  "score" : 63
+  "score": 66
 }, {
   "course" : {
-    "name" : "Software Management",
-    "id" : "EBU6304",
-    "teacher" : "Gokop Goteng",
-    "type" : 0,
-    "level" : 0,
-    "credit" : 4.0,
-    "room" : "3-535",
-    "semester" : 6,
-    "weeks" : [ 1, 4, 9, 13 ],
-    "days" : [ 1, 2, 3, 4 ],
-    "times" : [ 10, 11 ]
+    "name": "Image and Videorocessing",
+    "id": "EBU6230",
+    "teacher": "Gokop Goteng",
+    "type": 0,
+    "level": 0,
+    "credit": 3.0,
+    "room": "3-535",
+    "semester": 6,
+    "weeks": null,
+    "days": [
+      5
+    ],
+    "times": [
+      1,
+      2
+    ]
   },
-  "student" : {
-    "id" : "2020213160",
-    "name" : "Huang Xiyuan",
-    "password" : "123456",
-    "college" : "International School",
-    "major" : "Telecommunication and management",
-    "classId" : "2020215105",
-    "courses" : [ {
-      "name" : "Software Management",
-      "id" : "EBU6304",
-      "teacher" : "Gokop Goteng",
-      "type" : 0,
-      "level" : 0,
-      "credit" : 4.0,
-      "room" : "3-535",
-      "semester" : 6,
-      "weeks" : [ 1, 4, 9, 13 ],
-      "days" : [ 1, 2, 3, 4 ],
-      "times" : [ 10, 11 ]
-    } ]
+  "student": {
+    "id": "2020213181",
+    "name": "Wu lyuhua",
+    "password": "123456",
+    "college": "International School",
+    "major": "Telecommunication and management",
+    "classId": "2020215105",
+    "courses": [
+      {
+        "name": "Software Management",
+        "id": "EBU6304",
+        "teacher": "Gokop Goteng",
+        "type": 0,
+        "level": 0,
+        "credit": 4.0,
+        "room": "3-535",
+        "semester": 6,
+        "weeks": [
+          1,
+          4,
+          9,
+          13
+        ],
+        "days": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "times": [
+          10,
+          11
+        ]
+      },
+      {
+        "name": "PDP",
+        "id": "EBC5001",
+        "teacher": "Mona JABER",
+        "type": 0,
+        "level": 0,
+        "credit": 0.5,
+        "room": "3-208",
+        "semester": 6,
+        "weeks": [
+          9
+        ],
+        "days": [
+          2
+        ],
+        "times": [
+          8,
+          9
+        ]
+      }
+    ]
   },
-  "score" : 97
-}, {
-  "course" : {
-    "name" : "Software Management",
-    "id" : "EBU6304",
-    "teacher" : "Gokop Goteng",
-    "type" : 0,
-    "level" : 0,
-    "credit" : 4.0,
-    "room" : "3-535",
-    "semester" : 6,
-    "weeks" : [ 1, 4, 9, 13 ],
-    "days" : [ 1, 2, 3, 4 ],
-    "times" : [ 10, 11 ]
-  },
-  "student" : {
-    "id" : "2020213156",
-    "name" : "Liu Zekai",
-    "password" : "123456",
-    "college" : "International School",
-    "major" : "Telecommunication and management",
-    "classId" : "2020215105",
-    "courses" : [ {
-      "name" : "Software Management",
-      "id" : "EBU6304",
-      "teacher" : "Gokop Goteng",
-      "type" : 0,
-      "level" : 0,
-      "credit" : 4.0,
-      "room" : "3-535",
-      "semester" : 6,
-      "weeks" : [ 1, 4, 9, 13 ],
-      "days" : [ 1, 2, 3, 4 ],
-      "times" : [ 10, 11 ]
-    }, {
-      "name" : "PDP",
-      "id" : "EBC5001",
-      "teacher" : "Mona JABER",
-      "type" : 0,
-      "level" : 0,
-      "credit" : 0.5,
-      "room" : "3-208",
-      "semester" : 6,
-      "weeks" : [ 9 ],
-      "days" : [ 2 ],
-      "times" : [ 8, 9 ]
-    }, {
-      "name" : "Image and Video Processing",
-      "id" : "EBU6230",
-      "teacher" : "Gokop Goteng",
-      "type" : 0,
-      "level" : 0,
-      "credit" : 3.0,
-      "room" : "3-535",
-      "semester" : 6,
-      "weeks" : null,
-      "days" : [ 5 ],
-      "times" : [ 1, 2 ]
-    } ]
-  },
-  "score" : 94
-}, {
-  "course" : {
-    "name" : "PDP",
-    "id" : "EBC5001",
-    "teacher" : "Mona JABER",
-    "type" : 0,
-    "level" : 0,
-    "credit" : 0.5,
-    "room" : "3-208",
-    "semester" : 6,
-    "weeks" : [ 9 ],
-    "days" : [ 2 ],
-    "times" : [ 8, 9 ]
-  },
-  "student" : {
-    "id" : "2020213156",
-    "name" : "Liu Zekai",
-    "password" : "123456",
-    "college" : "International School",
-    "major" : "Telecommunication and management",
-    "classId" : "2020215105",
-    "courses" : [ {
-      "name" : "Software Management",
-      "id" : "EBU6304",
-      "teacher" : "Gokop Goteng",
-      "type" : 0,
-      "level" : 0,
-      "credit" : 4.0,
-      "room" : "3-535",
-      "semester" : 6,
-      "weeks" : [ 1, 4, 9, 13 ],
-      "days" : [ 1, 2, 3, 4 ],
-      "times" : [ 10, 11 ]
-    }, {
-      "name" : "PDP",
-      "id" : "EBC5001",
-      "teacher" : "Mona JABER",
-      "type" : 0,
-      "level" : 0,
-      "credit" : 0.5,
-      "room" : "3-208",
-      "semester" : 6,
-      "weeks" : [ 9 ],
-      "days" : [ 2 ],
-      "times" : [ 8, 9 ]
-    }, {
-      "name" : "Image and Video Processing",
-      "id" : "EBU6230",
-      "teacher" : "Gokop Goteng",
-      "type" : 0,
-      "level" : 0,
-      "credit" : 3.0,
-      "room" : "3-535",
-      "semester" : 6,
-      "weeks" : null,
-      "days" : [ 5 ],
-      "times" : [ 1, 2 ]
-    } ]
-  },
-  "score" : 60
-}, {
-  "course" : {
-    "name" : "Image and Video Processing",
-    "id" : "EBU6230",
-    "teacher" : "Gokop Goteng",
-    "type" : 0,
-    "level" : 0,
-    "credit" : 3.0,
-    "room" : "3-535",
-    "semester" : 6,
-    "weeks" : null,
-    "days" : [ 5 ],
-    "times" : [ 1, 2 ]
-  },
-  "student" : {
-    "id" : "2020213156",
-    "name" : "Liu Zekai",
-    "password" : "123456",
-    "college" : "International School",
-    "major" : "Telecommunication and management",
-    "classId" : "2020215105",
-    "courses" : [ {
-      "name" : "Software Management",
-      "id" : "EBU6304",
-      "teacher" : "Gokop Goteng",
-      "type" : 0,
-      "level" : 0,
-      "credit" : 4.0,
-      "room" : "3-535",
-      "semester" : 6,
-      "weeks" : [ 1, 4, 9, 13 ],
-      "days" : [ 1, 2, 3, 4 ],
-      "times" : [ 10, 11 ]
-    }, {
-      "name" : "PDP",
-      "id" : "EBC5001",
-      "teacher" : "Mona JABER",
-      "type" : 0,
-      "level" : 0,
-      "credit" : 0.5,
-      "room" : "3-208",
-      "semester" : 6,
-      "weeks" : [ 9 ],
-      "days" : [ 2 ],
-      "times" : [ 8, 9 ]
-    }, {
-      "name" : "Image and Video Processing",
-      "id" : "EBU6230",
-      "teacher" : "Gokop Goteng",
-      "type" : 0,
-      "level" : 0,
-      "credit" : 3.0,
-      "room" : "3-535",
-      "semester" : 6,
-      "weeks" : null,
-      "days" : [ 5 ],
-      "times" : [ 1, 2 ]
-    } ]
-  },
-  "score" : 71
+  "score": 86
 } ]

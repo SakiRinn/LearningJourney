@@ -51,6 +51,10 @@ public class DataIO {
             return null;
         return mapper.readValue(file, CollectionsTypeFactory.listOf(cls));
     }
+
+    public void exportToDocx() {
+
+    }
 }
 
 class CollectionsTypeFactory {

@@ -10,7 +10,7 @@ public class Student {
     private String major;
     private String classId;
 
-    private ArrayList<Course> courses;
+    private ArrayList<String> courses;
 
     public Student() {
         this.id = null;
@@ -32,7 +32,7 @@ public class Student {
         this.courses = null;
     }
 
-    public Student(String id, String name, String password, String college, String major, String classId, ArrayList<Course> courses) {
+    public Student(String id, String name, String password, String college, String major, String classId, ArrayList<String> courses) {
         this.id = id;
         this.name = name;
         this.password = password;
@@ -90,11 +90,11 @@ public class Student {
         this.classId = classId;
     }
 
-    public ArrayList<Course> getCourses() {
+    public ArrayList<String> getCourses() {
         return courses;
     }
 
-    public void setCourses(ArrayList<Course> courses) {
+    public void setCourses(ArrayList<String> courses) {
         this.courses = courses;
     }
 }

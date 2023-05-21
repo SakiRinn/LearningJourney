@@ -1,5 +1,7 @@
 package uk.qmul.learningjourney;
 
+import java.util.HashMap;
+
 public class Course {
     private String name;
     private String id;
@@ -10,11 +12,7 @@ public class Course {
     private String room;
     private int semester;
 
-    private int[] weeks;
-    private int[] days;
-
-
-    private int[] times;
+    private HashMap<Integer, Integer[]> schedule;
 
     public String getName() {
         return name;
@@ -80,28 +78,12 @@ public class Course {
         this.semester = semester;
     }
 
-    public int[] getWeeks() {
-        return weeks;
+    public HashMap<Integer, Integer[]> getSchedule() {
+        return schedule;
     }
 
-    public void setWeeks(int[] weeks) {
-        this.weeks = weeks;
-    }
-
-    public int[] getDays() {
-        return days;
-    }
-
-    public void setDays(int[] days) {
-        this.days = days;
-    }
-
-    public int[] getTimes() {
-        return times;
-    }
-
-    public void setTimes(int[] times) {
-        this.times = times;
+    public void setSchedule(HashMap<Integer, Integer[]> schedule) {
+        this.schedule = schedule;
     }
 
     public Course() {
@@ -112,12 +94,10 @@ public class Course {
         this.credit = 0.0;
         this.room = null;
         this.semester = 0;
-        this.weeks = null;
-        this.days = null;
-        this.times = null;
+        this.schedule = null;
     }
 
-    public Course(String name, String id, String teacher, int type, double credit, String room, int semester, int[] weeks, int[] days, int[] times) {
+    public Course(String name, String id, String teacher, int type, double credit, String room, int semester, HashMap<Integer, Integer[]> schedule) {
         this.name = name;
         this.id = id;
         this.teacher = teacher;
@@ -125,8 +105,6 @@ public class Course {
         this.credit = credit;
         this.room = room;
         this.semester = semester;
-        this.weeks = weeks;
-        this.days = days;
-        this.times = times;
+        this.schedule = schedule;
     }
 }

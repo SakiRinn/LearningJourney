@@ -8,22 +8,12 @@
     "credit": 4.0,
     "room": "3-535",
     "semester": 6,
-    "weeks": [
-      1,
-      4,
-      9,
-      13
-    ],
-    "days": [
-      1,
-      2,
-      3,
-      4
-    ],
-    "times": [
-      10,
-      11
-    ]
+    "schedule": {
+      "0": [
+        10,
+        11
+      ]
+    }
   },
   {
     "name": "PDP",
@@ -34,16 +24,12 @@
     "credit": 0.5,
     "room": "3-208",
     "semester": 6,
-    "weeks": [
-      9
-    ],
-    "days": [
-      2
-    ],
-    "times": [
-      8,
-      9
-    ]
+    "schedule": {
+      "9": [
+        18,
+        19
+      ]
+    }
   },
   {
     "name": "Image and Video Processing",
@@ -54,14 +40,12 @@
     "credit": 3.0,
     "room": "3-535",
     "semester": 6,
-    "weeks": null,
-    "days": [
-      5
-    ],
-    "times": [
-      1,
-      2
-    ]
+    "schedule": {
+      "0": [
+        29,
+        30
+      ]
+    }
   },
   {
     "name": "Internet Application",
@@ -72,13 +56,12 @@
     "credit": 3.0,
     "room": "3-535",
     "semester": 6,
-    "weeks": null,
-    "days": [
-      1
-    ],
-    "times": [
-      3,
-      4
-    ]
+    "schedule": {
+      "0": [
+        3,
+        4,
+        5
+      ]
+    }
   }
 ]
