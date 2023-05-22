@@ -35,14 +35,19 @@ class DataIOTest {
     void addStudentTest() throws IOException {
         ArrayList<String> courses = new ArrayList<>();
         courses.add("EBU6304");
+        ArrayList<Position> position = new ArrayList<>();
+        Position position1 = new Position("4th International Conference of Nanton Impart", "2020.12.12", true);
+        Position position2 = new Position("Supreme radiant star on king's pesticide", "2023.1.1", false);
+        position.add(position1);
+        position.add(position2);
         Student student1 = new Student("2020213171", "Wu lyuhua", "123456",
-                "International School", "Telecommunication and management", "2020215105", courses);
+                "International School", "Telecommunication and management", "2020215105", courses,position);
         courses.add("EBC5001");
         Student student2 = new Student("2020213160", "Huang Xiyuan", "123456",
-                "International School", "Telecommunication and management", "2020215105", courses);
+                "International School", "Telecommunication and management", "2020215105", courses,position);
         courses.add("EBU6230");
         Student student3 = new Student("2020213156", "Liu Zekai", "123456",
-                "International School", "Telecommunication and management", "2020215105", courses);
+                "International School", "Telecommunication and management", "2020215105", courses,position);
 
         DataIO.saveObject(student1);
         DataIO.saveObject(student2);

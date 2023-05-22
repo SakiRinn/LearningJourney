@@ -36,7 +36,7 @@ public class HomeController extends BaseController {
     public void setAchievementButton() {
         achievementButton.setOnAction(e -> {
             try {
-                Context.toNextScene("grade-view.fxml");
+                Context.toNextScene("position-view.fxml");
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }

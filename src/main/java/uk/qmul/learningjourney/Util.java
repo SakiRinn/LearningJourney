@@ -101,8 +101,6 @@ public class Util {
         for (int i = 0; i < arr.size(); i++) {
             context.put("course" + (i + 1), arr.get(i));
         }
-
-
         //输出到本地目录
         FileOutputStream out = new FileOutputStream(new File(path));
         report.process(context, out);

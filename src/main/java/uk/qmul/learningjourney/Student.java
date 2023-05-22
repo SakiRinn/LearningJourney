@@ -12,6 +12,8 @@ public class Student {
 
     private ArrayList<String> courses;
 
+    private ArrayList<Position> position;
+
     public Student() {
         this.id = null;
         this.name = null;
@@ -20,6 +22,7 @@ public class Student {
         this.major = null;
         this.classId = null;
         this.courses = null;
+        this.position = null;
     }
 
     public Student(String id, String name, String password, String college, String major, String classId) {
@@ -30,9 +33,10 @@ public class Student {
         this.major = major;
         this.classId = classId;
         this.courses = null;
+        this.position = null;
     }
 
-    public Student(String id, String name, String password, String college, String major, String classId, ArrayList<String> courses) {
+    public Student(String id, String name, String password, String college, String major, String classId, ArrayList<String> courses, ArrayList<Position> position) {
         this.id = id;
         this.name = name;
         this.password = password;
@@ -40,6 +44,7 @@ public class Student {
         this.major = major;
         this.classId = classId;
         this.courses = courses;
+        this.position = position;
     }
 
     public String getId() {
@@ -97,4 +102,8 @@ public class Student {
     public void setCourses(ArrayList<String> courses) {
         this.courses = courses;
     }
-}
+
+    public ArrayList<Position> getPosition (){ return position; }
+
+    public void setPosition(ArrayList<Position> position) {this.position = position;}
+    }
