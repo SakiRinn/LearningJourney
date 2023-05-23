@@ -38,6 +38,11 @@ public class Position {
         this.isCreditable = isCreditable;
     }
 
+    @Override
+    public String toString(){
+        return name+","+date+","+isCreditable;
+    }
+
     @JsonCreator
     public Position(Map<String, Object> property) {
         try {

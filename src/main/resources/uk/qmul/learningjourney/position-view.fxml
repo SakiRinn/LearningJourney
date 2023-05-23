@@ -32,7 +32,7 @@
                             <children>
                                 <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3">
                                     <center>
-                                        <Button fx:id="export" prefHeight="40.0" prefWidth="80.0" text="Export" BorderPane.alignment="CENTER">
+                                        <Button fx:id="export" onAction="#exportPosition" prefHeight="40.0" prefWidth="80.0" text="Export" BorderPane.alignment="CENTER">
                                             <effect>
                                                 <Glow>
                                                     <input>
@@ -83,7 +83,7 @@
                                 </BorderPane>
                                 <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
                                     <center>
-                                        <Button fx:id="sort" prefHeight="40.0" prefWidth="80.0" text="Sort" BorderPane.alignment="CENTER">
+                                        <Button fx:id="sort" onAction="#sortPosition" prefHeight="40.0" prefWidth="80.0" text="Sort" BorderPane.alignment="CENTER">
                                             <effect>
                                                 <Glow>
                                                     <input>

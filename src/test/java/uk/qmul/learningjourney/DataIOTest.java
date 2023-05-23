@@ -36,10 +36,12 @@ class DataIOTest {
         ArrayList<String> courses = new ArrayList<>();
         courses.add("EBU6304");
         ArrayList<Position> position = new ArrayList<>();
-        Position position1 = new Position("4th International Conference of Nanton Impart", "2020.12.12", true);
-        Position position2 = new Position("Supreme radiant star on king's pesticide", "2023.1.1", false);
+        Position position1 = new Position("4th International Conference of Nanton Impart", "2020-12-12", true);
+        Position position2 = new Position("Supreme radiant star on king's pesticide", "2023-1-1", false);
+        Position position3 = new Position("Drawf Technology Award for Compressed towel","2023-2-2",true);
         position.add(position1);
         position.add(position2);
+        position.add(position3);
         Student student1 = new Student("2020213171", "Wu lyuhua", "123456",
                 "International School", "Telecommunication and management", "2020215105", courses,position);
         courses.add("EBC5001");

@@ -1,15 +1,19 @@
 package uk.qmul.learningjourney;
 
+import com.almasb.fxgl.achievement.Achievement;
 import fr.opensagres.xdocreport.core.XDocReportException;
 import fr.opensagres.xdocreport.document.IXDocReport;
 import fr.opensagres.xdocreport.document.registry.XDocReportRegistry;
 import fr.opensagres.xdocreport.template.IContext;
 import fr.opensagres.xdocreport.template.TemplateEngineKind;
+import org.apache.poi.xwpf.usermodel.*;
+import org.openxmlformats.schemas.wordprocessingml.x2006.main.*;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -168,6 +172,100 @@ public class Util {
         } catch (IOException | XDocReportException e) {
             throw new RuntimeException(e);
         }
+
+
+    }
+    private static void  setCellText(XWPFTableCell cell, String text, String bgcolor, Integer width){
+        CTTc ctTc = cell.getCTTc();
+        CTTcPr ctTcPr = ctTc.addNewTcPr();
+        ctTcPr.addNewTcW().setW(BigInteger.valueOf(width));
+//        cell.setColor(bgcolor);
+        cell.setVerticalAlignment(XWPFTableCell.XWPFVertAlign.CENTER);
+        CTTcPr ctPr = ctTc.addNewTcPr();
+        ctPr.addNewVAlign().setVal(STVerticalJc.CENTER);
+        cell.setText(text);
+
+    }
+
+    public static void generateAchievementWord(ArrayList<Position> positions) throws IOException {
+        //ArrayList<Achievement> achievements= new ArrayList<>();
+        //Achievement a1 = new Achievement();
+        //a1.setName("我会自己上厕所");
+        //a1.setDate("yesterday");
+        //Achievement a2 = new Achievement();
+        //a2.setName("连续三天没尿床");
+        //a2.setDate("future");
+        //achievements.add(a1);
+        //achievements.add(a2);
+        //Creating Word Document Objects
+        XWPFDocument document = new XWPFDocument();
+        //Create Title
+        XWPFParagraph title = document.createParagraph();
+        //Set paragraph center
+        title.setAlignment(ParagraphAlignment.valueOf(STJc.INT_CENTER));
+//        //Set paragraph left alignment
+//        title.setAlignment(ParagraphAlignment.valueOf(STJc.INT_LEFT));
+//        //Set paragraph right alignment
+//        title.setAlignment(ParagraphAlignment.valueOf(STJc.INT_RIGHT));
+        XWPFRun titleRun = title.createRun();
+//        titleRun.setColor("00000");
+        titleRun.setFontSize(20);
+        titleRun.setFontFamily("Candara");
+        titleRun.setBold(true);
+        titleRun.setText("Personal Achievement");
+        titleRun.addBreak(); //wrap
+        //3 is the number of columns and can be adjusted independently
+        XWPFTable table = document.createTable(1,3);
+        CTTbl tTbl = table.getCTTbl();
+        CTTblPr tTblPr = tTbl.getTblPr() == null ? tTbl.addNewTblPr() : tTbl.getTblPr();
+        CTTblWidth tTblWidth = tTblPr.isSetTblW() ? tTblPr.getTblW() : tTblPr.getTblW();
+        //This width is for the entire large table, not for local or specific individual sizes
+        tTblWidth.setW(new BigInteger("10000"));
+        tTblWidth.setType(STTblWidth.DXA);
+        //Set header
+        table.getRow(0).setHeight(500);
+        setCellText(table.getRow(0).getCell(0),"Achievement name",null,1000);
+        setCellText(table.getRow(0).getCell(1),"DATE",null,2000);
+        setCellText(table.getRow(0).getCell(2),"Credit",null,2000);
+        Integer j = 0;
+        for (Position position : positions) {
+            //This is the addition in the table, which row is it added to
+            XWPFTableRow row = table.insertNewTableRow(j+1);
+            //Set Cell Height
+            row.setHeight(1000);
+            for (int i = 0; i < 3; i++ ) {
+
+                XWPFTableCell cell = row.createCell();
+                CTTc ctTc = cell.getCTTc();
+                CTTcPr ctTcPr = ctTc.addNewTcPr();
+                if(i == 0){//name
+                    ctTcPr.addNewTcW().setW(BigInteger.valueOf(1000));
+                    cell.getCTTc().addNewTcPr().addNewHMerge().setVal(STMerge.RESTART);
+                    cell.setText(position.getName());
+                }
+                if(i == 1){  //date
+                    ctTcPr.addNewTcW().setW(BigInteger.valueOf(2000));
+                    cell.getCTTc().addNewTcPr().addNewHMerge().setVal(STMerge.RESTART);
+                    cell.setText(position.getDate());
+                }
+                if(i == 2){  //?
+                    ctTcPr.addNewTcW().setW(BigInteger.valueOf(2000));
+                    cell.getCTTc().addNewTcPr().addNewHMerge().setVal(STMerge.RESTART);
+                    cell.setText(position.getIsCreditable().toString());
+                }
+            }
+            j++;
+        }
+        //File stream output
+        FileOutputStream fos = new FileOutputStream(new File("D://aaaaaaaaaa.docx"));
+        document.write(fos);
+        fos.close();
+
+
+
+
+
+
 
 
     }

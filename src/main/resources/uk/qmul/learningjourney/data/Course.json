@@ -94,4 +94,52 @@
   "schedule" : {
     "0" : [ 3, 4, 5 ]
   }
+}, {
+  "name" : "Software Management",
+  "id" : "EBU6304",
+  "teacher" : "Gokop Goteng",
+  "type" : 0,
+  "level" : 0,
+  "credit" : 4.0,
+  "room" : "3-535",
+  "semester" : 6,
+  "schedule" : {
+    "0" : [ 10, 11 ]
+  }
+}, {
+  "name" : "PDP",
+  "id" : "EBC5001",
+  "teacher" : "Mona JABER",
+  "type" : 0,
+  "level" : 0,
+  "credit" : 0.5,
+  "room" : "3-208",
+  "semester" : 6,
+  "schedule" : {
+    "9" : [ 18, 19 ]
+  }
+}, {
+  "name" : "Image and Video Processing",
+  "id" : "EBU6230",
+  "teacher" : "Gokop Goteng",
+  "type" : 0,
+  "level" : 0,
+  "credit" : 3.0,
+  "room" : "3-535",
+  "semester" : 6,
+  "schedule" : {
+    "0" : [ 29, 30 ]
+  }
+}, {
+  "name" : "Internet Application",
+  "id" : "BBU1234",
+  "teacher" : "Huang Xiaohong",
+  "type" : 0,
+  "level" : 0,
+  "credit" : 3.0,
+  "room" : "3-535",
+  "semester" : 6,
+  "schedule" : {
+    "0" : [ 3, 4, 5 ]
+  }
 } ]

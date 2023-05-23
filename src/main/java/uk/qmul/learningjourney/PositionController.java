@@ -5,9 +5,11 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import uk.qmul.learningjourney.grade.Grade;
@@ -15,8 +17,12 @@ import uk.qmul.learningjourney.grade.Grade;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
+
+import static uk.qmul.learningjourney.Util.generateAchievementWord;
 
 
 public class PositionController implements Initializable {
@@ -32,8 +38,21 @@ public class PositionController implements Initializable {
     @FXML
     private TableView<Position> exTable;
 
-    //private isEarlytoLatest =
-
+    public Boolean isEarlytoLatest = false;
+    private class DateComparator implements Comparator<Position>{
+        @Override
+        public int compare(Position o1, Position o2) {
+            SimpleDateFormat dateformat = new SimpleDateFormat("yyyy.MM.dd");
+            try {
+                Date date1 = dateformat.parse(o1.getDate());
+                Date date2 = dateformat.parse(o2.getDate());
+                return date1.compareTo(date2);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            return 0;
+        }
+    }
 
 
     @FXML
@@ -65,6 +84,37 @@ public class PositionController implements Initializable {
                     posNotCre.add(tempPos);
             }
         }
+        if(isEarlytoLatest){
+            Collections.sort(posCredit,new Comparator<Position>(){
+                @Override
+                public int compare(Position p1, Position p2){
+                    return p1.date.compareTo(p2.date);
+                }
+            });
+            Collections.sort(posNotCre,new Comparator<Position>(){
+                @Override
+                public int compare(Position p1, Position p2){
+                    return p1.date.compareTo(p2.date);
+                }
+            });
+            isEarlytoLatest = false;
+        }
+        else{
+            Collections.sort(posCredit,new Comparator<Position>(){
+                @Override
+                public int compare(Position p1, Position p2){
+                    return p2.date.compareTo(p1.date);
+                }
+            });
+            Collections.sort(posNotCre,new Comparator<Position>(){
+                @Override
+                public int compare(Position p1, Position p2){
+                    return p2.date.compareTo(p1.date);
+                }
+            });
+            isEarlytoLatest = true;
+        }
+
         if (posCredit!= null) {
             acTable.getItems().setAll(posCredit);
             acTable.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -79,7 +129,10 @@ public class PositionController implements Initializable {
         }
 
     }
-
+    @FXML
+    public void exportPosition(ActionEvent event) throws IOException {
+        generateAchievementWord(Context.student.getPosition());
+    }
 
 
     @FXML
