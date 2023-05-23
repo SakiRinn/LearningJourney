@@ -4,6 +4,10 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import uk.qmul.learningjourney.model.Course;
+import uk.qmul.learningjourney.model.Position;
+import uk.qmul.learningjourney.model.person.Student;
+import uk.qmul.learningjourney.util.DataIO;
 
 import java.io.File;
 import java.io.IOException;

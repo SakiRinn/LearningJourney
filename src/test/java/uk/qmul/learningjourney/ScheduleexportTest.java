@@ -2,6 +2,7 @@ package uk.qmul.learningjourney;
 
 import fr.opensagres.xdocreport.core.XDocReportException;
 import org.junit.jupiter.api.Test;
+import uk.qmul.learningjourney.util.CourseUtil;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ void Test() throws IOException, XDocReportException {
     schedule.add("333");
     schedule.add("444");
     schedule.add("555");
-    Util util = Util.getInstance();
-    util.generateWord("wulvh","2",schedule,"./tests.docx");
+    CourseUtil courseUtil = CourseUtil.getInstance();
+    courseUtil.generateWord("wulvh","2",schedule,"./tests.docx");
     }
 }

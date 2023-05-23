@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.qmul.learningjourney.controller.HomeController">
+    <fx:include source="base-view.fxml" />
+    <Button fx:id="gradeButton" layoutX="364.0" layoutY="218.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" text="Grade" AnchorPane.leftAnchor="320.0" AnchorPane.topAnchor="240.0">
+      <font>
+         <Font name="Berlin Sans FB" size="20.0" />
+      </font></Button>
+    <Button fx:id="achievementButton" layoutX="568.0" layoutY="218.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" text="Achievement" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="240.0">
+      <font>
+         <Font name="Berlin Sans FB" size="20.0" />
+      </font></Button>
+    <Button fx:id="courseScheduleButton" layoutX="364.0" layoutY="346.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" text="Course Schedule" AnchorPane.bottomAnchor="120.0" AnchorPane.leftAnchor="320.0">
+      <font>
+         <Font name="Berlin Sans FB" size="18.0" />
+      </font></Button>
+    <Button fx:id="courseSelectionButton" layoutX="568.0" layoutY="346.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="160.0" text="Course Selection" AnchorPane.bottomAnchor="120.0" AnchorPane.rightAnchor="100.0">
+      <font>
+         <Font name="Berlin Sans FB" size="18.0" />
+      </font></Button>
+</AnchorPane>

@@ -3,19 +3,20 @@ package uk.qmul.learningjourney;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import uk.qmul.learningjourney.model.person.Student;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Stack;
 
 public class Context {
-    private static Context context;
+
     public static Stage stage;
+    public static Scene homeScene;
+    public static Student account;
 
     public static HashMap<String, Object> controllers = new HashMap<>();
-    public static Scene homeScene;
     public static Stack<Scene> sceneStack = new Stack<>();
-    public static Student student;
 
     public static void toNextScene(Scene scene) {
         sceneStack.add(scene);
@@ -45,7 +46,7 @@ public class Context {
     }
 
     public static void setHomeScene() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("new-home-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("view/home-view.fxml"));
         homeScene = new Scene(fxmlLoader.load(), 800, 600);
     }
 
