@@ -10,7 +10,9 @@ import uk.qmul.learningjourney.util.CourseUtil;
 import uk.qmul.learningjourney.model.Course;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 public class CourseSelectionController extends BaseController {
 
@@ -19,7 +21,7 @@ public class CourseSelectionController extends BaseController {
     private ArrayList<RowConstraints> rowConstraints;
 
     @Override
-    public void initialize() {
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         addRow();
     }
 

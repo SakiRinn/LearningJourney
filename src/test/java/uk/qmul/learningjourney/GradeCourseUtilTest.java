@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 import uk.qmul.learningjourney.model.Course;
 import uk.qmul.learningjourney.model.Grade;
 import uk.qmul.learningjourney.model.user.Student;
-import uk.qmul.learningjourney.model.user.User;
 import uk.qmul.learningjourney.util.DataIO;
 import uk.qmul.learningjourney.util.GradeUtil;
 import uk.qmul.learningjourney.util.UserUtil;
@@ -16,10 +15,10 @@ import java.util.Random;
 class GradeCourseUtilTest {
 
     @Test
-    void addTestGrades() {
+    void generateRandomGrades() {
         try {
-            for (User user : UserUtil.loadUsers()) {
-                Student s = (Student) user;
+            Context.user = UserUtil.loadStudents().get(0);
+            for (Student s : UserUtil.loadStudents()) {
                 for (Course course : (ArrayList<Course>) DataIO.loadObjects(Course.class)) {
                     Grade grade = new Grade(course.getName(), s.getName(),
                             60 + new Random().nextInt(40));

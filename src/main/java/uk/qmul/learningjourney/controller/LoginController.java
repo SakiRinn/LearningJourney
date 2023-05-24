@@ -21,19 +21,15 @@ public class LoginController {
         p_pswd.setText("");
     }
 
-
     //登录
     @FXML
     public void onLogin() throws IOException {
-
         String num = t_num.getText();
         String pswd = p_pswd.getText();
-        if (Context.login(num, pswd)) {
+        if (Context.login(num, pswd))
             Context.toStudentHome();
-            System.out.println("Login success!");
-        } else {
-            System.out.println("Login fail!");
-        }
+        else
+            Context.showError("Login failed! Please enter again.");
     }
 }
 

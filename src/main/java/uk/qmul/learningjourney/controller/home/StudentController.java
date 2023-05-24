@@ -1,14 +1,17 @@
-package uk.qmul.learningjourney.controller;
+package uk.qmul.learningjourney.controller.home;
 
 import javafx.fxml.FXML;
 import uk.qmul.learningjourney.Context;
+import uk.qmul.learningjourney.controller.BaseController;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class StudentHomeController extends BaseController {
+public class StudentController extends BaseController {
 
     @Override
-    public void initialize() {
+    public void initialize(URL url, ResourceBundle resourceBundle) {
     }
 
     @FXML

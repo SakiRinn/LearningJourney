@@ -1,6 +1,7 @@
 package uk.qmul.learningjourney.controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -8,7 +9,10 @@ import uk.qmul.learningjourney.Context;
 import uk.qmul.learningjourney.MainApplication;
 import uk.qmul.learningjourney.model.user.Student;
 
-public class BaseController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class BaseController implements Initializable {
 
     @FXML
     private Button homeButton;
@@ -27,7 +31,7 @@ public class BaseController {
         Context.controllers.put(this.getClass().getSimpleName(), this);
     }
 
-    public void initialize() {
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         setNameLabel(Context.user.getName());
         setIdLabel(Context.user.getId());
         if (Context.user instanceof Student) {

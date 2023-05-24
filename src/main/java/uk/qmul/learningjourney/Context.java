@@ -4,6 +4,8 @@ import atlantafx.base.theme.PrimerLight;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 import uk.qmul.learningjourney.model.user.User;
 import uk.qmul.learningjourney.util.DataIO;
@@ -67,7 +69,7 @@ public class Context {
 
     public static void toStudentHome() throws IOException {
         stage.close();
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("view/student-home-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("view/student-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         homeScene = scene;
         sceneStack.add(scene);
@@ -87,5 +89,19 @@ public class Context {
         } else {
             stage.setScene(sceneStack.peek());
         }
+    }
+
+    public static void showError(String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("ERROR!");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+
+        alert.getButtonTypes().setAll(ButtonType.OK);
+        alert.showAndWait().ifPresent(buttonType -> {
+            if (buttonType == ButtonType.OK) {
+                alert.close();
+            }
+        });
     }
 }

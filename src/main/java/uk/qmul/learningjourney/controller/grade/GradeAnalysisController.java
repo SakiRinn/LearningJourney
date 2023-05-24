@@ -10,7 +10,9 @@ import uk.qmul.learningjourney.util.GradeUtil;
 import uk.qmul.learningjourney.util.UserUtil;
 
 import java.io.IOException;
+import java.net.URL;
 import java.text.DecimalFormat;
+import java.util.ResourceBundle;
 
 public class GradeAnalysisController extends BaseController {
 
@@ -28,7 +30,7 @@ public class GradeAnalysisController extends BaseController {
     Label percentage;
 
     @Override
-    public void initialize() {
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         int numStudent = 0;
         try {
             for (User user : UserUtil.loadUsers()) {

@@ -42,10 +42,10 @@ public class CourseUtil {
         ArrayList<String> courses = student.getCourses();
         courses.add(course.getId());
         student.setCourses(courses);
-        ArrayList<Student> students = (ArrayList<Student>) DataIO.loadObjects(Student.class);
-        for (Student s : students) {
-            if (s.getId().equals(student.getId())) {
-                students.remove(s);
+        ArrayList<Student> students = UserUtil.loadStudents();
+        for (Student stu : students) {
+            if (stu.getId().equals(student.getId())) {
+                students.remove(stu);
                 break;
             }
         }

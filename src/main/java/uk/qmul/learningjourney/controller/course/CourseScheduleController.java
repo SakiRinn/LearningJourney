@@ -18,7 +18,9 @@ import uk.qmul.learningjourney.util.CourseUtil;
 import uk.qmul.learningjourney.util.DataIO;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 
 public class CourseScheduleController extends BaseController {
@@ -36,7 +38,7 @@ public class CourseScheduleController extends BaseController {
 
 
     @Override
-    public void initialize() {
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         setComboBox();
         setExportButton();
         changeSchedule(0);

@@ -14,10 +14,11 @@ import uk.qmul.learningjourney.model.user.Student;
 import uk.qmul.learningjourney.util.DataIO;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-
+import java.util.ResourceBundle;
 
 
 public class PositionController extends BaseController {
@@ -123,7 +124,7 @@ public class PositionController extends BaseController {
 
 
     @Override
-    public void initialize() {
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         Student student = (Student) Context.user;
         ArrayList<Position> allPos = student.getPosition();
         ArrayList<Position> posNotCre = new ArrayList<>();
