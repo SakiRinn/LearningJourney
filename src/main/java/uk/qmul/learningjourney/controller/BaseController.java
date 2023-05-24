@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import uk.qmul.learningjourney.Context;
 import uk.qmul.learningjourney.MainApplication;
+import uk.qmul.learningjourney.model.user.Student;
 
 public class BaseController {
 
@@ -27,10 +28,13 @@ public class BaseController {
     }
 
     public void initialize() {
-        setNameLabel(Context.account.getName());
-        setIdLabel(Context.account.getId());
-        setCollegeLabel(Context.account.getCollege());
-        setMajorLabel(Context.account.getMajor());
+        setNameLabel(Context.user.getName());
+        setIdLabel(Context.user.getId());
+        if (Context.user instanceof Student) {
+            Student student = (Student) Context.user;
+            setCollegeLabel(student.getCollege());
+            setMajorLabel(student.getMajor());
+        }
         setHomeButton();
         setBackButton();
     }

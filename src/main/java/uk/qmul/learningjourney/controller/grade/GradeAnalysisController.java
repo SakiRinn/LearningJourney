@@ -1,23 +1,21 @@
 package uk.qmul.learningjourney.controller.grade;
 
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import uk.qmul.learningjourney.controller.BaseController;
+import uk.qmul.learningjourney.model.user.Student;
 import uk.qmul.learningjourney.util.DataIO;
 import uk.qmul.learningjourney.util.GradeUtil;
-import uk.qmul.learningjourney.model.person.Student;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.ResourceBundle;
 
-public class GradeAnalysisController implements Initializable {
+public class GradeAnalysisController extends BaseController {
 
     @FXML
     Label text;
 
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize() {
         ArrayList<Student> students = null;
         try {
             students = (ArrayList<Student>) DataIO.loadObjects(Student.class);

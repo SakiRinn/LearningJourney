@@ -11,8 +11,9 @@ import javafx.scene.layout.GridPane;
 import uk.qmul.learningjourney.Context;
 import uk.qmul.learningjourney.MainApplication;
 import uk.qmul.learningjourney.controller.BaseController;
-import uk.qmul.learningjourney.util.CourseUtil;
 import uk.qmul.learningjourney.model.Course;
+import uk.qmul.learningjourney.model.user.Student;
+import uk.qmul.learningjourney.util.CourseUtil;
 
 import java.util.ArrayList;
 
@@ -30,9 +31,6 @@ public class CourseScheduleController extends BaseController {
     private final ArrayList<String> weeks = new ArrayList<>();
     private ArrayList<Label> labels = new ArrayList<>();
 
-    public GridPane getGridPane() {
-        return gridPane;
-    }
 
     @FXML
     public void initialize() {
@@ -65,12 +63,17 @@ public class CourseScheduleController extends BaseController {
         exportButton.setGraphic(img);
         exportButton.setText("Export");
         exportButton.setOnAction(event -> {
-            CourseUtil.getInstance().exportSchedule(Context.account.getName(), currentWeek, Context.account.getCourses());
+            Student student = (Student) Context.user;
+            CourseUtil.getInstance().exportSchedule(student.getName(), currentWeek, student.getCourses());
+            exportButton.getStyleClass().add("success");
+            exportButton.setText("Exported!!");
+            exportButton.setDisable(true);
         });
     }
 
     public void changeSchedule(int index) {
-        ArrayList<String> courses = Context.account.getCourses();
+        Student student = (Student) Context.user;
+        ArrayList<String> courses = student.getCourses();
         clearPane();
         currentWeek = index + 1;
         for (String id : courses) {

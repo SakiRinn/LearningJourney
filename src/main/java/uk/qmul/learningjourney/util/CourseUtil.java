@@ -10,7 +10,7 @@ import org.openxmlformats.schemas.wordprocessingml.x2006.main.*;
 import uk.qmul.learningjourney.Context;
 import uk.qmul.learningjourney.model.Course;
 import uk.qmul.learningjourney.model.Position;
-import uk.qmul.learningjourney.model.person.Student;
+import uk.qmul.learningjourney.model.user.Student;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -28,7 +28,7 @@ public class CourseUtil {
 
     public static CourseUtil getInstance() {
         if (courseUtil == null)
-            return new CourseUtil();
+            courseUtil = new CourseUtil();
         return courseUtil;
     }
 
@@ -39,6 +39,7 @@ public class CourseUtil {
             if (student.getId().equals(id))
                 if (student.getPassword().equals(password)) {
                     Context.account = student;
+                    Context.user = student;
                     return true;
                 }
         }
@@ -63,7 +64,8 @@ public class CourseUtil {
     public static ArrayList<Course> getAvailCourses() throws IOException {
         ArrayList<Course> courses = (ArrayList<Course>) DataIO.loadObjects(Course.class);
         ArrayList<Course> availCourses = new ArrayList<>();
-        ArrayList<String> selectedCourses = Context.account.getCourses();
+        Student student = (Student) Context.user;
+        ArrayList<String> selectedCourses = student.getCourses();
         HashMap<String, Course> courseMap = new HashMap<>();
         for (String s : selectedCourses) {
             courseMap.put(s, getCourse(s));
@@ -77,18 +79,19 @@ public class CourseUtil {
     }
 
     public static void studentAddCourse(Course course) throws IOException {
-        ArrayList<String> courses = Context.account.getCourses();
+        Student student = (Student) Context.user;
+        ArrayList<String> courses = student.getCourses();
         courses.add(course.getId());
-        Context.account.setCourses(courses);
+        student.setCourses(courses);
         ArrayList<Student> students = (ArrayList<Student>) DataIO.loadObjects(Student.class);
-        for (Student student : students) {
-            if (student.getId().equals(Context.account.getId())) {
-                students.remove(student);
+        for (Student s : students) {
+            if (s.getId().equals(student.getId())) {
+                students.remove(s);
                 break;
             }
         }
-        students.add(Context.account);
-        DataIO.saveObjects(students, Context.account.getClass());
+        students.add(student);
+        DataIO.saveObjects(students, student.getClass());
     }
 
     public void generateWord(String name, String weeknum, ArrayList<String> arr, String path)

@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import uk.qmul.learningjourney.model.Course;
 import uk.qmul.learningjourney.model.Position;
-import uk.qmul.learningjourney.model.person.Student;
+import uk.qmul.learningjourney.model.user.Student;
 import uk.qmul.learningjourney.util.DataIO;
 
 import java.io.File;

@@ -2,7 +2,6 @@ package uk.qmul.learningjourney.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -10,10 +9,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import uk.qmul.learningjourney.Context;
 import uk.qmul.learningjourney.model.Position;
+import uk.qmul.learningjourney.model.user.Student;
 
 import java.io.IOException;
 import java.net.URL;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -21,7 +20,7 @@ import java.util.*;
 import static uk.qmul.learningjourney.util.CourseUtil.generateAchievementWord;
 
 
-public class PositionController implements Initializable {
+public class PositionController extends BaseController {
 
     @FXML
     private StackPane pages;
@@ -69,7 +68,8 @@ public class PositionController implements Initializable {
 
     @FXML
     private void sortPosition(ActionEvent event) {
-        ArrayList<Position> allPos = Context.account.getPosition();
+        Student student = (Student) Context.user;
+        ArrayList<Position> allPos = student.getPosition();
         ArrayList<Position> posNotCre = new ArrayList<>();
         ArrayList<Position> posCredit = new ArrayList<>();
         if (allPos != null) {
@@ -126,13 +126,15 @@ public class PositionController implements Initializable {
     }
     @FXML
     public void exportPosition(ActionEvent event) throws IOException {
-        generateAchievementWord(Context.account.getPosition());
+        Student student = (Student) Context.user;
+        generateAchievementWord(student.getPosition());
     }
 
 
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
-        ArrayList<Position> allPos = Context.account.getPosition();
+        Student student = (Student) Context.user;
+        ArrayList<Position> allPos = student.getPosition();
         ArrayList<Position> posNotCre = new ArrayList<>();
         ArrayList<Position> posCredit = new ArrayList<>();
         if (allPos != null) {

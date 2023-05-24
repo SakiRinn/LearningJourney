@@ -1,11 +1,10 @@
-package uk.qmul.learningjourney.model.person;
+package uk.qmul.learningjourney.model.user;
 
 import uk.qmul.learningjourney.model.Position;
-import uk.qmul.learningjourney.model.person.Person;
 
 import java.util.ArrayList;
 
-public class Student extends Person {
+public class Student extends User {
 
     private String college;
     private String major;

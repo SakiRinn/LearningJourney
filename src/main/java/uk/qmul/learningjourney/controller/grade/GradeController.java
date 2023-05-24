@@ -1,22 +1,20 @@
 package uk.qmul.learningjourney.controller.grade;
 
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import uk.qmul.learningjourney.Context;
+import uk.qmul.learningjourney.controller.BaseController;
 import uk.qmul.learningjourney.util.GradeUtil;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
-public class GradeController implements Initializable {
+public class GradeController extends BaseController {
 
     @FXML
     private Label gpa;
 
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize() {
         gpa.setText(Double.valueOf(GradeUtil.getAverageGPA()).toString());
     }
 

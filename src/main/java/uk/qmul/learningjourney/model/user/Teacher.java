@@ -1,8 +1,6 @@
-package uk.qmul.learningjourney.model.person;
+package uk.qmul.learningjourney.model.user;
 
-import uk.qmul.learningjourney.model.person.Person;
-
-public class Teacher extends Person {
+public class Teacher extends User {
 
     private boolean isAdmin;
 

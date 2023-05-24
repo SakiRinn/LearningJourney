@@ -3,7 +3,7 @@ package uk.qmul.learningjourney;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import uk.qmul.learningjourney.model.person.Student;
+import uk.qmul.learningjourney.model.user.User;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -13,7 +13,8 @@ public class Context {
 
     public static Stage stage;
     public static Scene homeScene;
-    public static Student account;
+    //    public static Student account;
+    public static User user;
 
     public static HashMap<String, Object> controllers = new HashMap<>();
     public static Stack<Scene> sceneStack = new Stack<>();

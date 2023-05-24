@@ -1,4 +1,4 @@
-package uk.qmul.learningjourney.model.person;
+package uk.qmul.learningjourney.model.user;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
@@ -8,19 +8,19 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
         @JsonSubTypes.Type(value = Student.class, name = "Student"),
         @JsonSubTypes.Type(value = Teacher.class, name = "Teacher"),
 })
-public abstract class Person {
+public abstract class User {
 
     protected String id;
     protected String name;
     protected String password;
 
-    public Person() {
+    public User() {
         this.id = null;
         this.name = null;
         this.password = null;
     }
 
-    public Person(String id, String name, String password) {
+    public User(String id, String name, String password) {
         this.id = id;
         this.name = name;
         this.password = password;

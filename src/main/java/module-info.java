@@ -33,6 +33,6 @@ module uk.qmul.learningjourney {
     opens uk.qmul.learningjourney.controller.grade to javafx.fxml;
     exports uk.qmul.learningjourney.controller.course;
     opens uk.qmul.learningjourney.controller.course to javafx.fxml;
-    exports uk.qmul.learningjourney.model.person;
-    opens uk.qmul.learningjourney.model.person to javafx.fxml;
+    exports uk.qmul.learningjourney.model.user;
+    opens uk.qmul.learningjourney.model.user to javafx.fxml;
 }

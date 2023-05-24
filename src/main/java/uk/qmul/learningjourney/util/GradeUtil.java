@@ -3,8 +3,8 @@ package uk.qmul.learningjourney.util;
 import org.apache.poi.xwpf.usermodel.*;
 import org.openxmlformats.schemas.wordprocessingml.x2006.main.*;
 import uk.qmul.learningjourney.Context;
-import uk.qmul.learningjourney.model.person.Student;
 import uk.qmul.learningjourney.model.Grade;
+import uk.qmul.learningjourney.model.user.Student;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -48,18 +48,8 @@ public class GradeUtil {
 
     public static ArrayList<Grade> getGrades() {
         ArrayList<Grade> grades = new ArrayList<>();
-        try {
-            ArrayList<Grade> allGrades = (ArrayList<Grade>) DataIO.loadObjects(Grade.class);
-            if (allGrades != null) {
-                for (Grade grade : allGrades) {
-                    if (grade.getStudent().equals(Context.account.getName()))
-                        grades.add(grade);
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return grades;
+        Student student = (Student) Context.user;
+        return getGrades(student);
     }
 
     public static ArrayList<Grade> getGrades(Student student) {
@@ -107,7 +97,8 @@ public class GradeUtil {
     }
 
     public static int getRank() {
-        double currentScore = studentId2Score.get(Context.account.getId());
+        Student student = (Student) Context.user;
+        double currentScore = studentId2Score.get(student.getId());
         int rank = 1;
         try {
             for (Student stu : (ArrayList<Student>) DataIO.loadObjects(Student.class)) {
