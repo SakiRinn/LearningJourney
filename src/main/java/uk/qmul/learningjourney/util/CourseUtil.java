@@ -38,7 +38,7 @@ public class CourseUtil {
         for (Student student : students) {
             if (student.getId().equals(id))
                 if (student.getPassword().equals(password)) {
-                    Context.account = student;
+//                    Context.account = student;
                     Context.user = student;
                     return true;
                 }

@@ -55,7 +55,7 @@ class GradeCourseUtilTest {
     void getRank() {
         try {
             ArrayList<Student> students = (ArrayList<Student>) DataIO.loadObjects(Student.class);
-            Context.account = students.get(0);
+            Context.user = students.get(0);
             System.out.println(GradeUtil.getRank());
             System.out.printf("%.2f%%\n", (double) GradeUtil.getRank() / students.size() * 100);
         } catch (IOException e) {
