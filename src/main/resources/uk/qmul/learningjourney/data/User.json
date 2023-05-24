@@ -1,0 +1,96 @@
+[
+  {
+    "type": "Student",
+    "id": "2020213160",
+    "name": "Huang Xiyuan",
+    "password": "123456",
+    "college": "International School",
+    "major": "Telecommunication and management",
+    "classId": "2020215105",
+    "courses": [
+      "EBU6304",
+      "EBC5001",
+      "EBU6230"
+    ],
+    "position": [
+      {
+        "name": "4th International Conference of Nanton Impart",
+        "date": "2020-12-12",
+        "isCreditable": true
+      },
+      {
+        "name": "Supreme radiant star on king's pesticide",
+        "date": "2023-1-1",
+        "isCreditable": false
+      },
+      {
+        "name": "Drawf Technology Award for Compressed towel",
+        "date": "2023-2-2",
+        "isCreditable": true
+      }
+    ]
+  },
+  {
+    "type": "Student",
+    "id": "2020213156",
+    "name": "Liu Zekai",
+    "password": "123456",
+    "college": "International School",
+    "major": "Telecommunication and management",
+    "classId": "2020215105",
+    "courses": [
+      "EBU6304",
+      "EBC5001",
+      "EBU6230"
+    ],
+    "position": [
+      {
+        "name": "4th International Conference of Nanton Impart",
+        "date": "2020-12-12",
+        "isCreditable": true
+      },
+      {
+        "name": "Supreme radiant star on king's pesticide",
+        "date": "2023-1-1",
+        "isCreditable": false
+      },
+      {
+        "name": "Drawf Technology Award for Compressed towel",
+        "date": "2023-2-2",
+        "isCreditable": true
+      }
+    ]
+  },
+  {
+    "type": "Student",
+    "id": "2020213171",
+    "name": "Wu lyuhua",
+    "password": "123456",
+    "college": "International School",
+    "major": "Telecommunication and management",
+    "classId": "2020215105",
+    "courses": [
+      "EBU6304",
+      "EBC5001",
+      "EBU6230",
+      "BBU1234"
+    ],
+    "position": [
+      {
+        "name": "4th International Conference of Nanton Impart",
+        "date": "2020-12-12",
+        "isCreditable": true
+      },
+      {
+        "name": "Supreme radiant star on king's pesticide",
+        "date": "2023-1-1",
+        "isCreditable": false
+      },
+      {
+        "name": "Drawf Technology Award for Compressed towel",
+        "date": "2023-2-2",
+        "isCreditable": true
+      }
+    ]
+  }
+]

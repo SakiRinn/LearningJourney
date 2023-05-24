@@ -3,6 +3,7 @@ package uk.qmul.learningjourney.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
@@ -10,22 +11,22 @@ import javafx.scene.layout.StackPane;
 import uk.qmul.learningjourney.Context;
 import uk.qmul.learningjourney.model.Position;
 import uk.qmul.learningjourney.model.user.Student;
+import uk.qmul.learningjourney.util.DataIO;
 
 import java.io.IOException;
-import java.net.URL;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
-import static uk.qmul.learningjourney.util.CourseUtil.generateAchievementWord;
 
 
 public class PositionController extends BaseController {
 
+    public Button export;
     @FXML
     private StackPane pages;
     @FXML
-    private AnchorPane acedamic;
+    private AnchorPane academic;
     @FXML
     private AnchorPane extracuri;
     @FXML
@@ -34,20 +35,6 @@ public class PositionController extends BaseController {
     private TableView<Position> exTable;
 
     public Boolean isEarlytoLatest = false;
-    private class DateComparator implements Comparator<Position>{
-        @Override
-        public int compare(Position o1, Position o2) {
-            SimpleDateFormat dateformat = new SimpleDateFormat("yyyy.MM.dd");
-            try {
-                Date date1 = dateformat.parse(o1.getDate());
-                Date date2 = dateformat.parse(o2.getDate());
-                return date1.compareTo(date2);
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-            return 0;
-        }
-    }
 
 
     @FXML
@@ -55,7 +42,7 @@ public class PositionController extends BaseController {
         for (Node page: pages.getChildren()) {
             page.setVisible(false);
         }
-        acedamic.setVisible(true);
+        academic.setVisible(true);
     }
 
     @FXML
@@ -124,22 +111,26 @@ public class PositionController extends BaseController {
             exTable.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("isCreditable"));
         }
     }
+
     @FXML
     public void exportPosition(ActionEvent event) throws IOException {
         Student student = (Student) Context.user;
-        generateAchievementWord(student.getPosition());
+        DataIO.exportAchievement(student.getPosition(), student.getName());
+        export.getStyleClass().add("success");
+        export.setText("Exported!");
+        export.setDisable(true);
     }
 
 
-    @FXML
-    public void initialize(URL location, ResourceBundle resources) {
+    @Override
+    public void initialize() {
         Student student = (Student) Context.user;
         ArrayList<Position> allPos = student.getPosition();
         ArrayList<Position> posNotCre = new ArrayList<>();
         ArrayList<Position> posCredit = new ArrayList<>();
         if (allPos != null) {
             for (Position tempPos : allPos) {
-                if (tempPos.getIsCreditable() == true)
+                if (tempPos.getIsCreditable())
                     posCredit.add(tempPos);
                 else
                     posNotCre.add(tempPos);

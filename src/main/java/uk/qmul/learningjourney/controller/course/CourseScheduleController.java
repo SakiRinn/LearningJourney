@@ -1,5 +1,6 @@
 package uk.qmul.learningjourney.controller.course;
 
+import fr.opensagres.xdocreport.core.XDocReportException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -14,7 +15,9 @@ import uk.qmul.learningjourney.controller.BaseController;
 import uk.qmul.learningjourney.model.Course;
 import uk.qmul.learningjourney.model.user.Student;
 import uk.qmul.learningjourney.util.CourseUtil;
+import uk.qmul.learningjourney.util.DataIO;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -32,7 +35,7 @@ public class CourseScheduleController extends BaseController {
     private ArrayList<Label> labels = new ArrayList<>();
 
 
-    @FXML
+    @Override
     public void initialize() {
         setComboBox();
         setExportButton();
@@ -64,9 +67,13 @@ public class CourseScheduleController extends BaseController {
         exportButton.setText("Export");
         exportButton.setOnAction(event -> {
             Student student = (Student) Context.user;
-            CourseUtil.getInstance().exportSchedule(student.getName(), currentWeek, student.getCourses());
+            try {
+                DataIO.exportSchedule(student.getName(), currentWeek, student.getCourses());
+            } catch (IOException | XDocReportException e) {
+                throw new RuntimeException(e);
+            }
             exportButton.getStyleClass().add("success");
-            exportButton.setText("Exported!!");
+            exportButton.setText("Exported!");
             exportButton.setDisable(true);
         });
     }
@@ -77,7 +84,12 @@ public class CourseScheduleController extends BaseController {
         clearPane();
         currentWeek = index + 1;
         for (String id : courses) {
-            Course course = CourseUtil.getCourse(id);
+            Course course;
+            try {
+                course = CourseUtil.getCourse(id);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
             int week = 0;
             if (course.getSchedule().containsKey(index + 1)) {
                 week = index + 1;

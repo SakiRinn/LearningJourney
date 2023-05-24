@@ -14,6 +14,7 @@ public class GradeController extends BaseController {
     @FXML
     private Label gpa;
 
+    @Override
     public void initialize() {
         gpa.setText(Double.valueOf(GradeUtil.getAverageGPA()).toString());
     }

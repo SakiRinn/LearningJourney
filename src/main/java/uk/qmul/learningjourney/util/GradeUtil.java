@@ -1,15 +1,11 @@
 package uk.qmul.learningjourney.util;
 
-import org.apache.poi.xwpf.usermodel.*;
-import org.openxmlformats.schemas.wordprocessingml.x2006.main.*;
 import uk.qmul.learningjourney.Context;
 import uk.qmul.learningjourney.model.Grade;
 import uk.qmul.learningjourney.model.user.Student;
+import uk.qmul.learningjourney.model.user.User;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.math.BigInteger;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,8 +34,10 @@ public class GradeUtil {
     private static HashMap<String, Double> getScoreMap() {
         HashMap<String, Double> map = new HashMap<>();
         try {
-            for (Student student : (ArrayList<Student>) DataIO.loadObjects(Student.class))
-                map.put(student.getId(), getAverageScore(student));
+            for (User user : (ArrayList<User>) DataIO.loadObjects(User.class)) {
+                if (user instanceof Student)
+                    map.put(user.getId(), getAverageScore((Student) user));
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -101,8 +99,8 @@ public class GradeUtil {
         double currentScore = studentId2Score.get(student.getId());
         int rank = 1;
         try {
-            for (Student stu : (ArrayList<Student>) DataIO.loadObjects(Student.class)) {
-                if (studentId2Score.get(stu.getId()) > currentScore)
+            for (User user : (ArrayList<User>) DataIO.loadObjects(User.class)) {
+                if (user instanceof Student && studentId2Score.get(user.getId()) > currentScore)
                     rank++;
             }
         } catch (IOException e) {
@@ -115,8 +113,8 @@ public class GradeUtil {
         double currentScore = studentId2Score.get(student.getId());
         int rank = 1;
         try {
-            for (Student stu : (ArrayList<Student>) DataIO.loadObjects(Student.class)) {
-                if (studentId2Score.get(stu.getId()) > currentScore)
+            for (User user : (ArrayList<User>) DataIO.loadObjects(User.class)) {
+                if (user instanceof Student && studentId2Score.get(user.getId()) > currentScore)
                     rank++;
             }
         } catch (IOException e) {
@@ -125,81 +123,5 @@ public class GradeUtil {
         return rank;
     }
 
-    private static void setCellText(XWPFTableCell cell, String text, Integer width) {
-        CTTc ctTc = cell.getCTTc();
-        CTTcPr ctTcPr = ctTc.addNewTcPr();
-        ctTcPr.addNewTcW().setW(BigInteger.valueOf(width));
-        cell.setVerticalAlignment(XWPFTableCell.XWPFVertAlign.CENTER);
-        CTTcPr ctPr = ctTc.addNewTcPr();
-        ctPr.addNewVAlign().setVal(STVerticalJc.CENTER);
-        cell.setText(text);
 
-    }
-
-    public static void generateWord(ArrayList<Grade> grades, String path) throws IOException {
-        //Creating Word Document Objects
-        XWPFDocument document = new XWPFDocument();
-        //Create Title
-        XWPFParagraph title = document.createParagraph();
-        //Set paragraph center
-        title.setAlignment(ParagraphAlignment.valueOf(STJc.INT_CENTER));
-        XWPFRun titleRun = title.createRun();
-
-        titleRun.setFontSize(20);
-        titleRun.setFontFamily("Candara");
-        titleRun.setBold(true);
-        titleRun.setText("transcript");
-        titleRun.addBreak();
-
-        // 3 is the number of columns and can be adjusted independently
-        XWPFTable table = document.createTable(1, 3);
-        CTTbl tTbl = table.getCTTbl();
-        CTTblPr tTblPr = tTbl.getTblPr() == null ? tTbl.addNewTblPr() : tTbl.getTblPr();
-        CTTblWidth tTblWidth = tTblPr.isSetTblW() ? tTblPr.getTblW() : tTblPr.getTblW();
-
-        //This width is for the entire large table, not for local or specific individual sizes
-        tTblWidth.setW(new BigInteger("10000"));
-        tTblWidth.setType(STTblWidth.DXA);
-
-        //Set header
-        table.getRow(0).setHeight(500);
-        setCellText(table.getRow(0).getCell(0), "Course name", 1000);
-        setCellText(table.getRow(0).getCell(1), "Credit", 2000);
-        setCellText(table.getRow(0).getCell(2), "Score", 2000);
-
-        int j = 0;
-        for (Grade grade : grades) {
-            //This is the addition in the table, which row is it added to
-            XWPFTableRow row = table.insertNewTableRow(j + 1);
-            //Set Cell Height
-            row.setHeight(1000);
-            for (int i = 0; i < 3; i++) {
-
-                XWPFTableCell cell = row.createCell();
-                CTTc ctTc = cell.getCTTc();
-                CTTcPr ctTcPr = ctTc.addNewTcPr();
-                if (i == 0) {   // name
-                    ctTcPr.addNewTcW().setW(BigInteger.valueOf(1000));
-                    cell.getCTTc().addNewTcPr().addNewHMerge().setVal(STMerge.RESTART);
-                    cell.setText(grade.getCourse());
-                }
-                if (i == 1) {   // credit
-                    ctTcPr.addNewTcW().setW(BigInteger.valueOf(2000));
-                    cell.getCTTc().addNewTcPr().addNewHMerge().setVal(STMerge.RESTART);
-                    cell.setText(String.valueOf(grade.getCredit()));
-                }
-                if (i == 2) {   // score
-                    ctTcPr.addNewTcW().setW(BigInteger.valueOf(2000));
-                    cell.getCTTc().addNewTcPr().addNewHMerge().setVal(STMerge.RESTART);
-                    cell.setText(String.valueOf(grade.getScore()));
-                }
-            }
-            j++;
-        }
-
-        //File stream output
-        FileOutputStream fos = new FileOutputStream(new File(path));
-        document.write(fos);
-        fos.close();
-    }
 }

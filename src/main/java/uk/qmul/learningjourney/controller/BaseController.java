@@ -34,6 +34,9 @@ public class BaseController {
             Student student = (Student) Context.user;
             setCollegeLabel(student.getCollege());
             setMajorLabel(student.getMajor());
+        } else {
+            setCollegeLabel("/");
+            setMajorLabel("/");
         }
         setHomeButton();
         setBackButton();
@@ -61,7 +64,7 @@ public class BaseController {
         img.setFitWidth(20);
         homeButton.setGraphic(img);
         homeButton.setOnAction(actionEvent -> {
-            Context.stage.setScene(Context.homeScene);
+            Context.toHome();
         });
     }
 

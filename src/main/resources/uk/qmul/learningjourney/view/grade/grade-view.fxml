@@ -3,39 +3,39 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-
-<AnchorPane prefHeight="458.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.qmul.learningjourney.controller.grade.GradeController">
+<AnchorPane prefHeight="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="uk.qmul.learningjourney.controller.grade.GradeController">
     <fx:include source="../base-view.fxml"/>
     <AnchorPane fx:id="mainPage" layoutX="281.0" layoutY="175.0" prefHeight="300.0" prefWidth="475.0"
-                AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="50.0">
+                AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="50.0"
+                AnchorPane.topAnchor="240.0">
         <children>
-            <Label text="Your GPA is " textFill="#000000" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="25.0">
+            <Label text="Your GPA is " textFill="#000000" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="25.0">
                 <font>
                     <Font name="Britannic Bold" size="36.0"/>
                 </font>
             </Label>
-            <Label fx:id="gpa" text="4.00" textFill="#6e2a2a" AnchorPane.rightAnchor="160.0"
+            <Label fx:id="gpa" text="4.00" textFill="#6e2a2a" AnchorPane.rightAnchor="155.0"
                    AnchorPane.topAnchor="25.0">
                 <font>
                     <Font name="Britannic Bold" size="36.0"/>
                 </font>
             </Label>
-            <Label text="/4.00" textFill="#000000" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="25.0">
+            <Label text="/4.00" textFill="#000000" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="25.0">
                 <font>
                     <Font name="Britannic Bold" size="36.0"/>
                 </font>
             </Label>
             <Button alignment="CENTER" contentDisplay="CENTER" layoutX="25.0" layoutY="103.0" mnemonicParsing="false"
                     onMouseClicked="#toCheckPage" onMousePressed="#toCheckPage" text="Check Grades"
-                    textAlignment="CENTER" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="100.0">
+                    textAlignment="CENTER" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="160.0">
                 <font>
                     <Font name="Berlin Sans FB" size="20.0"/>
                 </font>
             </Button>
             <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#toAnalysisPage"
                     onMousePressed="#toAnalysisPage" text="Grade Analysis" textAlignment="CENTER"
-                    AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="100.0">
+                    AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="160.0">
                 <font>
                     <Font name="Berlin Sans FB" size="20.0"/>
                 </font>

@@ -3,21 +3,25 @@ package uk.qmul.learningjourney.controller.grade;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import uk.qmul.learningjourney.Context;
 import uk.qmul.learningjourney.controller.BaseController;
 import uk.qmul.learningjourney.model.Grade;
+import uk.qmul.learningjourney.util.DataIO;
 import uk.qmul.learningjourney.util.GradeUtil;
 
 import java.io.IOException;
 
 public class GradeCheckController extends BaseController {
 
+    public Button exportButton;
     @FXML
     private TableView<Grade> table;
 
+    @Override
     public void initialize() {
         ObservableList<Grade> gradeList = null;
         gradeList = FXCollections.observableArrayList(GradeUtil.getGrades());
@@ -29,18 +33,12 @@ public class GradeCheckController extends BaseController {
     }
 
     @FXML
-    public void toMainPage(MouseEvent event) {
-        try {
-            Context.toNextScene("view/grade/grade-view.fxml");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    @FXML
     public void export(MouseEvent event) {
         try {
-            GradeUtil.generateWord(GradeUtil.getGrades(), "./test.docx");
+            DataIO.exportGrade(GradeUtil.getGrades(), Context.user.getName());
+            exportButton.getStyleClass().add("success");
+            exportButton.setText("Exported!");
+            exportButton.setDisable(true);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

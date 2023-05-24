@@ -7,14 +7,23 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.14-internal"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.qmul.learningjourney.controller.course.CourseScheduleController">
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="uk.qmul.learningjourney.controller.course.CourseScheduleController">
     <fx:include source="../base-view.fxml"/>
+    <AnchorPane prefHeight="40.0" prefWidth="200.0" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="10.0"
+                AnchorPane.topAnchor="110.0">
+        <children>
+            <ComboBox fx:id="comboBox" prefWidth="150.0" styleClass="accent" AnchorPane.leftAnchor="10.0"
+                      AnchorPane.topAnchor="0.0"/>
+            <Button fx:id="exportButton" mnemonicParsing="false" styleClass="accent" text="Export"
+                    AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0"/>
+        </children>
+    </AnchorPane>
     <AnchorPane layoutX="236.0" layoutY="100.0" prefHeight="370.0" prefWidth="555.0" AnchorPane.bottomAnchor="10.0"
                 AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="170.0">
         <children>
-            <ComboBox fx:id="comboBox" prefWidth="150.0" styleClass="accent" AnchorPane.topAnchor="0.0"/>
             <ScrollPane AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-                        AnchorPane.topAnchor="50.0">
+                        AnchorPane.topAnchor="0.0">
                 <content>
                     <GridPane fx:id="gridPane" alignment="CENTER">
                         <columnConstraints>
@@ -102,8 +111,6 @@
                     </GridPane>
                 </content>
             </ScrollPane>
-            <Button fx:id="exportButton" layoutX="479.0" layoutY="1.0" mnemonicParsing="false" styleClass="accent"
-                    text="Export" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0"/>
         </children>
     </AnchorPane>
 </AnchorPane>
