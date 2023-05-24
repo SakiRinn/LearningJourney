@@ -16,7 +16,7 @@ public class GradeController extends BaseController {
 
     @Override
     public void initialize() {
-        gpa.setText(Double.valueOf(GradeUtil.getAverageGPA()).toString());
+        gpa.setText(Double.valueOf(GradeUtil.getWeightedGPA()).toString());
     }
 
     @FXML

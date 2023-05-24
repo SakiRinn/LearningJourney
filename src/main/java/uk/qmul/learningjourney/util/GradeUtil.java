@@ -36,7 +36,7 @@ public class GradeUtil {
         try {
             for (User user : (ArrayList<User>) DataIO.loadObjects(User.class)) {
                 if (user instanceof Student)
-                    map.put(user.getId(), getAverageScore((Student) user));
+                    map.put(user.getId(), getWeightedScore((Student) user));
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -66,32 +66,36 @@ public class GradeUtil {
         return grades;
     }
 
-    public static double getAverageScore() {
+    public static double getWeightedScore() {
         double totalScore = 0.0;
         for (Grade grade : getGrades())
-            totalScore += grade.getScore();
-        return Double.parseDouble(df.format(totalScore / getGrades().size()));
+            totalScore += grade.getScore() * grade.getCredit();
+        return Double.parseDouble(df.format(totalScore / getTotalCredit()));
     }
 
-    public static double getAverageScore(Student student) {
+    public static double getWeightedScore(Student student) {
         double totalScore = 0.0;
         for (Grade grade : getGrades(student))
-            totalScore += grade.getScore();
-        return Double.parseDouble(df.format(totalScore / getGrades().size()));
+            totalScore += grade.getScore() * grade.getCredit();
+        return Double.parseDouble(df.format(totalScore / getTotalCredit()));
     }
 
     public static double score2GPA(int score) {
         return Double.parseDouble(df.format((score > 60) ? (4 - 3 * Math.pow(100 - score, 2) / 1600) : 0.0));
     }
 
-    public static double getAverageGPA() {
-        int score = (int) Math.round(getAverageScore());
-        return Double.parseDouble(df.format((score > 60) ? (4 - 3 * Math.pow(100 - score, 2) / 1600) : 0.0));
+    public static double getWeightedGPA() {
+        double totalGPA = 0.0;
+        for (Grade grade : getGrades())
+            totalGPA += score2GPA(grade.getScore()) * grade.getCredit();
+        return Double.parseDouble(df.format(totalGPA / getTotalCredit()));
     }
 
-    public static double getAverageGPA(Student student) {
-        int score = (int) Math.round(getAverageScore(student));
-        return Double.parseDouble(df.format((score > 60) ? (4 - 3 * Math.pow(100 - score, 2) / 1600) : 0.0));
+    public static double getWeightedGPA(Student student) {
+        double totalGPA = 0.0;
+        for (Grade grade : getGrades(student))
+            totalGPA += score2GPA(grade.getScore()) * grade.getCredit();
+        return Double.parseDouble(df.format(totalGPA / getTotalCredit()));
     }
 
     public static int getRank() {
@@ -123,5 +127,18 @@ public class GradeUtil {
         return rank;
     }
 
-
+    public static double getTotalCredit() {
+        double totalCredit = 0.0;
+        if (!(Context.user instanceof Student))
+            throw new RuntimeException("Only students can get the credit!");
+        Student student = (Student) Context.user;
+        for (String courseId : student.getCourses()) {
+            try {
+                totalCredit += CourseUtil.getCourse(courseId).getCredit();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return totalCredit;
+    }
 }

@@ -52,7 +52,4 @@ public class CourseUtil {
         students.add(student);
         DataIO.saveObjects(students, student.getClass());
     }
-
-
-
 }

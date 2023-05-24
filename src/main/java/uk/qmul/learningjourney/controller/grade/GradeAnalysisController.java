@@ -2,30 +2,49 @@ package uk.qmul.learningjourney.controller.grade;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import uk.qmul.learningjourney.Context;
 import uk.qmul.learningjourney.controller.BaseController;
+import uk.qmul.learningjourney.model.user.Student;
 import uk.qmul.learningjourney.model.user.User;
-import uk.qmul.learningjourney.util.DataIO;
 import uk.qmul.learningjourney.util.GradeUtil;
+import uk.qmul.learningjourney.util.UserUtil;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.text.DecimalFormat;
 
 public class GradeAnalysisController extends BaseController {
 
     @FXML
-    Label text;
+    Label numCourse;
+    @FXML
+    Label totalCredit;
+    @FXML
+    Label GPA;
+    @FXML
+    Label score;
+    @FXML
+    Label ranking;
+    @FXML
+    Label percentage;
 
     @Override
     public void initialize() {
-        ArrayList<User> students = null;
+        int numStudent = 0;
         try {
-            students = (ArrayList<User>) DataIO.loadObjects(User.class);
+            for (User user : UserUtil.loadUsers()) {
+                if (user instanceof Student)
+                    numStudent++;
+            }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        text.setText("Rank: " + GradeUtil.getRank() + '\n'
-                + "Rank Percentage: " + Double.valueOf((double) GradeUtil.getRank() / students.size() * 100).toString().substring(0, 4) + '%')
-        ;
+
+        numCourse.setText(String.valueOf(((Student) Context.user).getCourses().size()));
+        totalCredit.setText(String.valueOf(GradeUtil.getTotalCredit()));
+        GPA.setText(String.valueOf(GradeUtil.getWeightedGPA()));
+        score.setText(String.valueOf(GradeUtil.getWeightedScore()));
+        ranking.setText(GradeUtil.getRank() + " / " + numStudent);
+        percentage.setText(new DecimalFormat("#.##").format((double) GradeUtil.getRank() / numStudent * 100) + "%");
     }
 
 

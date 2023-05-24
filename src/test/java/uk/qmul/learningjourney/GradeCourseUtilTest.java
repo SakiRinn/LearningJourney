@@ -42,12 +42,12 @@ class GradeCourseUtilTest {
 
     @Test
     void getAverageScore() {
-        System.out.println(GradeUtil.getAverageScore());
+        System.out.println(GradeUtil.getWeightedScore());
     }
 
     @Test
     void getAverageGPA() {
-        System.out.println(GradeUtil.getAverageGPA());
+        System.out.println(GradeUtil.getWeightedGPA());
     }
 
     @Test

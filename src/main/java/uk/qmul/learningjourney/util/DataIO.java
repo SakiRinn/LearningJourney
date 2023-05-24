@@ -11,6 +11,7 @@ import fr.opensagres.xdocreport.template.IContext;
 import fr.opensagres.xdocreport.template.TemplateEngineKind;
 import org.apache.poi.xwpf.usermodel.*;
 import org.openxmlformats.schemas.wordprocessingml.x2006.main.*;
+import uk.qmul.learningjourney.MainApplication;
 import uk.qmul.learningjourney.model.Course;
 import uk.qmul.learningjourney.model.Grade;
 import uk.qmul.learningjourney.model.Position;
@@ -89,76 +90,42 @@ public class DataIO {
         return mapper.readValue(file, CollectionsTypeFactory.listOf(cls));
     }
 
-    public void exportToDocx() {
+    public static void exportSchedule(String name, int week, ArrayList<String> courseId)
+            throws IOException, XDocReportException {
 
-    }
-
-    public static void exportSchedule(String name, int week, ArrayList<String> courseId) throws IOException, XDocReportException {
-        InputStream ins = CourseUtil.class.getResourceAsStream
-                ("/uk/qmul/learningjourney/template/scheduleExport.docx");
-        IXDocReport report = XDocReportRegistry.getRegistry().loadReport(ins, TemplateEngineKind.Freemarker);
-        IContext context = report.createContext();
-        context.put("name", name);
-        context.put("weeknum", week);
-        HashMap<Integer, String> map = new HashMap<>();
-        for (String s : courseId) {
-            Course course = getCourse(s);
-            if (course.getSchedule().containsKey(0)) {
-                week = 0;
-                Integer[] sched = course.getSchedule().get(week);
-                for (Integer integer : sched) {
-                    map.put(integer, course.getName());
+        try (InputStream ins = MainApplication.class.getResourceAsStream("template/scheduleExport.docx")) {
+            IXDocReport report = XDocReportRegistry.getRegistry().loadReport(ins, TemplateEngineKind.Freemarker);
+            IContext context = report.createContext();
+            context.put("name", name);
+            context.put("weeknum", week);
+            HashMap<Integer, String> map = new HashMap<>();
+            for (String s : courseId) {
+                Course course = getCourse(s);
+                if (course.getSchedule().containsKey(0)) {
+                    week = 0;
+                    Integer[] sched = course.getSchedule().get(week);
+                    for (Integer integer : sched) {
+                        map.put(integer, course.getName());
+                    }
+                }
+                if (course.getSchedule().containsKey(week)) {
+                    Integer[] sched = course.getSchedule().get(week);
+                    for (Integer integer : sched) {
+                        map.put(integer, course.getName());
+                    }
                 }
             }
-            if (course.getSchedule().containsKey(week)) {
-                Integer[] sched = course.getSchedule().get(week);
-                for (Integer integer : sched) {
-                    map.put(integer, course.getName());
-                }
+            for (int i = 1; i <= 14 * 5; i++) {
+                context.put("course" + i, map.getOrDefault(i, ""));
             }
+            //输出到本地目录
+            File folder = new File("output");
+            if (!folder.exists())
+                folder.mkdirs();
+            String path = "output/" + name.replace(" ", "") + "_schedule.docx";
+            FileOutputStream out = new FileOutputStream(path);
+            report.process(context, out);
         }
-        for (int i = 1; i <= 14 * 5; i++) {
-            context.put("course" + i, map.getOrDefault(i, ""));
-        }
-        //输出到本地目录
-        String path = "output/" + name + "_schedule.docx";
-        FileOutputStream out = new FileOutputStream(path);
-        report.process(context, out);
-
-    }
-
-    private static void setCellText(XWPFTableCell cell, String text, Integer width) {
-        CTTc ctTc = cell.getCTTc();
-        CTTcPr ctTcPr = ctTc.addNewTcPr();
-        ctTcPr.addNewTcW().setW(BigInteger.valueOf(width));
-        cell.setVerticalAlignment(XWPFTableCell.XWPFVertAlign.CENTER);
-        CTTcPr ctPr = ctTc.addNewTcPr();
-        ctPr.addNewVAlign().setVal(STVerticalJc.CENTER);
-        cell.setText(text);
-
-    }
-
-    private static XWPFTable setLayout(XWPFDocument document, String string) {
-        //Create Title
-        XWPFParagraph title = document.createParagraph();
-        //Set paragraph center
-        title.setAlignment(ParagraphAlignment.valueOf(STJc.INT_CENTER));
-        XWPFRun titleRun = title.createRun();
-        titleRun.setFontSize(20);
-        titleRun.setFontFamily("Candara");
-        titleRun.setBold(true);
-        titleRun.setText(string);
-        titleRun.addBreak();
-        //3 is the number of columns and can be adjusted independently
-        XWPFTable table = document.createTable(1, 3);
-        CTTbl tTbl = table.getCTTbl();
-        CTTblPr tTblPr = tTbl.getTblPr() == null ? tTbl.addNewTblPr() : tTbl.getTblPr();
-        CTTblWidth tTblWidth = tTblPr.isSetTblW() ? tTblPr.getTblW() : tTblPr.getTblW();
-
-        //This width is for the entire large table, not for local or specific individual sizes
-        tTblWidth.setW(new BigInteger("10000"));
-        tTblWidth.setType(STTblWidth.DXA);
-        return table;
     }
 
     public static void exportGrade(ArrayList<Grade> grades, String name) throws IOException {
@@ -204,7 +171,10 @@ public class DataIO {
         }
 
         //File stream output
-        FileOutputStream fos = new FileOutputStream("output/" + name + "_grade.docx");
+        File folder = new File("output");
+        if (!folder.exists())
+            folder.mkdirs();
+        FileOutputStream fos = new FileOutputStream("output/" + name.replace(" ", "") + "_grade.docx");
         document.write(fos);
         fos.close();
     }
@@ -249,11 +219,47 @@ public class DataIO {
             }
             j++;
         }
+
         //File stream output
-        FileOutputStream fos = new FileOutputStream("output/" + name + "_achievement.docx");
+        File folder = new File("output");
+        if (!folder.exists())
+            folder.mkdirs();
+        FileOutputStream fos = new FileOutputStream("output/" + name.replace(" ", "") + "_achievement.docx");
         document.write(fos);
         fos.close();
+    }
 
+    private static void setCellText(XWPFTableCell cell, String text, Integer width) {
+        CTTc ctTc = cell.getCTTc();
+        CTTcPr ctTcPr = ctTc.addNewTcPr();
+        ctTcPr.addNewTcW().setW(BigInteger.valueOf(width));
+        cell.setVerticalAlignment(XWPFTableCell.XWPFVertAlign.CENTER);
+        CTTcPr ctPr = ctTc.addNewTcPr();
+        ctPr.addNewVAlign().setVal(STVerticalJc.CENTER);
+        cell.setText(text);
+    }
+
+    private static XWPFTable setLayout(XWPFDocument document, String string) {
+        //Create Title
+        XWPFParagraph title = document.createParagraph();
+        //Set paragraph center
+        title.setAlignment(ParagraphAlignment.valueOf(STJc.INT_CENTER));
+        XWPFRun titleRun = title.createRun();
+        titleRun.setFontSize(20);
+        titleRun.setFontFamily("Candara");
+        titleRun.setBold(true);
+        titleRun.setText(string);
+        titleRun.addBreak();
+        //3 is the number of columns and can be adjusted independently
+        XWPFTable table = document.createTable(1, 3);
+        CTTbl tTbl = table.getCTTbl();
+        CTTblPr tTblPr = tTbl.getTblPr() == null ? tTbl.addNewTblPr() : tTbl.getTblPr();
+        CTTblWidth tTblWidth = tTblPr.isSetTblW() ? tTblPr.getTblW() : tTblPr.getTblW();
+
+        //This width is for the entire large table, not for local or specific individual sizes
+        tTblWidth.setW(new BigInteger("10000"));
+        tTblWidth.setType(STTblWidth.DXA);
+        return table;
     }
 }
 

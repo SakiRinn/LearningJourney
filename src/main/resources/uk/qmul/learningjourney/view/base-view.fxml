@@ -1,39 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
-<?import java.lang.String?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0"
-            prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="uk.qmul.learningjourney.controller.BaseController">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.qmul.learningjourney.controller.BaseController">
     <children>
-        <AnchorPane prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #0D3273;"
-                    AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <AnchorPane prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #0D3273;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <ImageView fitHeight="40.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="25.0"
-                           AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="30.0">
+                <ImageView fitHeight="40.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="30.0">
                     <image>
-                        <Image url="@../image/qm-logo.png"/>
+                        <Image url="@../image/qm-logo.png" />
                     </image>
                 </ImageView>
-                <Label alignment="CENTER" prefHeight="25.0" text="The Online Learning Environment for QM"
-                       textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="0.0"
-                       AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="0.0">
+                <Label alignment="CENTER" prefHeight="25.0" text="The Online Learning Environment for QM" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="0.0">
                     <font>
-                        <Font name="Calibri Bold" size="22.0"/>
+                        <Font name="Calibri Bold" size="22.0" />
                     </font>
                 </Label>
             </children>
         </AnchorPane>
         <AnchorPane layoutX="168.0" prefWidth="433.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="110.0">
             <children>
-                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0e337380" height="1.0" stroke="BLACK"
-                           strokeType="INSIDE" strokeWidth="0.0" width="800.0" AnchorPane.topAnchor="45.0"/>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0e337380" height="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="800.0" AnchorPane.topAnchor="45.0" />
                 <HBox alignment="CENTER_LEFT" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                     <children>
                         <Button fx:id="homeButton" mnemonicParsing="false" prefHeight="30.0" styleClass="rounded" text="Home">
@@ -60,16 +53,14 @@
                 </HBox>
             </children>
         </AnchorPane>
-        <AnchorPane layoutX="13.0" layoutY="143.0" prefHeight="101.0" prefWidth="200.0" AnchorPane.leftAnchor="10.0"
-                    AnchorPane.topAnchor="180.0">
+        <AnchorPane layoutX="13.0" layoutY="143.0" prefHeight="101.0" prefWidth="200.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="180.0">
             <children>
                 <Pane prefHeight="25.0" prefWidth="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <children>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#86c0e7" height="24.5" stroke="BLACK"
-                                   strokeType="INSIDE" width="59.5"/>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#86c0e7" height="24.5" stroke="BLACK" strokeType="INSIDE" width="59.5" />
                         <Label alignment="CENTER" prefHeight="24.5" prefWidth="59.5" text="Name" textAlignment="CENTER">
                             <font>
-                                <Font name="System Bold Italic" size="12.0"/>
+                                <Font name="System Bold Italic" size="12.0" />
                             </font>
                         </Label>
                     </children>
@@ -107,25 +98,25 @@
                 <Pane layoutX="10.0" layoutY="85.0" prefHeight="25.0" prefWidth="140.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="24.5" stroke="BLACK" strokeType="INSIDE" width="139.5" />
-                        <Label fx:id="nameLabel" alignment="CENTER" prefHeight="24.5" prefWidth="139.5" text="Name" textAlignment="CENTER" />
+                        <Label fx:id="nameLabel" alignment="CENTER" prefHeight="24.5" prefWidth="139.5" text="/" textAlignment="CENTER" />
                     </children>
                 </Pane>
                 <Pane layoutX="70.0" layoutY="10.0" prefHeight="25.0" prefWidth="140.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
                     <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="24.5" stroke="BLACK" strokeType="INSIDE" width="139.5" />
-                        <Label fx:id="idLabel" alignment="CENTER" prefHeight="24.5" prefWidth="139.5" text="Student ID" textAlignment="CENTER" />
+                        <Label fx:id="idLabel" alignment="CENTER" prefHeight="24.5" prefWidth="139.5" text="/" textAlignment="CENTER" />
                     </children>
                 </Pane>
                 <Pane layoutX="70.0" layoutY="35.0" prefHeight="25.0" prefWidth="140.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
                     <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="24.5" stroke="BLACK" strokeType="INSIDE" width="139.5" />
-                        <Label fx:id="collegeLabel" alignment="CENTER" prefHeight="24.5" prefWidth="139.5" text="College" textAlignment="CENTER" />
+                        <Label fx:id="collegeLabel" alignment="CENTER" prefHeight="24.5" prefWidth="139.5" text="/" textAlignment="CENTER" />
                     </children>
                 </Pane>
                 <Pane layoutX="70.0" layoutY="60.0" prefHeight="25.0" prefWidth="140.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0">
                     <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="24.5" stroke="BLACK" strokeType="INSIDE" width="139.5" />
-                        <Label fx:id="majorLabel" alignment="CENTER" prefHeight="24.5" prefWidth="139.5" text="Major" textAlignment="CENTER" />
+                        <Label fx:id="majorLabel" alignment="CENTER" prefHeight="24.5" prefWidth="139.5" text="/" textAlignment="CENTER" />
                     </children>
                 </Pane>
             </children>
