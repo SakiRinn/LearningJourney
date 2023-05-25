@@ -39,11 +39,10 @@ public class Context {
         ArrayList<User> users = (ArrayList<User>) DataIO.loadObjects(User.class);
         assert users != null;
         for (User user : users) {
-            if (user.getId().equals(id))
-                if (user.getPassword().equals(password)) {
-                    Context.user = user;
-                    return true;
-                }
+            if (user.getId().equals(id) && user.getPassword().equals(password)) {
+                Context.user = user;
+                return true;
+            }
         }
         return false;
     }
@@ -69,7 +68,17 @@ public class Context {
 
     public static void toStudentHome() throws IOException {
         stage.close();
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("view/student-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("view/home/student-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+        homeScene = scene;
+        sceneStack.add(scene);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public static void toTeacherHome() throws IOException {
+        stage.close();
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("view/home/teacher-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         homeScene = scene;
         sceneStack.add(scene);
@@ -94,6 +103,20 @@ public class Context {
     public static void showError(String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("ERROR!");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+
+        alert.getButtonTypes().setAll(ButtonType.OK);
+        alert.showAndWait().ifPresent(buttonType -> {
+            if (buttonType == ButtonType.OK) {
+                alert.close();
+            }
+        });
+    }
+
+    public static void showInformation(String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Information");
         alert.setHeaderText(null);
         alert.setContentText(message);
 

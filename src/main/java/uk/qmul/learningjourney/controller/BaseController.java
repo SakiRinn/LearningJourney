@@ -38,9 +38,6 @@ public class BaseController implements Initializable {
             Student student = (Student) Context.user;
             setCollegeLabel(student.getCollege());
             setMajorLabel(student.getMajor());
-        } else {
-            setCollegeLabel("/");
-            setMajorLabel("/");
         }
         setHomeButton();
         setBackButton();

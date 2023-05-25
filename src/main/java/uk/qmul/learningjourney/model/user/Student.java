@@ -1,5 +1,6 @@
 package uk.qmul.learningjourney.model.user;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import uk.qmul.learningjourney.model.Position;
 
 import java.util.ArrayList;
@@ -22,16 +23,6 @@ public class Student extends User {
         this.position = null;
     }
 
-    public Student(String id, String name, String password,
-                   String college, String major, String classId) {
-        super(id, name, password);
-        this.college = college;
-        this.major = major;
-        this.classId = classId;
-        this.courses = null;
-        this.position = null;
-    }
-
     public Student(String id, String name, String password, String college, String major,
                    String classId, ArrayList<String> courses, ArrayList<Position> position) {
         super(id, name, password);
@@ -40,6 +31,16 @@ public class Student extends User {
         this.classId = classId;
         this.courses = courses;
         this.position = position;
+    }
+
+    public Student(String id, String name, String password,
+                   String college, String major, String classId) {
+        super(id, name, password);
+        this.college = college;
+        this.major = major;
+        this.classId = classId;
+        this.courses = new ArrayList<>();
+        this.position = new ArrayList<>();
     }
 
     public String getCollege() {

@@ -1,5 +1,7 @@
 package uk.qmul.learningjourney.model.user;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
 import java.util.ArrayList;
 
 public class Teacher extends User {
@@ -8,12 +10,21 @@ public class Teacher extends User {
     private ArrayList<String> courses;
 
     public Teacher() {
+        super();
         this.isAdmin = false;
+        this.courses = null;
+    }
+
+    public Teacher(String id, String name, String password, boolean isAdmin, ArrayList<String> courses) {
+        super(id, name, password);
+        this.isAdmin = isAdmin;
+        this.courses = courses;
     }
 
     public Teacher(String id, String name, String password) {
         super(id, name, password);
         this.isAdmin = false;
+        this.courses = new ArrayList<>();
     }
 
     public boolean isAdmin() {

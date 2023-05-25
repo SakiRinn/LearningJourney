@@ -15,13 +15,12 @@ import java.util.Random;
 class GradeCourseUtilTest {
 
     @Test
-    void generateRandomGrades() {
+    void generateGrades() {
         try {
             Context.user = UserUtil.loadStudents().get(0);
             for (Student s : UserUtil.loadStudents()) {
                 for (Course course : (ArrayList<Course>) DataIO.loadObjects(Course.class)) {
-                    Grade grade = new Grade(course.getName(), s.getName(),
-                            60 + new Random().nextInt(40));
+                    Grade grade = new Grade(course.getId(), s.getName(), 60 + new Random().nextInt(40));
                     for (String c : s.getCourses()) {
                         if (c.equals(course.getId()))
                             DataIO.saveObject(grade);

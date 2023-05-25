@@ -1,20 +1,35 @@
 package uk.qmul.learningjourney.util;
 
-import uk.qmul.learningjourney.model.user.Student;
-import uk.qmul.learningjourney.model.user.Teacher;
-import uk.qmul.learningjourney.model.user.User;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import uk.qmul.learningjourney.model.user.*;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class UserUtil {
 
     public static void saveUser(User user) throws IOException {
-        DataIO.saveObject(user, "User.json");
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.configure(SerializationFeature.INDENT_OUTPUT, true);
+
+        File file = new File(DataIO.dataPath + "User.json");
+        ArrayList<User> list = loadUsers();
+        if (list == null)
+            list = new ArrayList<>();
+        list.add(user);
+        mapper.writerFor(new TypeReference<List<User>>(){}).writeValue(file, list);
     }
 
     public static void saveUsers(ArrayList<User> users) throws IOException {
-        DataIO.saveObjects(users, "User.json");
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.configure(SerializationFeature.INDENT_OUTPUT, true);
+
+        File file = new File(DataIO.dataPath + "User.json");
+        mapper.writerFor(new TypeReference<List<User>>(){}).writeValue(file, users);
     }
 
     public static ArrayList<User> loadUsers() throws IOException {

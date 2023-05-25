@@ -6,7 +6,7 @@
 <AnchorPane prefHeight="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="uk.qmul.learningjourney.controller.grade.GradeController">
     <fx:include source="../base-view.fxml"/>
-    <AnchorPane fx:id="mainPage" layoutX="281.0" layoutY="175.0" prefHeight="300.0" prefWidth="475.0"
+    <AnchorPane layoutX="281.0" layoutY="175.0" prefHeight="300.0" prefWidth="475.0"
                 AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="50.0"
                 AnchorPane.topAnchor="240.0">
         <children>

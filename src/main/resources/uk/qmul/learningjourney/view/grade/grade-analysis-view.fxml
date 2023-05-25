@@ -8,7 +8,7 @@
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="uk.qmul.learningjourney.controller.grade.GradeAnalysisController">
     <fx:include source="../base-view.fxml"/>
-    <AnchorPane fx:id="mainPage" layoutX="281.0" layoutY="175.0" prefHeight="300.0" prefWidth="475.0"
+    <AnchorPane layoutX="281.0" layoutY="175.0" prefHeight="300.0" prefWidth="475.0"
                 AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="40.0"
                 AnchorPane.topAnchor="180.0">
         <children>

@@ -9,31 +9,31 @@ import java.util.ArrayList;
 
 public class Grade {
 
-    private String course;
+    private String courseId;
     private String student;
     private int score;
     private double GPA;
 
     public Grade() {
-        this.course = null;
+        this.courseId = null;
         this.student = null;
         this.score = 0;
         this.GPA = 0.0;
     }
 
-    public Grade(String course, String student, int score) {
-        this.course = course;
+    public Grade(String courseName, String student, int score) {
+        this.courseId = courseName;
         this.student = student;
         this.score = score;
         this.GPA = GradeUtil.score2GPA(this.score);
     }
 
-    public String getCourse() {
-        return course;
+    public String getCourseId() {
+        return courseId;
     }
 
-    public void setCourse(String course) {
-        this.course = course;
+    public void setCourseId(String courseId) {
+        this.courseId = courseId;
     }
 
     public String getStudent() {
@@ -64,7 +64,7 @@ public class Grade {
     public double getCredit() {
         try {
             for (Course course : (ArrayList<Course>) DataIO.loadObjects(Course.class)) {
-                if (course.getName().equals(this.getCourse()))
+                if (course.getName().equals(this.getCourseName()))
                     return course.getCredit();
             }
         } catch (IOException e) {
@@ -73,11 +73,26 @@ public class Grade {
         return 0.0;
     }
 
+    @JsonIgnore
+    public String getCourseName() {
+        ArrayList<Course> courses;
+        try {
+            courses = (ArrayList<Course>) DataIO.loadObjects(Course.class);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        for (Course course : courses) {
+            if (course.getId().equals(this.courseId))
+                return course.getName();
+        }
+        throw new RuntimeException("Invalid course ID for this grade!");
+    }
+
     @Override
     public String toString() {
         return "Grade {" + '\n'
                + "\tStudent: \t" + this.getStudent() + '\n'
-               + "\tCourse: \t" + this.getCourse() + '\n'
+               + "\tCourse: \t" + this.getCourseName() + '\n'
                + "\tCredit: \t" + this.getCredit() + '\n'
                + "\tScore: \t\t" + this.getScore() + '\n'
                + "\tGPA: \t\t" + this.getGPA() + '\n'

@@ -2,41 +2,27 @@ package uk.qmul.learningjourney;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import uk.qmul.learningjourney.model.Course;
 import uk.qmul.learningjourney.model.Position;
 import uk.qmul.learningjourney.model.user.Student;
+import uk.qmul.learningjourney.model.user.Teacher;
 import uk.qmul.learningjourney.util.DataIO;
+import uk.qmul.learningjourney.util.UserUtil;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 class DataIOTest {
 
-//    @Test
-//    void saveObject() {
-//        try {
-//            ArrayList<int[]> times = new ArrayList<>();
-//            for (int i = 0; i < 3; i++) {
-//                times.add(new int[]{i, 2*i, 3*i});
-//            }
-//            for (int i = 0; i < 10; i++)
-//                DataIO.saveObject(new Course("同性原理", "114514", "捧月星", 100 + i, 4, "B205", 6, times));
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
-
     @Test
-    void loadObjects() {
-    }
-
-    @Test
-    void addStudentTest() throws IOException {
+    void generateStudents() throws IOException {
         ArrayList<String> courses = new ArrayList<>();
         courses.add("EBU6304");
         ArrayList<Position> position = new ArrayList<>();
@@ -44,26 +30,33 @@ class DataIOTest {
         Position position2 = new Position("Supreme radiant star on king's pesticide", "2023-1-1", false);
         Position position3 = new Position("Drawf Technology Award for Compressed towel","2023-2-2",true);
         position.add(position1);
-        position.add(position2);
-        position.add(position3);
-        Student student1 = new Student("2020213171", "Wu lyuhua", "123456",
-                "International School", "Telecommunication and management", "2020215105", courses,position);
+        Student student1 = new Student("2020213171", "Wu Lyuhua", "123456",
+                "International School", "Telecommunication and management", "2020215105", courses, position);
         courses.add("EBC5001");
+        position.add(position2);
         Student student2 = new Student("2020213160", "Huang Xiyuan", "123456",
-                "International School", "Telecommunication and management", "2020215105", courses,position);
+                "International School", "Telecommunication and management", "2020215105", courses, position);
         courses.add("EBU6230");
+        position.add(position3);
         Student student3 = new Student("2020213156", "Liu Zekai", "123456",
-                "International School", "Telecommunication and management", "2020215105", courses,position);
+                "International School", "Telecommunication and management", "2020215105", courses, position);
 
-        DataIO.saveObject(student1);
-        DataIO.saveObject(student2);
-        DataIO.saveObject(student3);
-        System.out.println(student1.getClass());
+        UserUtil.saveUser(student1);
+        UserUtil.saveUser(student2);
+        UserUtil.saveUser(student3);
     }
 
     @Test
-    void addCourseScheduleTest() {
-
+    void generateTeachers() {
+        ArrayList<String> courses = new ArrayList<>();
+        courses.add("EBU6304");
+        courses.add("EBU6230");
+        Teacher teacher = new Teacher("2010213171", "Gokop Goteng", "123456", true, courses);
+        try {
+            UserUtil.saveUser(teacher);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 
@@ -80,7 +73,6 @@ class DataIOTest {
 
     @Test
     void loadTest() throws IOException {
-//读json
         File file = new File("src/main/resources/uk/qmul/learningjourney/data/Student.json");
         ArrayList<Student> students;
         ObjectMapper mapper = new ObjectMapper();
@@ -117,6 +109,4 @@ class DataIOTest {
         DataIO.saveObject(course3);
         DataIO.saveObject(course4);
     }
-
-
 }

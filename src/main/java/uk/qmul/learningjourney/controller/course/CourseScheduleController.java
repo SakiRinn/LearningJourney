@@ -14,6 +14,7 @@ import uk.qmul.learningjourney.MainApplication;
 import uk.qmul.learningjourney.controller.BaseController;
 import uk.qmul.learningjourney.model.Course;
 import uk.qmul.learningjourney.model.user.Student;
+import uk.qmul.learningjourney.model.user.Teacher;
 import uk.qmul.learningjourney.util.CourseUtil;
 import uk.qmul.learningjourney.util.DataIO;
 
@@ -81,8 +82,11 @@ public class CourseScheduleController extends BaseController {
     }
 
     public void changeSchedule(int index) {
-        Student student = (Student) Context.user;
-        ArrayList<String> courses = student.getCourses();
+        ArrayList<String> courses = new ArrayList<>();
+        if (Context.user instanceof Student)
+            courses = ((Student) Context.user).getCourses();
+        else if (Context.user instanceof Teacher)
+            courses = ((Teacher) Context.user).getCourses();
         clearPane();
         currentWeek = index + 1;
         for (String id : courses) {

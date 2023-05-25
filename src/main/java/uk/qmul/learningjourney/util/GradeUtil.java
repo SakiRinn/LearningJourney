@@ -1,6 +1,7 @@
 package uk.qmul.learningjourney.util;
 
 import uk.qmul.learningjourney.Context;
+import uk.qmul.learningjourney.model.Course;
 import uk.qmul.learningjourney.model.Grade;
 import uk.qmul.learningjourney.model.user.Student;
 
@@ -124,11 +125,24 @@ public class GradeUtil {
         try {
             for (Grade grade : (ArrayList<Grade>) DataIO.loadObjects(Grade.class)) {
                 if (grade.getStudent().equals(Context.user.getName()))
-                    totalCredit++;
+                    totalCredit += grade.getCredit();
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
         return totalCredit;
+    }
+
+    public static ArrayList<Grade> getCourseGrades(Course course) {
+        ArrayList<Grade> grades = new ArrayList<>();
+        try {
+            for (Grade grade : (ArrayList<Grade>) DataIO.loadObjects(Grade.class)) {
+                if (grade.getCourseId().equals(course.getId()))
+                    grades.add(grade);
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return grades;
     }
 }

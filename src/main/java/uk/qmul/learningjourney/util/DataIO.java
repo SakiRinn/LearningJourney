@@ -1,5 +1,6 @@
 package uk.qmul.learningjourney.util;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -23,68 +24,38 @@ import java.io.InputStream;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import static uk.qmul.learningjourney.util.CourseUtil.getCourse;
 
 public class DataIO {
 
-    private static final String dataPath = "src/main/resources/uk/qmul/learningjourney/data/";
+    public static final String dataPath = "src/main/resources/uk/qmul/learningjourney/data/";
 
     public static <T> void saveObject(T obj) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(SerializationFeature.INDENT_OUTPUT, true);
 
         File file = new File(dataPath + obj.getClass().getSimpleName() + ".json");
-        ArrayList<T> data = (ArrayList<T>) DataIO.loadObjects(obj.getClass());
-        if (data == null) {
-            data = new ArrayList<>();
-        }
-        data.add(obj);
-        mapper.writeValue(file, data);
+        ArrayList<T> list = (ArrayList<T>) DataIO.loadObjects(obj.getClass());
+        if (list == null)
+            list = new ArrayList<>();
+        list.add(obj);
+        mapper.writerFor(new TypeReference<List<T>>(){}).writeValue(file, list);
     }
 
-    public static <T> void saveObject(T obj, String fileName) throws IOException {
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.configure(SerializationFeature.INDENT_OUTPUT, true);
-
-        File file = new File(dataPath + fileName + ".json");
-        ArrayList<T> data = (ArrayList<T>) DataIO.loadObjects(obj.getClass());
-        if (data == null) {
-            data = new ArrayList<>();
-        }
-        data.add(obj);
-        mapper.writeValue(file, data);
-    }
-
-    public static void saveObjects(ArrayList<?> list, Class<?> cls) throws IOException {
+    public static <T> void saveObjects(ArrayList<T> list, Class<T> cls) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(SerializationFeature.INDENT_OUTPUT, true);
 
         File file = new File(dataPath + cls.getSimpleName() + ".json");
-        mapper.writeValue(file, list);
-    }
-
-    public static void saveObjects(ArrayList<?> list, String fileName) throws IOException {
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.configure(SerializationFeature.INDENT_OUTPUT, true);
-
-        File file = new File(dataPath + fileName + ".json");
-        mapper.writeValue(file, list);
+        mapper.writerFor(new TypeReference<List<T>>(){}).writeValue(file, list);
     }
 
     public static ArrayList<?> loadObjects(Class<?> cls) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
 
         File file = new File(dataPath + cls.getSimpleName() + ".json");
-        if (!file.exists() || file.length() == 0)
-            return null;
-        return mapper.readValue(file, CollectionsTypeFactory.listOf(cls));
-    }
-
-    public static ArrayList<?> loadObjects(Class<?> cls, String fileName) throws IOException {
-        ObjectMapper mapper = new ObjectMapper();
-
-        File file = new File(dataPath + fileName + ".json");
         if (!file.exists() || file.length() == 0)
             return null;
         return mapper.readValue(file, CollectionsTypeFactory.listOf(cls));
@@ -154,7 +125,7 @@ public class DataIO {
                 if (i == 0) {   // name
                     ctTcPr.addNewTcW().setW(BigInteger.valueOf(1000));
                     cell.getCTTc().addNewTcPr().addNewHMerge().setVal(STMerge.RESTART);
-                    cell.setText(grade.getCourse());
+                    cell.setText(grade.getCourseName());
                 }
                 if (i == 1) {   // credit
                     ctTcPr.addNewTcW().setW(BigInteger.valueOf(2000));
