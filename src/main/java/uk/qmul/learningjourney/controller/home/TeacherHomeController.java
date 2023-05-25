@@ -6,7 +6,7 @@ import uk.qmul.learningjourney.controller.BaseController;
 
 import java.io.IOException;
 
-public class TeacherController extends BaseController {
+public class TeacherHomeController extends BaseController {
 
     @FXML
     public void onCourseSchedule() {

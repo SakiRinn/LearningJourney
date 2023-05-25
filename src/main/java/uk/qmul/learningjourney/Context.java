@@ -68,7 +68,7 @@ public class Context {
 
     public static void toStudentHome() throws IOException {
         stage.close();
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("view/home/student-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("view/home/student-home-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         homeScene = scene;
         sceneStack.add(scene);
@@ -78,7 +78,7 @@ public class Context {
 
     public static void toTeacherHome() throws IOException {
         stage.close();
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("view/home/teacher-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("view/home/teacher-home-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         homeScene = scene;
         sceneStack.add(scene);

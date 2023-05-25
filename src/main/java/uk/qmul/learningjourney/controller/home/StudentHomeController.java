@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class StudentController extends BaseController {
+public class StudentHomeController extends BaseController {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
