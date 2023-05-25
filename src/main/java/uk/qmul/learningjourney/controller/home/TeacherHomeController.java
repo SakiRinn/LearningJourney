@@ -30,6 +30,12 @@ public class TeacherHomeController extends BaseController {
         }
     }
 
-
-
+    @FXML
+    public void toGradeCheckPage(MouseEvent event) {
+        try {
+            Context.toNextScene("view/grade/grade-check-view.fxml");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

@@ -1,7 +1,10 @@
 package uk.qmul.learningjourney.model.user;
 
 import uk.qmul.learningjourney.model.Achievement;
+import uk.qmul.learningjourney.model.Course;
+import uk.qmul.learningjourney.util.DataIO;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Student extends User {
@@ -80,5 +83,20 @@ public class Student extends User {
 
     public void setPosition(ArrayList<Achievement> achievement) {
         this.achievement = achievement;
+    }
+
+    public ArrayList<Course> getCourseList() {
+        ArrayList<Course> courses = new ArrayList<>();
+        for (String courseId : this.getCourses()) {
+            try {
+                for (Course course : (ArrayList<Course>) DataIO.loadObjects(Course.class)) {
+                    if (course.getId().equals(courseId))
+                        courses.add(course);
+                }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return courses;
     }
 }

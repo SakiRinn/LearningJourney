@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="uk.qmul.learningjourney.controller.grade.GradeCheckController"
-            prefHeight="400.0" prefWidth="600.0">
-    <fx:include source="../base-view.fxml"/>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.qmul.learningjourney.controller.grade.GradeCheckController">
+    <fx:include source="../base-view.fxml" />
+    <ComboBox fx:id="courseBox" layoutX="297.0" layoutY="116.0" prefWidth="150.0" promptText="Course" visibleRowCount="3" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="115.0" />
+    <TableView fx:id="table" layoutX="20.0" layoutY="6.0" prefHeight="200.0" prefWidth="400.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="200.0">
+        <columns>
+            <TableColumn editable="false" prefWidth="200.0" resizable="false" text="Course" />
+            <TableColumn prefWidth="100.0" resizable="false" text="Student" />
+            <TableColumn prefWidth="100.0" resizable="false" text="Score" />
+            <TableColumn prefWidth="100.0" resizable="false" text="GPA" />
+        </columns>
+    </TableView>
 </AnchorPane>

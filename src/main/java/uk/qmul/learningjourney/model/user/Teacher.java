@@ -1,7 +1,12 @@
 package uk.qmul.learningjourney.model.user;
 
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import uk.qmul.learningjourney.Context;
+import uk.qmul.learningjourney.model.Course;
+import uk.qmul.learningjourney.util.DataIO;
+import uk.qmul.learningjourney.util.GradeUtil;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Teacher extends User {
@@ -41,5 +46,20 @@ public class Teacher extends User {
 
     public void setCourses(ArrayList<String> courses) {
         this.courses = courses;
+    }
+
+    public ArrayList<Course> getCourseList() {
+        ArrayList<Course> courses = new ArrayList<>();
+        for (String courseId : this.getCourses()) {
+            try {
+                for (Course course : (ArrayList<Course>) DataIO.loadObjects(Course.class)) {
+                    if (course.getId().equals(courseId))
+                        courses.add(course);
+                }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return courses;
     }
 }

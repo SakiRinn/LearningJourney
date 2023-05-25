@@ -13,7 +13,7 @@
                     <Font size="16.0" />
                 </font>
             </Button>
-            <Button layoutX="85.0" layoutY="110.0" mnemonicParsing="false" prefWidth="165.0" text="Check Grades" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="80.0">
+            <Button layoutX="85.0" layoutY="110.0" mnemonicParsing="false" onMouseClicked="#toGradeCheckPage" prefWidth="165.0" text="Check Grades" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="80.0">
                 <font>
                     <Font size="16.0" />
                 </font>
