@@ -1,4 +1,4 @@
-package uk.qmul.learningjourney.controller;
+package uk.qmul.learningjourney.controller.user;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -8,13 +8,14 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import kotlin.NotImplementedError;
 import uk.qmul.learningjourney.Context;
+import uk.qmul.learningjourney.controller.BaseController;
 import uk.qmul.learningjourney.model.user.Student;
 import uk.qmul.learningjourney.model.user.Teacher;
 import uk.qmul.learningjourney.util.UserUtil;
 
 import java.io.IOException;
 
-public class RegisterController extends BaseController {
+public class UserRegisterController extends BaseController {
 
     @FXML
     private ComboBox<String> selectBox;
@@ -78,9 +79,12 @@ public class RegisterController extends BaseController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        registerButton.getStyleClass().add("success");
-        registerButton.setText("Registered!");
-        registerButton.setDisable(true);
+        Context.showInformation("Success to register a new student!");
+        try {
+            Context.toTeacherHome();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void registerTeacher() {
@@ -90,8 +94,11 @@ public class RegisterController extends BaseController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        registerButton.getStyleClass().add("success");
-        registerButton.setText("Registered!");
-        registerButton.setDisable(true);
+        Context.showInformation("Success to register a new teacher!");
+        try {
+            Context.toTeacherHome();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

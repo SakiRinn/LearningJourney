@@ -1,5 +1,6 @@
 package uk.qmul.learningjourney.model.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import uk.qmul.learningjourney.Context;
 import uk.qmul.learningjourney.model.Course;
@@ -48,6 +49,7 @@ public class Teacher extends User {
         this.courses = courses;
     }
 
+    @JsonIgnore
     public ArrayList<Course> getCourseList() {
         ArrayList<Course> courses = new ArrayList<>();
         for (String courseId : this.getCourses()) {

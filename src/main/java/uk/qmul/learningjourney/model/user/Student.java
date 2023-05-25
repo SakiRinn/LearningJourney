@@ -1,5 +1,6 @@
 package uk.qmul.learningjourney.model.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import uk.qmul.learningjourney.model.Achievement;
 import uk.qmul.learningjourney.model.Course;
 import uk.qmul.learningjourney.util.DataIO;
@@ -85,6 +86,7 @@ public class Student extends User {
         this.achievement = achievement;
     }
 
+    @JsonIgnore
     public ArrayList<Course> getCourseList() {
         ArrayList<Course> courses = new ArrayList<>();
         for (String courseId : this.getCourses()) {

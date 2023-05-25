@@ -1,5 +1,6 @@
 package uk.qmul.learningjourney.model.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
@@ -48,5 +49,15 @@ public abstract class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @JsonIgnore
+    public String getType() {
+        return this.getClass().getSimpleName();
+    }
+
+    @Override
+    public String toString() {
+        return name + " (" + id + ")";
     }
 }

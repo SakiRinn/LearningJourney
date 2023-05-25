@@ -30,9 +30,9 @@
                    AnchorPane.topAnchor="0.0">
             <columns>
                 <TableColumn editable="false" prefWidth="192" resizable="false" text="Course"/>
-                <TableColumn prefWidth="85" resizable="false" text="Credit"/>
-                <TableColumn prefWidth="85" resizable="false" text="Score"/>
-                <TableColumn prefWidth="85" resizable="false" text="GPA"/>
+                <TableColumn editable="false" prefWidth="85" resizable="false" text="Credit"/>
+                <TableColumn editable="false" prefWidth="85" resizable="false" text="Score"/>
+                <TableColumn editable="false" prefWidth="85" resizable="false" text="GPA"/>
             </columns>
         </TableView>
 

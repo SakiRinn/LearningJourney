@@ -9,9 +9,9 @@
     <TableView fx:id="table" layoutX="20.0" layoutY="6.0" prefHeight="200.0" prefWidth="400.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="200.0">
         <columns>
             <TableColumn editable="false" prefWidth="200.0" resizable="false" text="Course" />
-            <TableColumn prefWidth="100.0" resizable="false" text="Student" />
-            <TableColumn prefWidth="100.0" resizable="false" text="Score" />
-            <TableColumn prefWidth="100.0" resizable="false" text="GPA" />
+            <TableColumn editable="false" prefWidth="100.0" resizable="false" text="Student" />
+            <TableColumn editable="false" prefWidth="100.0" resizable="false" text="Score" />
+            <TableColumn editable="false" prefWidth="100.0" resizable="false" text="GPA" />
         </columns>
     </TableView>
 </AnchorPane>

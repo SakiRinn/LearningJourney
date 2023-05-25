@@ -71,4 +71,11 @@
   "password" : "123456",
   "courses" : [ "EBU6304", "EBU6230" ],
   "admin" : true
+}, {
+  "type" : "Teacher",
+  "id" : "2010213172",
+  "name" : "Mona JABER",
+  "password" : "123456",
+  "courses" : [ "EBC5001" ],
+  "admin" : false
 } ]

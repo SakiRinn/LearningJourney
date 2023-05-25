@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.qmul.learningjourney.controller.user.UserManagementController">
+    <fx:include source="../base-view.fxml" />
+    <TableView fx:id="table" layoutX="20.0" layoutY="6.0" prefHeight="200.0" prefWidth="400.0" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="275.0" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="180.0">
+        <columns>
+         <TableColumn editable="false" prefWidth="75.0" resizable="false" text="Type" />
+            <TableColumn editable="false" prefWidth="100.0" resizable="false" text="ID" />
+            <TableColumn editable="false" prefWidth="120.0" resizable="false" text="Name" />
+            <TableColumn editable="false" prefWidth="150.0" resizable="false" text="Password" />
+        </columns>
+    </TableView>
+   <ComboBox fx:id="choiceBox" prefWidth="150.0" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="275.0" />
+   <Button mnemonicParsing="false" onMouseClicked="#deleteUser" text="Delete" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="450.0" />
+   <Separator orientation="VERTICAL" prefHeight="45.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="525.0" />
+   <Button mnemonicParsing="false" onMousePressed="#toUserRegisterPage" text="Register" AnchorPane.bottomAnchor="35.0" AnchorPane.rightAnchor="150.0" />
+</AnchorPane>
