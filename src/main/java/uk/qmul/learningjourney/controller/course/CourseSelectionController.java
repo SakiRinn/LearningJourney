@@ -6,13 +6,11 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
 import uk.qmul.learningjourney.controller.BaseController;
-import uk.qmul.learningjourney.util.CourseUtil;
 import uk.qmul.learningjourney.model.Course;
+import uk.qmul.learningjourney.util.CourseUtil;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.ResourceBundle;
 
 public class CourseSelectionController extends BaseController {
 
@@ -21,7 +19,7 @@ public class CourseSelectionController extends BaseController {
     private ArrayList<RowConstraints> rowConstraints;
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize() {
         addRow();
     }
 

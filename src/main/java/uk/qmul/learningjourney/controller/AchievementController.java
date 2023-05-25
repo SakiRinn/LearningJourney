@@ -9,19 +9,17 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import uk.qmul.learningjourney.Context;
-import uk.qmul.learningjourney.model.Position;
+import uk.qmul.learningjourney.model.Achievement;
 import uk.qmul.learningjourney.model.user.Student;
 import uk.qmul.learningjourney.util.DataIO;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.ResourceBundle;
 
 
-public class PositionController extends BaseController {
+public class AchievementController extends BaseController {
 
     public Button export;
     @FXML
@@ -31,9 +29,9 @@ public class PositionController extends BaseController {
     @FXML
     private AnchorPane extracuri;
     @FXML
-    private TableView<Position> acTable;
+    private TableView<Achievement> acTable;
     @FXML
-    private TableView<Position> exTable;
+    private TableView<Achievement> exTable;
 
     public Boolean isEarlytoLatest = false;
 
@@ -57,42 +55,42 @@ public class PositionController extends BaseController {
     @FXML
     private void sortPosition(ActionEvent event) {
         Student student = (Student) Context.user;
-        ArrayList<Position> allPos = student.getPosition();
-        ArrayList<Position> posNotCre = new ArrayList<>();
-        ArrayList<Position> posCredit = new ArrayList<>();
+        ArrayList<Achievement> allPos = student.getPosition();
+        ArrayList<Achievement> posNotCre = new ArrayList<>();
+        ArrayList<Achievement> posCredit = new ArrayList<>();
         if (allPos != null) {
-            for (Position tempPos : allPos) {
+            for (Achievement tempPos : allPos) {
                 if (tempPos.getIsCreditable() == true)
                     posCredit.add(tempPos);
                 else
                     posNotCre.add(tempPos);
             }
         }
-        if(isEarlytoLatest){
-            Collections.sort(posCredit,new Comparator<Position>(){
+        if (isEarlytoLatest) {
+            Collections.sort(posCredit, new Comparator<Achievement>() {
                 @Override
-                public int compare(Position p1, Position p2){
+                public int compare(Achievement p1, Achievement p2) {
                     return p1.date.compareTo(p2.date);
                 }
             });
-            Collections.sort(posNotCre,new Comparator<Position>(){
+            Collections.sort(posNotCre, new Comparator<Achievement>() {
                 @Override
-                public int compare(Position p1, Position p2){
+                public int compare(Achievement p1, Achievement p2) {
                     return p1.date.compareTo(p2.date);
                 }
             });
             isEarlytoLatest = false;
         }
         else{
-            Collections.sort(posCredit,new Comparator<Position>(){
+            Collections.sort(posCredit, new Comparator<Achievement>() {
                 @Override
-                public int compare(Position p1, Position p2){
+                public int compare(Achievement p1, Achievement p2) {
                     return p2.date.compareTo(p1.date);
                 }
             });
-            Collections.sort(posNotCre,new Comparator<Position>(){
+            Collections.sort(posNotCre, new Comparator<Achievement>() {
                 @Override
-                public int compare(Position p1, Position p2){
+                public int compare(Achievement p1, Achievement p2) {
                     return p2.date.compareTo(p1.date);
                 }
             });
@@ -124,20 +122,20 @@ public class PositionController extends BaseController {
 
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize() {
         Student student = (Student) Context.user;
-        ArrayList<Position> allPos = student.getPosition();
-        ArrayList<Position> posNotCre = new ArrayList<>();
-        ArrayList<Position> posCredit = new ArrayList<>();
+        ArrayList<Achievement> allPos = student.getPosition();
+        ArrayList<Achievement> posNotCre = new ArrayList<>();
+        ArrayList<Achievement> posCredit = new ArrayList<>();
         if (allPos != null) {
-            for (Position tempPos : allPos) {
+            for (Achievement tempPos : allPos) {
                 if (tempPos.getIsCreditable())
                     posCredit.add(tempPos);
                 else
                     posNotCre.add(tempPos);
             }
         }
-        if (posCredit!= null) {
+        if (posCredit != null) {
             acTable.getItems().setAll(posCredit);
             acTable.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("name"));
             acTable.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("date"));

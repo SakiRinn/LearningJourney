@@ -7,6 +7,9 @@ import uk.qmul.learningjourney.controller.BaseController;
 import java.io.IOException;
 
 public class TeacherHomeController extends BaseController {
+    @Override
+    public void initialize() {
+    }
 
     @FXML
     public void onCourseSchedule() {
@@ -16,4 +19,5 @@ public class TeacherHomeController extends BaseController {
             throw new RuntimeException(ex);
         }
     }
+
 }

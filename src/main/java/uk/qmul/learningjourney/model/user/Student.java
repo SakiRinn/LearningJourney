@@ -1,7 +1,6 @@
 package uk.qmul.learningjourney.model.user;
 
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import uk.qmul.learningjourney.model.Position;
+import uk.qmul.learningjourney.model.Achievement;
 
 import java.util.ArrayList;
 
@@ -12,7 +11,7 @@ public class Student extends User {
     private String classId;
 
     private ArrayList<String> courses;
-    private ArrayList<Position> position;
+    private ArrayList<Achievement> achievement;
 
     public Student() {
         super();
@@ -20,17 +19,17 @@ public class Student extends User {
         this.major = null;
         this.classId = null;
         this.courses = null;
-        this.position = null;
+        this.achievement = null;
     }
 
     public Student(String id, String name, String password, String college, String major,
-                   String classId, ArrayList<String> courses, ArrayList<Position> position) {
+                   String classId, ArrayList<String> courses, ArrayList<Achievement> achievement) {
         super(id, name, password);
         this.college = college;
         this.major = major;
         this.classId = classId;
         this.courses = courses;
-        this.position = position;
+        this.achievement = achievement;
     }
 
     public Student(String id, String name, String password,
@@ -40,7 +39,7 @@ public class Student extends User {
         this.major = major;
         this.classId = classId;
         this.courses = new ArrayList<>();
-        this.position = new ArrayList<>();
+        this.achievement = new ArrayList<>();
     }
 
     public String getCollege() {
@@ -75,11 +74,11 @@ public class Student extends User {
         this.courses = courses;
     }
 
-    public ArrayList<Position> getPosition() {
-        return position;
+    public ArrayList<Achievement> getPosition() {
+        return achievement;
     }
 
-    public void setPosition(ArrayList<Position> position) {
-        this.position = position;
+    public void setPosition(ArrayList<Achievement> achievement) {
+        this.achievement = achievement;
     }
 }

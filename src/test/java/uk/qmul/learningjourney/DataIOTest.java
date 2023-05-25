@@ -2,11 +2,10 @@ package uk.qmul.learningjourney;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import uk.qmul.learningjourney.model.Achievement;
 import uk.qmul.learningjourney.model.Course;
-import uk.qmul.learningjourney.model.Position;
 import uk.qmul.learningjourney.model.user.Student;
 import uk.qmul.learningjourney.model.user.Teacher;
 import uk.qmul.learningjourney.util.DataIO;
@@ -17,7 +16,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 
 class DataIOTest {
 
@@ -25,21 +23,21 @@ class DataIOTest {
     void generateStudents() throws IOException {
         ArrayList<String> courses = new ArrayList<>();
         courses.add("EBU6304");
-        ArrayList<Position> position = new ArrayList<>();
-        Position position1 = new Position("4th International Conference of Nanton Impart", "2020-12-12", true);
-        Position position2 = new Position("Supreme radiant star on king's pesticide", "2023-1-1", false);
-        Position position3 = new Position("Drawf Technology Award for Compressed towel","2023-2-2",true);
-        position.add(position1);
+        ArrayList<Achievement> achievement = new ArrayList<>();
+        Achievement achievement1 = new Achievement("4th International Conference of Nanton Impart", "2020-12-12", true);
+        Achievement achievement2 = new Achievement("Supreme radiant star on king's pesticide", "2023-1-1", false);
+        Achievement achievement3 = new Achievement("Drawf Technology Award for Compressed towel", "2023-2-2", true);
+        achievement.add(achievement1);
         Student student1 = new Student("2020213171", "Wu Lyuhua", "123456",
-                "International School", "Telecommunication and management", "2020215105", courses, position);
+                "International School", "Telecommunication and management", "2020215105", courses, achievement);
         courses.add("EBC5001");
-        position.add(position2);
+        achievement.add(achievement2);
         Student student2 = new Student("2020213160", "Huang Xiyuan", "123456",
-                "International School", "Telecommunication and management", "2020215105", courses, position);
+                "International School", "Telecommunication and management", "2020215105", courses, achievement);
         courses.add("EBU6230");
-        position.add(position3);
+        achievement.add(achievement3);
         Student student3 = new Student("2020213156", "Liu Zekai", "123456",
-                "International School", "Telecommunication and management", "2020215105", courses, position);
+                "International School", "Telecommunication and management", "2020215105", courses, achievement);
 
         UserUtil.saveUser(student1);
         UserUtil.saveUser(student2);

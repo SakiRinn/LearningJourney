@@ -5,13 +5,11 @@ import uk.qmul.learningjourney.Context;
 import uk.qmul.learningjourney.controller.BaseController;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class StudentHomeController extends BaseController {
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize() {
     }
 
     @FXML
@@ -26,7 +24,7 @@ public class StudentHomeController extends BaseController {
     @FXML
     public void onAchievement() {
         try {
-            Context.toNextScene("view/position-view.fxml");
+            Context.toNextScene("view/achievement-view.fxml");
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }

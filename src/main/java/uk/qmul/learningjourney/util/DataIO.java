@@ -13,9 +13,9 @@ import fr.opensagres.xdocreport.template.TemplateEngineKind;
 import org.apache.poi.xwpf.usermodel.*;
 import org.openxmlformats.schemas.wordprocessingml.x2006.main.*;
 import uk.qmul.learningjourney.MainApplication;
+import uk.qmul.learningjourney.model.Achievement;
 import uk.qmul.learningjourney.model.Course;
 import uk.qmul.learningjourney.model.Grade;
-import uk.qmul.learningjourney.model.Position;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -150,7 +150,7 @@ public class DataIO {
         fos.close();
     }
 
-    public static void exportAchievement(ArrayList<Position> positions, String name) throws IOException {
+    public static void exportAchievement(ArrayList<Achievement> achievements, String name) throws IOException {
         //Creating Word Document Objects
         XWPFDocument document = new XWPFDocument();
 
@@ -162,7 +162,7 @@ public class DataIO {
         setCellText(table.getRow(0).getCell(1), "DATE", 2000);
         setCellText(table.getRow(0).getCell(2), "Credit", 2000);
         int j = 0;
-        for (Position position : positions) {
+        for (Achievement achievement : achievements) {
             //This is the addition in the table, which row is it added to
             XWPFTableRow row = table.insertNewTableRow(j + 1);
             //Set Cell Height
@@ -175,17 +175,17 @@ public class DataIO {
                 if (i == 0) {//name
                     ctTcPr.addNewTcW().setW(BigInteger.valueOf(1000));
                     cell.getCTTc().addNewTcPr().addNewHMerge().setVal(STMerge.RESTART);
-                    cell.setText(position.getName());
+                    cell.setText(achievement.getName());
                 }
                 if (i == 1) {  //date
                     ctTcPr.addNewTcW().setW(BigInteger.valueOf(2000));
                     cell.getCTTc().addNewTcPr().addNewHMerge().setVal(STMerge.RESTART);
-                    cell.setText(position.getDate());
+                    cell.setText(achievement.getDate());
                 }
                 if (i == 2) {  //?
                     ctTcPr.addNewTcW().setW(BigInteger.valueOf(2000));
                     cell.getCTTc().addNewTcPr().addNewHMerge().setVal(STMerge.RESTART);
-                    cell.setText(position.getIsCreditable().toString());
+                    cell.setText(achievement.getIsCreditable().toString());
                 }
             }
             j++;

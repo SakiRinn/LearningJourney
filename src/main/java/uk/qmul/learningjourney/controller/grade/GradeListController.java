@@ -14,8 +14,6 @@ import uk.qmul.learningjourney.util.DataIO;
 import uk.qmul.learningjourney.util.GradeUtil;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class GradeListController extends BaseController {
 
@@ -24,7 +22,7 @@ public class GradeListController extends BaseController {
     private TableView<Grade> table;
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize() {
         ObservableList<Grade> gradeList = null;
         gradeList = FXCollections.observableArrayList(GradeUtil.getGrades());
         table.getItems().setAll(gradeList);

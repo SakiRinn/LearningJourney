@@ -8,8 +8,6 @@ import uk.qmul.learningjourney.controller.BaseController;
 import uk.qmul.learningjourney.util.GradeUtil;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class GradeController extends BaseController {
 
@@ -17,7 +15,7 @@ public class GradeController extends BaseController {
     private Label gpa;
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize() {
         gpa.setText(Double.valueOf(GradeUtil.getWeightedGPA()).toString());
     }
 

@@ -4,9 +4,9 @@
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="800.0"
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" styleClass="accent"
             xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="uk.qmul.learningjourney.controller.PositionController">
+            fx:controller="uk.qmul.learningjourney.controller.AchievementController">
 
     <fx:include source="base-view.fxml"/>
     <GridPane alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
@@ -36,7 +36,7 @@
                     <Glow/>
                 </effect>
                 <font>
-                    <Font size="14.0"/>
+                    <Font name="System Bold" size="14.0"/>
                 </font>
             </Button>
             <Button fx:id="positionButton" onAction="#switchToPosition" prefHeight="40.0" prefWidth="100.0"
@@ -45,16 +45,16 @@
                     <Glow/>
                 </effect>
                 <font>
-                    <Font size="14.0"/>
+                    <Font name="System Bold" size="14.0"/>
                 </font>
             </Button>
-            <Button fx:id="export" onAction="#exportPosition" prefHeight="40.0" prefWidth="100.0" text="Export"
-                    GridPane.columnIndex="3">
+            <Button fx:id="export" onAction="#exportPosition" prefHeight="40.0" prefWidth="100.0" styleClass="accent"
+                    text="Export" GridPane.columnIndex="3">
                 <effect>
                     <Glow/>
                 </effect>
                 <font>
-                    <Font size="14.0"/>
+                    <Font name="System Bold" size="14.0"/>
                 </font>
             </Button>
         </children>

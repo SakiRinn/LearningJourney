@@ -12,7 +12,6 @@ import uk.qmul.learningjourney.util.DataIO;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Stack;
 
 public class Context {
@@ -21,7 +20,6 @@ public class Context {
     public static Scene homeScene;
     public static User user;
 
-    public static HashMap<String, Object> controllers = new HashMap<>();
     public static Stack<Scene> sceneStack = new Stack<>();
 
     public static void initialize(Stage stage) throws IOException {
@@ -31,7 +29,7 @@ public class Context {
         Scene scene = new Scene(fxmlLoader.load(), 720, 449);
         stage.setScene(scene);
         stage.setTitle("QM+ Log in ");
-        stage.setResizable(false);      //登录窗口的大小不允许改变
+        stage.setResizable(false);
         stage.show();
     }
 

@@ -8,27 +8,27 @@
             fx:controller="uk.qmul.learningjourney.controller.home.TeacherHomeController">
     <fx:include source="../base-view.fxml"/>
     <AnchorPane layoutX="281.0" layoutY="175.0" prefHeight="300.0" prefWidth="475.0" AnchorPane.bottomAnchor="30.0"
-                AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="180.0">
+                AnchorPane.leftAnchor="240.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="180.0">
         <children>
-            <Button mnemonicParsing="false" onContextMenuRequested="#onCourseSchedule" prefWidth="160.0"
-                    text="Course Schedule" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="80.0">
+            <Button mnemonicParsing="false" onAction="#onCourseSchedule" onContextMenuRequested="#onCourseSchedule"
+                    prefWidth="165.0" text="Course Schedule" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="80.0">
                 <font>
                     <Font size="16.0"/>
                 </font>
             </Button>
-            <Button layoutX="85.0" layoutY="110.0" mnemonicParsing="false" prefWidth="160.0" text="Check Grades"
+            <Button layoutX="85.0" layoutY="110.0" mnemonicParsing="false" prefWidth="165.0" text="Check Grades"
                     AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="80.0">
                 <font>
                     <Font size="16.0"/>
                 </font>
             </Button>
-            <Button layoutX="85.0" layoutY="110.0" mnemonicParsing="false" prefWidth="160.0" text="Manage Users"
+            <Button layoutX="85.0" layoutY="110.0" mnemonicParsing="false" prefWidth="165.0" text="Manage Users"
                     AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="60.0">
                 <font>
                     <Font size="16.0"/>
                 </font>
             </Button>
-            <Button layoutX="95.0" layoutY="186.0" mnemonicParsing="false" prefWidth="160.0" text="Manage Courses"
+            <Button layoutX="95.0" layoutY="186.0" mnemonicParsing="false" prefWidth="165.0" text="Manage Courses"
                     AnchorPane.bottomAnchor="80.0" AnchorPane.rightAnchor="60.0">
                 <font>
                     <Font size="16.0"/>

@@ -7,31 +7,35 @@
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="uk.qmul.learningjourney.controller.home.StudentHomeController">
     <fx:include source="../base-view.fxml"/>
-    <Button fx:id="gradeButton" layoutX="364.0" layoutY="218.0" mnemonicParsing="false" onAction="#onGrade"
-            prefHeight="40.0" prefWidth="160.0" text="Grade" AnchorPane.leftAnchor="320.0" AnchorPane.topAnchor="240.0">
-        <font>
-            <Font name="Berlin Sans FB" size="20.0"/>
-        </font>
-    </Button>
-    <Button fx:id="achievementButton" layoutX="568.0" layoutY="218.0" mnemonicParsing="false" onAction="#onAchievement"
-            prefHeight="40.0" prefWidth="160.0" text="Achievement" AnchorPane.rightAnchor="100.0"
-            AnchorPane.topAnchor="240.0">
-        <font>
-            <Font name="Berlin Sans FB" size="20.0"/>
-        </font>
-    </Button>
-    <Button fx:id="courseScheduleButton" layoutX="364.0" layoutY="346.0" mnemonicParsing="false"
-            onAction="#onCourseSchedule" prefHeight="40.0" prefWidth="160.0" text="Course Schedule"
-            AnchorPane.bottomAnchor="120.0" AnchorPane.leftAnchor="320.0">
-        <font>
-            <Font name="Berlin Sans FB" size="18.0"/>
-        </font>
-    </Button>
-    <Button fx:id="courseSelectionButton" layoutX="568.0" layoutY="346.0" mnemonicParsing="false"
-            onAction="#onCourseSelection" prefHeight="40.0" prefWidth="160.0" text="Course Selection"
-            AnchorPane.bottomAnchor="120.0" AnchorPane.rightAnchor="100.0">
-        <font>
-            <Font name="Berlin Sans FB" size="18.0"/>
-        </font>
-    </Button>
+    <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="240.0"
+                AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="180.0">
+        <children>
+            <Button fx:id="gradeButton" mnemonicParsing="false" onAction="#onGrade" prefHeight="40.0" prefWidth="165.0"
+                    text="Grade" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="80.0">
+                <font>
+                    <Font size="16.0"/>
+                </font>
+            </Button>
+            <Button fx:id="achievementButton" mnemonicParsing="false" onAction="#onAchievement" prefHeight="40.0"
+                    prefWidth="165.0" text="Achievement" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="80.0">
+                <font>
+                    <Font size="16.0"/>
+                </font>
+            </Button>
+            <Button fx:id="courseScheduleButton" mnemonicParsing="false" onAction="#onCourseSchedule" prefHeight="40.0"
+                    prefWidth="165.0" text="Course Schedule" AnchorPane.bottomAnchor="80.0"
+                    AnchorPane.leftAnchor="60.0">
+                <font>
+                    <Font size="16.0"/>
+                </font>
+            </Button>
+            <Button fx:id="courseSelectionButton" mnemonicParsing="false" onAction="#onCourseSelection"
+                    prefHeight="40.0" prefWidth="165.0" text="Course Selection" AnchorPane.bottomAnchor="80.0"
+                    AnchorPane.rightAnchor="60.0">
+                <font>
+                    <Font name="Berlin Sans FB" size="16.0"/>
+                </font>
+            </Button>
+        </children>
+    </AnchorPane>
 </AnchorPane>
