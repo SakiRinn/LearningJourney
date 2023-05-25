@@ -29,7 +29,7 @@ public class CourseScheduleController extends BaseController {
     @FXML
     private Button exportButton;
     @FXML
-    GridPane gridPane;
+    private GridPane gridPane;
 
     private int currentWeek;
     private final ArrayList<String> weeks = new ArrayList<>();

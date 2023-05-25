@@ -21,9 +21,9 @@ public class Teacher extends User {
         this.courses = courses;
     }
 
-    public Teacher(String id, String name, String password) {
+    public Teacher(String id, String name, String password, boolean isAdmin) {
         super(id, name, password);
-        this.isAdmin = false;
+        this.isAdmin = isAdmin;
         this.courses = new ArrayList<>();
     }
 

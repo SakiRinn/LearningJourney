@@ -125,4 +125,14 @@ public class Context {
             }
         });
     }
+
+    public static boolean showConfirmation(String message) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+
+        ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
+        return result == ButtonType.OK;
+    }
 }

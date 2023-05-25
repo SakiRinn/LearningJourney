@@ -21,7 +21,8 @@ import java.util.Comparator;
 
 public class AchievementController extends BaseController {
 
-    public Button export;
+    @FXML
+    private Button export;
     @FXML
     private StackPane pages;
     @FXML

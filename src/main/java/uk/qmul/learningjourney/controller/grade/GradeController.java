@@ -20,7 +20,7 @@ public class GradeController extends BaseController {
     }
 
     @FXML
-    public void toCheckPage(MouseEvent event) {
+    public void toListPage(MouseEvent event) {
         try {
             Context.toNextScene("view/grade/grade-list-view.fxml");
         } catch (IOException e) {

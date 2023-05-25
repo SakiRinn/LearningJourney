@@ -14,8 +14,9 @@ import java.io.IOException;
 public class LoginController {
 
     @FXML
-    public TextField t_num;
-    public TextField p_pswd;
+    private TextField t_num;
+    @FXML
+    private TextField p_pswd;
 
     //清除事件
     @FXML

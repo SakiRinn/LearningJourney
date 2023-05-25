@@ -17,7 +17,8 @@ import java.io.IOException;
 
 public class GradeListController extends BaseController {
 
-    public Button exportButton;
+    @FXML
+    private Button exportButton;
     @FXML
     private TableView<Grade> table;
 
