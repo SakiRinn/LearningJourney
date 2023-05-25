@@ -7,10 +7,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import uk.qmul.learningjourney.Context;
-import uk.qmul.learningjourney.MainApplication;
 import uk.qmul.learningjourney.controller.BaseController;
 import uk.qmul.learningjourney.model.Course;
 import uk.qmul.learningjourney.model.user.Student;
@@ -22,27 +20,51 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 
+/**
+ * @author Zekai Liu
+ * @date 2023/05/25
+ */
 public class CourseScheduleController extends BaseController {
 
+    /**
+     * A ComboBox for selecting week
+     */
     @FXML
     private ComboBox<String> comboBox;
+    /**
+     * Export button
+     */
     @FXML
     private Button exportButton;
+    /**
+     * The GridPane showing schedule
+     */
     @FXML
     private GridPane gridPane;
 
+    /**
+     * Indicate the current week in schedule
+     */
     private int currentWeek;
+    /**
+     *
+     */
     private final ArrayList<String> weeks = new ArrayList<>();
+    /**
+     * Labels to show course information
+     */
     private ArrayList<Label> labels = new ArrayList<>();
 
 
     @Override
     public void initialize() {
         setComboBox();
-        setExportButton();
         changeSchedule(0);
     }
 
+    /**
+     * set the ComboBox
+     */
     @FXML
     public void setComboBox() {
         setWeeks();
@@ -54,31 +76,37 @@ public class CourseScheduleController extends BaseController {
         });
     }
 
+    /**
+     *
+     */
     private void setWeeks() {
         for (int i = 1; i <= 18; i++) {
             weeks.add("Week " + i);
         }
     }
 
-    public void setExportButton() {
-        ImageView img = new ImageView(MainApplication.class.getResource("image/export-icon.png").toString());
-        img.setFitHeight(18);
-        img.setFitWidth(18);
-        exportButton.setGraphic(img);
-        exportButton.setText("Export");
-        exportButton.setOnAction(event -> {
-            Student student = (Student) Context.user;
-            try {
-                DataIO.exportSchedule(student.getName(), currentWeek, student.getCourses());
-            } catch (IOException | XDocReportException e) {
-                throw new RuntimeException(e);
-            }
-            exportButton.getStyleClass().add("success");
-            exportButton.setText("Exported!");
-            exportButton.setDisable(true);
-        });
+    /**
+     * Set the export button
+     */
+    @FXML
+    public void onExport() {
+
+        Student student = (Student) Context.user;
+        try {
+            DataIO.exportSchedule(student.getName(), currentWeek, student.getCourses());
+        } catch (IOException | XDocReportException e) {
+            throw new RuntimeException(e);
+        }
+        exportButton.getStyleClass().add("success");
+        exportButton.setText("Exported!");
+        exportButton.setDisable(true);
     }
 
+    /**
+     * Change schedule to a given week
+     *
+     * @param index week - 1
+     */
     public void changeSchedule(int index) {
         ArrayList<String> courses = new ArrayList<>();
         if (Context.user instanceof Student)
@@ -114,6 +142,9 @@ public class CourseScheduleController extends BaseController {
         }
     }
 
+    /**
+     * Clear all added labels in the gridPane
+     */
     public void clearPane() {
         gridPane.getChildren().removeAll(labels);
     }

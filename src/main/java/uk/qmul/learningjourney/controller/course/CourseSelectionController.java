@@ -4,7 +4,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.RowConstraints;
 import uk.qmul.learningjourney.controller.BaseController;
 import uk.qmul.learningjourney.model.Course;
 import uk.qmul.learningjourney.util.CourseUtil;
@@ -16,7 +15,6 @@ public class CourseSelectionController extends BaseController {
 
     @FXML
     private GridPane gridPane;
-    private ArrayList<RowConstraints> rowConstraints;
 
     @Override
     public void initialize() {

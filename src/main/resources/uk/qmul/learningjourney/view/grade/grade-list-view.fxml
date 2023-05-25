@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-
 <AnchorPane prefHeight="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="uk.qmul.learningjourney.controller.grade.GradeListController">
     <fx:include source="../base-view.fxml"/>
@@ -16,6 +17,13 @@
             <font>
                 <Font name="Berlin Sans FB" size="15.0"/>
             </font>
+            <graphic>
+                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../image/export-icon.png"/>
+                    </image>
+                </ImageView>
+            </graphic>
         </Button>
         <TableView fx:id="table" layoutX="20.0" layoutY="6.0" prefHeight="200.0" prefWidth="400.0"
                    AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0"

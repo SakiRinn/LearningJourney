@@ -35,6 +35,13 @@
                <font>
                   <Font size="16.0"/>
                </font>
+               <graphic>
+                  <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/login-icon.png"/>
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
             <Button fx:id="clear" layoutX="50.0" layoutY="115.0" mnemonicParsing="false" onAction="#onClear"
                     styleClass="rounded" text="Clear">

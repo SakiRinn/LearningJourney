@@ -1,23 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.qmul.learningjourney.controller.BaseController">
+<?import java.lang.String?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0"
+            prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="uk.qmul.learningjourney.controller.BaseController">
     <children>
-        <AnchorPane prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #0D3273;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <AnchorPane prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #0D3273;"
+                    AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <ImageView fitHeight="40.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="30.0">
+                <ImageView fitHeight="40.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="25.0"
+                           AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="30.0">
                     <image>
-                        <Image url="@../image/qm-logo.png" />
+                        <Image url="@../image/qm-logo.png"/>
                     </image>
                 </ImageView>
-                <Label alignment="CENTER" prefHeight="25.0" text="The Online Learning Environment for QM" textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="0.0">
+                <Label alignment="CENTER" prefHeight="25.0" text="The Online Learning Environment for QM"
+                       textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="0.0"
+                       AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="0.0">
                     <font>
                         <Font name="Calibri Bold" size="22.0" />
                     </font>
@@ -29,25 +34,41 @@
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0e337380" height="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="800.0" AnchorPane.topAnchor="45.0" />
                 <HBox alignment="CENTER_LEFT" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                     <children>
-                        <Button fx:id="homeButton" mnemonicParsing="false" prefHeight="30.0" styleClass="rounded" text="Home">
+                        <Button fx:id="homeButton" mnemonicParsing="false" onAction="#onHome" prefHeight="30.0"
+                                styleClass="rounded" text="Home">
                             <HBox.margin>
-                                <Insets left="10.0" right="10.0" />
+                                <Insets left="10.0" right="10.0"/>
                             </HBox.margin>
                             <font>
-                                <Font name="Berlin Sans FB" size="16.0" />
+                                <Font name="Berlin Sans FB" size="16.0"/>
                             </font>
+                            <graphic>
+                                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../image/home-icon.png"/>
+                                    </image>
+                                </ImageView>
+                            </graphic>
                         </Button>
-                        <Button fx:id="backButton" mnemonicParsing="false" prefWidth="20.0" textAlignment="CENTER">
+                        <Button fx:id="backButton" mnemonicParsing="false" onAction="#onBack" prefHeight="20.0"
+                                prefWidth="20.0" textAlignment="CENTER">
                             <HBox.margin>
-                                <Insets left="10.0" right="10.0" />
+                                <Insets left="10.0" right="10.0"/>
                             </HBox.margin>
                             <font>
-                                <Font name="Calibri Bold" size="16.0" />
+                                <Font name="Calibri Bold" size="16.0"/>
                             </font>
                             <styleClass>
-                                <String fx:value="rounded" />
-                                <String fx:value="button-icon" />
+                                <String fx:value="rounded"/>
+                                <String fx:value="button-icon"/>
                             </styleClass>
+                            <graphic>
+                                <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../image/back-icon.png"/>
+                                    </image>
+                                </ImageView>
+                            </graphic>
                         </Button>
                     </children>
                 </HBox>
@@ -113,13 +134,30 @@
                         <Label fx:id="collegeLabel" alignment="CENTER" prefHeight="24.5" prefWidth="139.5" text="/" textAlignment="CENTER" />
                     </children>
                 </Pane>
-                <Pane layoutX="70.0" layoutY="60.0" prefHeight="25.0" prefWidth="140.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="75.0">
+                <Pane layoutX="70.0" layoutY="60.0" prefHeight="25.0" prefWidth="140.0" AnchorPane.rightAnchor="0.0"
+                      AnchorPane.topAnchor="75.0">
                     <children>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="24.5" stroke="BLACK" strokeType="INSIDE" width="139.5" />
-                        <Label fx:id="majorLabel" alignment="CENTER" prefHeight="24.5" prefWidth="139.5" text="/" textAlignment="CENTER" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="24.5" stroke="BLACK"
+                                   strokeType="INSIDE" width="139.5"/>
+                        <Label fx:id="majorLabel" alignment="CENTER" prefHeight="24.5" prefWidth="139.5" text="/"
+                               textAlignment="CENTER"/>
                     </children>
                 </Pane>
             </children>
         </AnchorPane>
+        <Button fx:id="logoutButton" layoutX="83.0" layoutY="431.0" mnemonicParsing="false" onAction="#onLogout"
+                prefHeight="30.0" prefWidth="120.0" styleClass="accent" text="Logout" AnchorPane.bottomAnchor="80.0"
+                AnchorPane.leftAnchor="20.0">
+            <font>
+                <Font name="System Bold" size="16.0"/>
+            </font>
+            <graphic>
+                <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../image/logout-icon.png"/>
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
     </children>
 </AnchorPane>

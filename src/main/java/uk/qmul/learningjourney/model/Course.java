@@ -2,16 +2,55 @@ package uk.qmul.learningjourney.model;
 
 import java.util.HashMap;
 
+/**
+ * Define the Course entity
+ *
+ * @author Zekai Liu
+ * @date 2023/05/25
+ */
 public class Course {
+    /**
+     * course name
+     */
     private String name;
+    /**
+     * course ID
+     */
     private String id;
+    /**
+     * lecturer
+     */
     private String teacher;
+    /**
+     * course type
+     */
     private int type;
+    /**
+     * course level
+     */
     private int level = 0;
+    /**
+     * course credit
+     */
     private double credit;
+    /**
+     * classroom
+     */
     private String room;
+    /**
+     * the semester that the course if offered
+     */
     private int semester;
 
+    /**
+     * course schedule
+     * <p>
+     * <strong>key</strong>: week
+     * <p>
+     * <strong>value</strong>: class time in that week, since there are five working days in a week,
+     * each day has no more than 14 lessons,
+     * the value should in the range of [1,70].
+     */
     private HashMap<Integer, Integer[]> schedule;
 
     public String getName() {

@@ -1,29 +1,47 @@
 package uk.qmul.learningjourney.controller;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
 import uk.qmul.learningjourney.Context;
-import uk.qmul.learningjourney.MainApplication;
 import uk.qmul.learningjourney.model.user.Student;
 
-public class BaseController {
+import java.io.IOException;
 
-    @FXML
-    private Button homeButton;
-    @FXML
-    private Button backButton;
+/**
+ * Base view controller for all controllers.
+ * Other controllers should inherit this class
+ *
+ * @author Zekai Liu
+ * @date 2023/04/25
+ */
+public class BaseController {
+    /**
+     * Name label
+     */
     @FXML
     private Label nameLabel;
+    /**
+     * ID label
+     */
     @FXML
     private Label idLabel;
+    /**
+     * College label
+     */
     @FXML
     private Label collegeLabel;
+    /**
+     * Major label
+     */
     @FXML
     private Label majorLabel;
 
 
+    /**
+     * Initialize the controller.
+     * <p>
+     * All subclasses must override this method.
+     */
     public void initialize() {
         setNameLabel(Context.user.getName());
         setIdLabel(Context.user.getId());
@@ -32,41 +50,62 @@ public class BaseController {
             setCollegeLabel(student.getCollege());
             setMajorLabel(student.getMajor());
         }
-        setHomeButton();
-        setBackButton();
     }
 
+    /**
+     * Set name label
+     *
+     * @param name name
+     */
     public void setNameLabel(String name) {
         nameLabel.setText(name);
     }
 
+    /**
+     * Set ID label
+     *
+     * @param id id
+     */
     public void setIdLabel(String id) {
         idLabel.setText(id);
     }
 
+    /**
+     * Set college label
+     *
+     * @param college college
+     */
     public void setCollegeLabel(String college) {
         collegeLabel.setText(college);
     }
 
+    /**
+     * Set major label
+     *
+     * @param major major
+     */
     public void setMajorLabel(String major) {
         majorLabel.setText(major);
     }
 
-    public void setHomeButton() {
-        ImageView img = new ImageView(MainApplication.class.getResource("image/home-icon.png").toString());
-        img.setFitHeight(20);
-        img.setFitWidth(20);
-        homeButton.setGraphic(img);
-        homeButton.setOnAction(actionEvent -> {
-            Context.toHome();
-        });
+    /**
+     * Set home button
+     */
+    @FXML
+    public void onHome() {
+        Context.toHome();
     }
 
-    public void setBackButton() {
-        ImageView img = new ImageView(MainApplication.class.getResource("image/back-icon.png").toString());
-        img.setFitHeight(20);
-        img.setFitWidth(20);
-        backButton.setGraphic(img);
-        backButton.setOnAction(actionEvent -> Context.toLastScene());
+    /**
+     * Set back button
+     */
+    @FXML
+    public void onBack() {
+        Context.toLastScene();
+    }
+
+    @FXML
+    public void onLogout() throws IOException {
+        Context.logout();
     }
 }
