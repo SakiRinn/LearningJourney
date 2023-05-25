@@ -33,8 +33,21 @@ public class TeacherHomeController extends BaseController {
 
     @FXML
     public void toUserManagementPage(MouseEvent event) {
+        if (!((Teacher) Context.user).isAdmin()) {
+            Context.showError("Only administrators have permission to use it!");
+            return;
+        }
         try {
             Context.toNextScene("view/user/user-management-view.fxml");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    public void toCourseManagementPage(MouseEvent event) {
+        try {
+            Context.toNextScene("view/course/course-management-view.fxml");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

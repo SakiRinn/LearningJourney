@@ -1,14 +1,11 @@
 package uk.qmul.learningjourney.controller.user;
 
-import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import kotlin.NotImplementedError;
 import uk.qmul.learningjourney.Context;
 import uk.qmul.learningjourney.controller.BaseController;
 import uk.qmul.learningjourney.model.Course;
@@ -17,7 +14,6 @@ import uk.qmul.learningjourney.model.user.Student;
 import uk.qmul.learningjourney.model.user.Teacher;
 import uk.qmul.learningjourney.model.user.User;
 import uk.qmul.learningjourney.util.DataIO;
-import uk.qmul.learningjourney.util.GradeUtil;
 import uk.qmul.learningjourney.util.UserUtil;
 
 import java.io.IOException;
@@ -51,10 +47,6 @@ public class UserManagementController extends BaseController {
 
     @FXML
     public void toUserRegisterPage(MouseEvent event) {
-        if (!((Teacher) Context.user).isAdmin()) {
-            Context.showError("Only administrators have permission to use it!");
-            return;
-        }
         try {
             Context.toNextScene("view/user/user-register-view.fxml");
         } catch (IOException e) {
@@ -82,11 +74,14 @@ public class UserManagementController extends BaseController {
                             ((Student) user).setCourses(stuCourses);
                         }
                     }
-                    courses.removeIf(c -> c.equals(course));
+                    courses.removeIf(c -> c.getId().equals(course));
                 }
                 DataIO.saveObjects(courses, Course.class);
+            } else {
+                ArrayList<Grade> grades = (ArrayList<Grade>) DataIO.loadObjects(Grade.class);
+                grades.removeIf(g -> g.getStudent().equals(selected.getName()));
+                DataIO.saveObjects(grades, Grade.class);
             }
-
             UserUtil.saveUsers(users);
             Context.showInformation("Success to delete a user!");
             Context.toTeacherHome();

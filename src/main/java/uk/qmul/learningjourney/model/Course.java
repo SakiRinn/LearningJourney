@@ -147,4 +147,9 @@ public class Course {
         this.semester = semester;
         this.schedule = schedule;
     }
+
+    @Override
+    public String toString() {
+        return id + " " + name;
+    }
 }

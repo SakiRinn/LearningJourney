@@ -23,11 +23,16 @@
                     <Font size="16.0" />
                 </font>
             </Button>
-            <Button layoutX="95.0" layoutY="186.0" mnemonicParsing="false" prefWidth="165.0" text="Manage Courses" AnchorPane.bottomAnchor="80.0" AnchorPane.rightAnchor="60.0">
+            <Button layoutX="95.0" layoutY="186.0" mnemonicParsing="false" onMouseClicked="#toCourseManagementPage" prefWidth="165.0" text="Manage Courses" AnchorPane.bottomAnchor="80.0" AnchorPane.rightAnchor="60.0">
                 <font>
                     <Font size="16.0" />
                 </font>
             </Button>
         </children>
     </AnchorPane>
+    <Text fill="#4000ff" layoutX="71.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Teacher">
+        <font>
+            <Font name="Serif Bold Italic" size="29.0" />
+        </font>
+    </Text>
 </AnchorPane>

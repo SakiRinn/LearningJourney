@@ -13,8 +13,8 @@
             <TableColumn editable="false" prefWidth="150.0" resizable="false" text="Password" />
         </columns>
     </TableView>
-   <ComboBox fx:id="choiceBox" prefWidth="150.0" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="275.0" />
-   <Button mnemonicParsing="false" onMouseClicked="#deleteUser" text="Delete" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="450.0" />
-   <Separator orientation="VERTICAL" prefHeight="45.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="525.0" />
-   <Button mnemonicParsing="false" onMousePressed="#toUserRegisterPage" text="Register" AnchorPane.bottomAnchor="35.0" AnchorPane.rightAnchor="150.0" />
+   <ComboBox fx:id="choiceBox" prefWidth="200.0" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="275.0" />
+   <Button mnemonicParsing="false" onMouseClicked="#deleteUser" text="Delete" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="500.0" />
+   <Separator orientation="VERTICAL" prefHeight="45.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="590.0" />
+   <Button mnemonicParsing="false" onMousePressed="#toUserRegisterPage" text="Register" AnchorPane.bottomAnchor="35.0" AnchorPane.rightAnchor="115.0" />
 </AnchorPane>
