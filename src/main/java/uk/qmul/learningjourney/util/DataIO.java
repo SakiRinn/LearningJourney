@@ -59,7 +59,7 @@ public class DataIO {
      *     <em>Attention: </em>This method does not support generics.
      * </p>
      *
-     * @param obj
+     * @param obj The object to be stored.
      * @throws IOException
      */
     public static <T> void saveObject(T obj) throws IOException {
@@ -85,8 +85,8 @@ public class DataIO {
      *     saveObjects(strings, String.class);
      * </code>
      *
-     * @param list The list to be stored.
-     * @param cls The <code>Class</code> object of the generic class of the list.
+     * @param list  The list to be stored.
+     * @param cls   The <code>Class</code> object of the generic class of the list.
      * @throws IOException
      */
     public static <T> void saveObjects(ArrayList<T> list, Class<T> cls) throws IOException {
@@ -327,6 +327,14 @@ public class DataIO {
     }
 }
 
+/**
+ * Encapsulation of TypeFactory-related operations.
+ * <p>
+ *     Can be viewed as a <b>function</b>.
+ * </p>
+ *
+ * @author Lyuhua Wu
+ */
 class CollectionsTypeFactory {
     static JavaType listOf(Class cls) {
         return TypeFactory.defaultInstance().constructCollectionType(ArrayList.class, cls);
