@@ -19,7 +19,7 @@ public class StudentHomeController extends BaseController {
     }
 
     /**
-     * Go to the grade view
+     * Event handler for grade button
      */
     @FXML
     public void onGrade() {
@@ -31,7 +31,7 @@ public class StudentHomeController extends BaseController {
     }
 
     /**
-     * Go to the achievement view
+     * Event handler for achievement button
      */
     @FXML
     public void onAchievement() {
@@ -43,7 +43,7 @@ public class StudentHomeController extends BaseController {
     }
 
     /**
-     * Go to the course schedule view
+     * Event handler for course button
      */
     @FXML
     public void onCourseSchedule() {
@@ -55,7 +55,7 @@ public class StudentHomeController extends BaseController {
     }
 
     /**
-     * Go to the course selection view
+     * Event handler for course selection button
      */
     @FXML
     public void onCourseSelection() {

@@ -9,19 +9,18 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * A Utility class for course operation
+ * Utility class for course operation
  *
  * @author Zekai Liu
- * @date 2023/05/25
  */
 public class CourseUtil {
 
     /**
-     * Get {@link Course} from Course ID
+     * Get {@code Course} from Course ID
      *
-     * @param courseId
+     * @param courseId course ID
      * @return {@link Course}
-     * @throws IOException
+     * @throws IOException IOException
      */
     public static Course getCourse(String courseId) throws IOException {
         ArrayList<Course> courses;
@@ -34,8 +33,10 @@ public class CourseUtil {
     }
 
     /**
+     * Get courses list available to student
+     *
      * @return {@link ArrayList}<{@link Course}>
-     * @throws IOException
+     * @throws IOException IOException
      */
     public static ArrayList<Course> getAvailCourses() throws IOException {
         ArrayList<Course> courses = (ArrayList<Course>) DataIO.loadObjects(Course.class);
@@ -55,8 +56,9 @@ public class CourseUtil {
     }
 
     /**
-     * @param course
-     * @throws IOException
+     * Store the added course to files
+     * @param course added course
+     * @throws IOException IOException
      */
     public static void studentAddCourse(Course course) throws IOException {
         Student student = (Student) Context.user;

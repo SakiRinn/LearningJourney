@@ -25,20 +25,20 @@ import java.util.Stack;
 public class Context {
 
     /**
-     * stage
+     * Stage
      */
     public static Stage stage;
     /**
-     * home scene
+     * Home scene
      */
     public static Scene homeScene;
     /**
-     * current user
+     * Current user
      */
     public static User user;
 
     /**
-     * a stack storing scenes
+     * A stack storing scenes
      */
     public static Stack<Scene> sceneStack = new Stack<>();
 
@@ -198,7 +198,7 @@ public class Context {
     }
 
     /**
-     * Show information
+     * Show information alert
      *
      * @param message message
      */
@@ -216,6 +216,12 @@ public class Context {
         });
     }
 
+    /**
+     * Show confirmation alert
+     *
+     * @param message message
+     * @return whether user confirms
+     */
     public static boolean showConfirmation(String message) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmation");

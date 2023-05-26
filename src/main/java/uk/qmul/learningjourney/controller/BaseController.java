@@ -8,11 +8,11 @@ import uk.qmul.learningjourney.model.user.Student;
 import java.io.IOException;
 
 /**
- * Base view controller for all controllers.
+ * Basic view controller.
+ * <p>
  * Other controllers should inherit this class
  *
  * @author Zekai Liu
- * @date 2023/04/25
  */
 public class BaseController {
     /**
@@ -89,7 +89,7 @@ public class BaseController {
     }
 
     /**
-     * Set home button
+     * Event handler for home button
      */
     @FXML
     public void onHome() {
@@ -103,6 +103,12 @@ public class BaseController {
     public void onBack() {
         Context.toLastScene();
     }
+
+    /**
+     * Event handler for logout button
+     *
+     * @throws IOException IOException
+     */
 
     @FXML
     public void onLogout() throws IOException {

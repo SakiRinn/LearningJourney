@@ -61,6 +61,15 @@ public class DataIO {
         return mapper.readValue(file, CollectionsTypeFactory.listOf(cls));
     }
 
+    /**
+     * Export course schedule to a file
+     *
+     * @param name     user name
+     * @param week     week
+     * @param courseId course ID
+     * @throws IOException         IOException
+     * @throws XDocReportException XDocReportException
+     */
     public static void exportSchedule(String name, int week, ArrayList<String> courseId)
             throws IOException, XDocReportException {
 
@@ -98,6 +107,14 @@ public class DataIO {
             report.process(context, out);
         }
     }
+
+    /**
+     * Export student's grade to a file
+     *
+     * @param grades grades
+     * @param name   student's name
+     * @throws IOException IOException
+     */
 
     public static void exportGrade(ArrayList<Grade> grades, String name) throws IOException {
         //Creating Word Document Objects

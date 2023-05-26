@@ -9,15 +9,15 @@ import javafx.stage.Stage;
 public class MainApplication extends Application {
 
     /**
-     * @param args
+     * @param args launch arguments
      */
     public static void main(String[] args) {
         launch(args);
     }
 
     /**
-     * @param stage
-     * @throws Exception
+     * @param stage stage
+     * @throws Exception Exception
      */
     @Override
     public void start(Stage stage) throws Exception {

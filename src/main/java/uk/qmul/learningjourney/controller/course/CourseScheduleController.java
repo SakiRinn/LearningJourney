@@ -21,8 +21,9 @@ import java.util.ArrayList;
 
 
 /**
+ * Controller of course-schedule-view
+ *
  * @author Zekai Liu
- * @date 2023/05/25
  */
 public class CourseScheduleController extends BaseController {
 
@@ -77,7 +78,7 @@ public class CourseScheduleController extends BaseController {
     }
 
     /**
-     *
+     * Set the text for comboBox
      */
     private void setWeeks() {
         for (int i = 1; i <= 18; i++) {
