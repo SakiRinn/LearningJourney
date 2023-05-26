@@ -22,7 +22,7 @@ import java.util.ArrayList;
 /**
  * The controller of the view file `course-management-view.fxml`.
  * <p>
- *     The user manages all the courses in this interface.
+ *     The user manages all the courses in this page.
  *     It provides the following functions:
  *     <ol>
  *         <li>Show all courses</li>

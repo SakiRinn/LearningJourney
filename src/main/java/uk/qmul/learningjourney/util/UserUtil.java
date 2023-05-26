@@ -10,8 +10,25 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Utility class for user operation
+ * <p>
+ *     Mainly include user I/O functions.
+ * </p><p>
+ *     Since the methods in `DataIO` class do not support polymorphism with generic,
+ *     we write new methods specifically for the User class and its superclasses.
+ * </p>
+ *
+ * @author Lyuhua Wu
+ */
 public class UserUtil {
 
+    /**
+     * Add a new user into database.
+     *
+     * @param user new user
+     * @throws IOException
+     */
     public static void saveUser(User user) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(SerializationFeature.INDENT_OUTPUT, true);

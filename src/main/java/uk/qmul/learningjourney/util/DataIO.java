@@ -56,7 +56,7 @@ public class DataIO {
      *     Note that This method is a generic method, which means that it can automatically
      *     read the type of `obj` and store it into a proper database.
      * </p><p>
-     *     <em>Attention: </em>This method does not support generics.
+     *     <em>Attention: </em>This method does not support polymorphism with generic.
      * </p>
      *
      * @param obj The object to be stored.

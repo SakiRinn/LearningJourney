@@ -15,6 +15,18 @@ import uk.qmul.learningjourney.util.UserUtil;
 
 import java.io.IOException;
 
+/**
+ * The controller of the view file `user-register-view.fxml`.
+ * <p>
+ *     This interface reads the necessary information to create a new user
+ *     and then adds the user to the database.
+ * </p><p>
+ *     Note that Only administrators have permission to access this page and use the functions.
+ * </p>
+ *
+ * @author Lyuhua Wu
+ * @see BaseController
+ */
 public class UserRegisterController extends BaseController {
 
     @FXML
@@ -66,6 +78,9 @@ public class UserRegisterController extends BaseController {
         });
     }
 
+    /**
+     * Register a new student.
+     */
     public void registerStudent() {
         if (!Context.showConfirmation("Have you confirmed all the information?"))
             return;
@@ -83,6 +98,9 @@ public class UserRegisterController extends BaseController {
         }
     }
 
+    /**
+     * Register a new teacher.
+     */
     public void registerTeacher() {
         if (!Context.showConfirmation("Have you confirmed all the information?"))
             return;

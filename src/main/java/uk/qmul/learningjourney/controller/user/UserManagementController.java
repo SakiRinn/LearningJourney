@@ -9,6 +9,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import uk.qmul.learningjourney.Context;
 import uk.qmul.learningjourney.controller.BaseController;
+import uk.qmul.learningjourney.controller.course.CourseCreateController;
 import uk.qmul.learningjourney.model.Course;
 import uk.qmul.learningjourney.model.Grade;
 import uk.qmul.learningjourney.model.user.Student;
@@ -20,6 +21,23 @@ import uk.qmul.learningjourney.util.UserUtil;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * The controller of the view file `user-management-view.fxml`.
+ * <p>
+ *     The administrator manages all the users in this page.
+ *     It provides the following functions:
+ *     <ol>
+ *         <li>Show all users</li>
+ *         <li>Add new users</li>
+ *         <li>Delete users</li>
+ *     </ol>
+ * </p><p>
+ *     Note that Only administrators have permission to access this page and use the functions.
+ * </p>
+ *
+ * @author Lyuhua Wu
+ * @see BaseController
+ */
 public class UserManagementController extends BaseController {
 
     @FXML
@@ -46,6 +64,16 @@ public class UserManagementController extends BaseController {
         choiceBox.getItems().addAll(userList);
     }
 
+    /**
+     * Jump to the view `user-register-view.fxml`.
+     * <p>
+     *     This function is bound to a button and is called when the button is clicked.
+     * </p>
+     *
+     * @see CourseCreateController
+     *
+     * @param event Mouse click
+     */
     @FXML
     public void toUserRegisterPage(MouseEvent event) {
         try {
@@ -55,6 +83,17 @@ public class UserManagementController extends BaseController {
         }
     }
 
+    /**
+     * Delete a course.
+     * <p>
+     *     This function is bound to a button and is called when the button is clicked.
+     * </p><p>
+     *     Read the selected user in the choise box and delete it.
+     * </p><p>
+     *     If the deleted user is a teacher, all the courses taught by the user will be automatically removed.
+     *     If a student, all his / her grades will be removed automatically.
+     * </p>
+     */
     @FXML
     public void deleteUser() {
         if (!Context.showConfirmation("Are you sure to delete?"))
