@@ -19,6 +19,24 @@ import uk.qmul.learningjourney.util.UserUtil;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * The controller of the view file `course-management-view.fxml`.
+ * <p>
+ *     The user manages all the courses in this interface.
+ *     It provides the following functions:
+ *     <ol>
+ *         <li>Show all courses</li>
+ *         <li>Add new courses</li>
+ *         <li>Delete courses</li>
+ *     </ol>
+ * </p><p>
+ *     All teachers have permission to enter this view and use it.
+ *     There is a table showing all the courses taught by the current teacher.
+ * </p>
+ *
+ * @author Lyuhua Wu
+ * @see BaseController
+ */
 public class CourseManagementController extends BaseController {
 
     @FXML
@@ -37,6 +55,16 @@ public class CourseManagementController extends BaseController {
         table.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("room"));
     }
 
+    /**
+     * Jump to the view `course-create-view.fxml`.
+     * <p>
+     *     This function is bound to a button and is called when the button is clicked.
+     * </p>
+     *
+     * @see CourseCreateController
+     *
+     * @param event Mouse click
+     */
     @FXML
     public void toCreateCoursePage(MouseEvent event) {
         try {
@@ -46,6 +74,16 @@ public class CourseManagementController extends BaseController {
         }
     }
 
+    /**
+     * Delete a course.
+     * <p>
+     *     This function is bound to a button and is called when the button is clicked.
+     * </p><p>
+     *     Read the selected course in the choise box and delete it.
+     *     The deleted course will be removed from all students' course selection lists
+     *     as well as from the teacher's teaching list.
+     * </p>
+     */
     @FXML
     public void deleteCourse() {
         if (!Context.showConfirmation("Are you sure to delete?"))

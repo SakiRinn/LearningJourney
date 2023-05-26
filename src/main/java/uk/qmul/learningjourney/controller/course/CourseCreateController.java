@@ -16,6 +16,19 @@ import uk.qmul.learningjourney.util.UserUtil;
 import java.io.IOException;
 import java.util.*;
 
+/**
+ * The controller of the view file `course-create-view.fxml`.
+ * <p>
+ *     This interface reads the necessary information to create a new course
+ *     and then adds the course to the database.
+ * </p><p>
+ *     All teachers have permission to enter this view and use it.
+ *     All courses created on this view are taught by himself / herself.
+ * </p>
+ *
+ * @author Lyuhua Wu
+ * @see BaseController
+ */
 public class CourseCreateController extends BaseController {
 
     @FXML
@@ -34,13 +47,24 @@ public class CourseCreateController extends BaseController {
     @FXML
     private TextField classNum;
 
-    private final HashMap<Integer, Integer[]> scheduleMap = new HashMap<>();
     @FXML
     private TableView<Map.Entry<Integer, Integer[]>> scheduleTable;
     @FXML
     private TableColumn<Map.Entry<Integer, Integer[]>, String> week;
     @FXML
     private TableColumn<Map.Entry<Integer, Integer[]>, String> numbers;
+
+    /**
+     * A hash table used to store Course times, corresponding to the `schedule` attribute of the `Course` class.
+     * <p>
+     *     The hash table stores the course times selected by the user.
+     *     When creating the course, the selected time is added to the table {@link #scheduleTable} in the view.
+     * </p>
+     *
+     * @see Course#getSchedule()
+     * @see Course#setSchedule(HashMap schedule)
+     */
+    public final HashMap<Integer, Integer[]> scheduleMap = new HashMap<>();
 
     @Override
     public void initialize() {
@@ -62,6 +86,13 @@ public class CourseCreateController extends BaseController {
         credit.setTextFormatter(creditFormatter);
     }
 
+    /**
+     * Add time to the schedule of this course.
+     * <p>
+     *     This function is bound to the `Add` button.
+     *     When the user presses the button, the time selected by the user is added to the schedule as a record.
+     * </p>
+     */
     @FXML
     public void addSchedule() {
         int week = weekBox.getSelectionModel().getSelectedItem();
@@ -85,6 +116,13 @@ public class CourseCreateController extends BaseController {
         refreshScheduleTable();
     }
 
+    /**
+     * Create a new course.
+     * <p>
+     *     The new course created will be added to the database
+     *     and the creator will be considered as the instructor of the course.
+     * </p>
+     */
     @FXML
     public void createCourse() {
         if (!Context.showConfirmation("Have you confirmed all the information?"))
@@ -117,6 +155,15 @@ public class CourseCreateController extends BaseController {
         }
     }
 
+    /**
+     * Refresh the course schedule.
+     * <p>
+     *     Called when the page is initialized or when the user adds a new record of course time.
+     * </p>
+     *
+     * @see #initialize()
+     * @see #addSchedule()
+     */
     private void refreshScheduleTable() {
         week.setCellValueFactory(param -> new SimpleStringProperty(String.valueOf(param.getValue().getKey())));
         numbers.setCellValueFactory(param -> new SimpleStringProperty(array2String(param.getValue().getValue())));
@@ -125,6 +172,21 @@ public class CourseCreateController extends BaseController {
         scheduleTable.getItems().setAll(data);
     }
 
+    /**
+     * Converts an Integer array to a string.
+     * <p>
+     *     In the resulting string, each element is separated by commas.
+     *     All the elements in the array will be printed sequentially.
+     * </p><p>
+     *     Output string example:
+     *     <code>
+     *         "10, 15, 13, 24"
+     *     </code>
+     * </p>
+     *
+     * @param array An array of type `Integer` (not `int` !)
+     * @return {@link String} A string that separates all elements by commas
+     */
     private String array2String(Integer[] array) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < array.length; i++) {

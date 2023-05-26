@@ -28,10 +28,40 @@ import java.util.List;
 
 import static uk.qmul.learningjourney.util.CourseUtil.getCourse;
 
+/**
+ * Util class that read and write data.
+ * <p>
+ *     The supported data I/O formats are
+ *     <ul>
+ *         <li><code>.json</code>: Used as database, storing the objects of entity class.</li>
+ *         <li><code>.docx</code>: Used for exporting data for users to view.</li>
+ *     </ul>
+ * </p>
+ *
+ * @author Lyuhua Wu
+ */
 public class DataIO {
 
+    /**
+     * The root path for storing all data files.
+     */
     public static final String dataPath = "src/main/resources/uk/qmul/learningjourney/data/";
 
+    /**
+     * Add an object to the database (JSON file).
+     * <p>
+     *     The base name of the JSON file defaults to the class name of the object.
+     *     If the database not exists, create a new one.
+     * </p><p>
+     *     Note that This method is a generic method, which means that it can automatically
+     *     read the type of `obj` and store it into a proper database.
+     * </p><p>
+     *     <em>Attention: </em>This method does not support generics.
+     * </p>
+     *
+     * @param obj
+     * @throws IOException
+     */
     public static <T> void saveObject(T obj) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(SerializationFeature.INDENT_OUTPUT, true);
@@ -44,6 +74,21 @@ public class DataIO {
         mapper.writerFor(new TypeReference<List<T>>(){}).writeValue(file, list);
     }
 
+    /**
+     * Import the entire list into the database and <b>overwrite</b> all the original data.
+     * <p>
+     *     Limited by Java's type erasure mechanism, this method requires passing
+     *     the generic class of the list (a `class` object).
+     * </p><p>
+     *     As an example, storing an <code>Arraylist&lt;String&gt;</code>` container named <code>strings</code>:
+     * </p><code>
+     *     saveObjects(strings, String.class);
+     * </code>
+     *
+     * @param list The list to be stored.
+     * @param cls The <code>Class</code> object of the generic class of the list.
+     * @throws IOException
+     */
     public static <T> void saveObjects(ArrayList<T> list, Class<T> cls) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(SerializationFeature.INDENT_OUTPUT, true);
@@ -52,6 +97,16 @@ public class DataIO {
         mapper.writerFor(new TypeReference<List<T>>(){}).writeValue(file, list);
     }
 
+    /**
+     * Read stored data of a single class.
+     * <p>
+     *     Similar to the above method, the base name of the JSON file read by default is the class name.
+     * </p>
+     *
+     * @param cls The class of the data to be read
+     * @return {@link ArrayList}<{@link ?}> All stored data
+     * @throws IOException
+     */
     public static ArrayList<?> loadObjects(Class<?> cls) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
 
@@ -115,7 +170,6 @@ public class DataIO {
      * @param name   student's name
      * @throws IOException IOException
      */
-
     public static void exportGrade(ArrayList<Grade> grades, String name) throws IOException {
         //Creating Word Document Objects
         XWPFDocument document = new XWPFDocument();
