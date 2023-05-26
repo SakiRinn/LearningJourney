@@ -1,0 +1,56 @@
+[
+  {
+    "courseId": "EBU6304",
+    "student": "Wu Lyuhua",
+    "score": 88,
+    "gpa": 3.73
+  },
+  {
+    "courseId": "EBC5001",
+    "student": "Wu Lyuhua",
+    "score": 96,
+    "gpa": 3.97
+  },
+  {
+    "courseId": "EBU6230",
+    "student": "Wu Lyuhua",
+    "score": 81,
+    "gpa": 3.32
+  },
+  {
+    "courseId": "EBU6304",
+    "student": "Huang Xiyuan",
+    "score": 95,
+    "gpa": 3.95
+  },
+  {
+    "courseId": "EBC5001",
+    "student": "Huang Xiyuan",
+    "score": 62,
+    "gpa": 1.29
+  },
+  {
+    "courseId": "EBU6230",
+    "student": "Huang Xiyuan",
+    "score": 83,
+    "gpa": 3.46
+  },
+  {
+    "courseId": "EBU6304",
+    "student": "Liu Zekai",
+    "score": 79,
+    "gpa": 3.17
+  },
+  {
+    "courseId": "EBC5001",
+    "student": "Liu Zekai",
+    "score": 78,
+    "gpa": 3.09
+  },
+  {
+    "courseId": "EBU6230",
+    "student": "Liu Zekai",
+    "score": 99,
+    "gpa": 4.0
+  }
+]

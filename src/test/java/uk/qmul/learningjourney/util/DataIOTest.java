@@ -1,4 +1,4 @@
-package uk.qmul.learningjourney;
+package uk.qmul.learningjourney.util;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -8,8 +8,6 @@ import uk.qmul.learningjourney.model.Achievement;
 import uk.qmul.learningjourney.model.Course;
 import uk.qmul.learningjourney.model.user.Student;
 import uk.qmul.learningjourney.model.user.Teacher;
-import uk.qmul.learningjourney.util.DataIO;
-import uk.qmul.learningjourney.util.UserUtil;
 
 import java.io.File;
 import java.io.IOException;
@@ -23,21 +21,38 @@ class DataIOTest {
     void generateStudents() throws IOException {
         ArrayList<String> courses = new ArrayList<>();
         courses.add("EBU6304");
-        ArrayList<Achievement> achievement = new ArrayList<>();
-        Achievement achievement1 = new Achievement("4th International Conference of Nanton Impart", "2020-12-12", true);
-        Achievement achievement2 = new Achievement("Supreme radiant star on king's pesticide", "2023-1-1", false);
-        Achievement achievement3 = new Achievement("Drawf Technology Award for Compressed towel", "2023-2-2", true);
-        achievement.add(achievement1);
+        ArrayList<Achievement> achievements1 = new ArrayList<>();
+        ArrayList<Achievement> achievements2 = new ArrayList<>();
+        ArrayList<Achievement> achievements3 = new ArrayList<>();
+        Achievement achievement1 = new Achievement("Internet+ College Students Innovation and Entrepreneurship Competition", "2020-12-12", true);
+        Achievement achievement2 = new Achievement("ACM-ICPC College Student Programming Contest", "2023-1-1", false);
+        Achievement achievement3 = new Achievement("National College English Competition for Students", "2023-2-2", true);
+        Achievement achievement4 = new Achievement("China Selection Competition for WorldSkills Competition", "2023-3-2", true);
+        Achievement achievement5 = new Achievement("Champion of the Campus Football Tournament", "2023-2-4", false);
+        Achievement achievement6 = new Achievement("College Student Logistics Design Competition", "2023-2-5", true);
+        Achievement achievement7 = new Achievement("American College Student Mathematical Modeling Competition", "2023-2-6", false);
+        Achievement achievement8 = new Achievement("China College Students IOT Innovation and Entrepreneurship Competition", "2023-2-7", true);
+        Achievement achievement9 = new Achievement("National College Student Robotics Competition", "2023-2-10", false);
+        achievements1.add(achievement1);
+        achievements1.add(achievement2);
+        achievements1.add(achievement3);
+        achievements2.add(achievement4);
+        achievements2.add(achievement5);
+        achievements2.add(achievement6);
+        achievements3.add(achievement7);
+        achievements3.add(achievement8);
+        achievements3.add(achievement9);
+
         Student student1 = new Student("2020213171", "Wu Lyuhua", "123456",
-                "International School", "Telecommunication and management", "2020215105", courses, achievement);
+                "International School", "Telecommunication and management", "2020215105", courses, achievements1);
         courses.add("EBC5001");
-        achievement.add(achievement2);
+
         Student student2 = new Student("2020213160", "Huang Xiyuan", "123456",
-                "International School", "Telecommunication and management", "2020215105", courses, achievement);
+                "International School", "Telecommunication and management", "2020215105", courses, achievements2);
         courses.add("EBU6230");
-        achievement.add(achievement3);
+
         Student student3 = new Student("2020213156", "Liu Zekai", "123456",
-                "International School", "Telecommunication and management", "2020215105", courses, achievement);
+                "International School", "Telecommunication and management", "2020215105", courses, achievements3);
 
         UserUtil.saveUser(student1);
         UserUtil.saveUser(student2);

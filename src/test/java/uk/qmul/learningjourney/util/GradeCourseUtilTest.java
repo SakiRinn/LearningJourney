@@ -1,12 +1,10 @@
-package uk.qmul.learningjourney;
+package uk.qmul.learningjourney.util;
 
 import org.junit.jupiter.api.Test;
+import uk.qmul.learningjourney.Context;
 import uk.qmul.learningjourney.model.Course;
 import uk.qmul.learningjourney.model.Grade;
 import uk.qmul.learningjourney.model.user.Student;
-import uk.qmul.learningjourney.util.DataIO;
-import uk.qmul.learningjourney.util.GradeUtil;
-import uk.qmul.learningjourney.util.UserUtil;
 
 import java.io.IOException;
 import java.util.ArrayList;

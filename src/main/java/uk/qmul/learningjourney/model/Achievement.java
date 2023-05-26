@@ -5,10 +5,23 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import java.lang.reflect.Field;
 import java.util.Map;
 
+/**
+ * Define Achievement Entity
+ *
+ * @author Chenxu Shi
+ */
 public class Achievement {
-
+    /**
+     * achievement name
+     */
     public String name;
+    /**
+     * archived date
+     */
     public String date;
+    /**
+     * whether the achievement is academically creditable
+     */
     public Boolean isCreditable;
 
     public void setName(String name) {

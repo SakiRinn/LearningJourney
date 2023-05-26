@@ -8,18 +8,20 @@
   "classId" : "2020215105",
   "courses" : [ "EBU6304", "EBC5001", "EBU6230" ],
   "position" : [ {
-    "name" : "4th International Conference of Nanton Impart",
-    "date" : "2020-12-12",
-    "isCreditable" : true
-  }, {
-    "name" : "Supreme radiant star on king's pesticide",
-    "date" : "2023-1-1",
-    "isCreditable" : false
-  }, {
-    "name" : "Drawf Technology Award for Compressed towel",
-    "date" : "2023-2-2",
-    "isCreditable" : true
-  } ]
+    "name": "Internet+ College Students Innovation and Entrepreneurship Competition",
+    "date": "2020-12-12",
+    "isCreditable": true
+  },
+    {
+      "name": "ACM-ICPC College Student Programming Contest",
+      "date": "2023-1-1",
+      "isCreditable": false
+    },
+    {
+      "name": "National College English Competition for Students",
+      "date": "2023-2-2",
+      "isCreditable": true
+    } ]
 }, {
   "type" : "Student",
   "id" : "2020213160",
@@ -29,19 +31,22 @@
   "major" : "Telecommunication and management",
   "classId" : "2020215105",
   "courses" : [ "EBU6304", "EBC5001", "EBU6230" ],
-  "position" : [ {
-    "name" : "4th International Conference of Nanton Impart",
-    "date" : "2020-12-12",
-    "isCreditable" : true
-  }, {
-    "name" : "Supreme radiant star on king's pesticide",
-    "date" : "2023-1-1",
-    "isCreditable" : false
-  }, {
-    "name" : "Drawf Technology Award for Compressed towel",
-    "date" : "2023-2-2",
-    "isCreditable" : true
-  } ]
+  "position" : [
+    {
+      "name": "China Selection Competition for WorldSkills Competition",
+      "date": "2023-3-2",
+      "isCreditable": true
+    },
+    {
+      "name": "Champion of the Campus Football Tournament",
+      "date": "2023-2-4",
+      "isCreditable": false
+    },
+    {
+      "name": "College Student Logistics Design Competition",
+      "date": "2023-2-5",
+      "isCreditable": true
+    } ]
 }, {
   "type" : "Student",
   "id" : "2020213156",
@@ -51,31 +56,21 @@
   "major" : "Telecommunication and management",
   "classId" : "2020215105",
   "courses" : [ "EBU6304", "EBC5001", "EBU6230" ],
-  "position" : [ {
-    "name" : "4th International Conference of Nanton Impart",
-    "date" : "2020-12-12",
-    "isCreditable" : true
-  }, {
-    "name" : "Supreme radiant star on king's pesticide",
-    "date" : "2023-1-1",
-    "isCreditable" : false
-  }, {
-    "name" : "Drawf Technology Award for Compressed towel",
-    "date" : "2023-2-2",
-    "isCreditable" : true
-  } ]
-}, {
-  "type" : "Teacher",
-  "id" : "2010213171",
-  "name" : "Gokop Goteng",
-  "password" : "123456",
-  "courses" : [ "EBU6304", "EBU6230" ],
-  "admin" : true
-}, {
-  "type" : "Teacher",
-  "id" : "2010213172",
-  "name" : "Mona JABER",
-  "password" : "123456",
-  "courses" : [ "EBC5001" ],
-  "admin" : false
+  "position" : [
+    {
+      "name": "American College Student Mathematical Modeling Competition",
+      "date": "2023-2-6",
+      "isCreditable": false
+    },
+    {
+      "name": "China College Students IOT Innovation and Entrepreneurship Competition",
+      "date": "2023-2-7",
+      "isCreditable": true
+    },
+    {
+      "name": "National College Student Robotics Competition",
+      "date": "2023-2-10",
+      "isCreditable": false
+    }
+  ]
 } ]

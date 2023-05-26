@@ -1,8 +1,7 @@
-package uk.qmul.learningjourney;
+package uk.qmul.learningjourney.util;
 
 import fr.opensagres.xdocreport.core.XDocReportException;
 import org.junit.jupiter.api.Test;
-import uk.qmul.learningjourney.util.DataIO;
 
 import java.io.IOException;
 import java.util.ArrayList;

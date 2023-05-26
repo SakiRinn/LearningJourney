@@ -167,6 +167,13 @@ public class DataIO {
         fos.close();
     }
 
+    /**
+     * Export student's achievements to a file
+     *
+     * @param achievements achievements
+     * @param name         student's name
+     * @throws IOException IOException
+     */
     public static void exportAchievement(ArrayList<Achievement> achievements, String name) throws IOException {
         //Creating Word Document Objects
         XWPFDocument document = new XWPFDocument();
@@ -217,6 +224,14 @@ public class DataIO {
         fos.close();
     }
 
+    /**
+     * Set table cell
+     *
+     * @param cell  {@link XWPFTableCell}
+     * @param text  {@link String}
+     * @param width {@link Integer}
+     */
+
     private static void setCellText(XWPFTableCell cell, String text, Integer width) {
         CTTc ctTc = cell.getCTTc();
         CTTcPr ctTcPr = ctTc.addNewTcPr();
@@ -227,6 +242,13 @@ public class DataIO {
         cell.setText(text);
     }
 
+    /**
+     * Set document layout
+     *
+     * @param document document
+     * @param string   string
+     * @return {@link XWPFTable}
+     */
     private static XWPFTable setLayout(XWPFDocument document, String string) {
         //Create Title
         XWPFParagraph title = document.createParagraph();
