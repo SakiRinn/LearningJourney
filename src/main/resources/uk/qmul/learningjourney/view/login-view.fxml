@@ -14,8 +14,8 @@
             <Image url="@../image/home-bg.jpg"/>
          </image>
       </ImageView>
-      <Pane layoutX="390.0" layoutY="240.0" prefHeight="170.0" prefWidth="280.0"
-            style="-fx-border-color: purple; -fx-border-width: 4; -fx-border-radius: 10;">
+      <Pane layoutX="380.0" layoutY="240.0" prefHeight="170.0" prefWidth="280.0"
+            style="-fx-border-color: #B826A3; -fx-border-width: 4; -fx-border-radius: 10;">
          <children>
             <TextField fx:id="t_num" layoutX="110.0" layoutY="24.0" prefHeight="23.0" prefWidth="150.0"/>
             <Label layoutX="15.0" layoutY="24.0" prefHeight="24.0" prefWidth="90.0" text="ID:" textAlignment="CENTER"
@@ -51,10 +51,10 @@
             </Button>
          </children>
       </Pane>
-      <Label layoutX="365.0" layoutY="160.0" prefHeight="47.0" prefWidth="331.0" text="Welcome to QMPLUS!"
-             textAlignment="CENTER" textFill="#5b8fff">
+      <Label layoutX="310.0" layoutY="130.0" text="Start Your Learning Journey!" textAlignment="CENTER"
+             textFill="#2f64b8">
          <font>
-            <Font name="SansSerif Bold Italic" size="30.0"/>
+            <Font name="SansSerif Bold Italic" size="28.0"/>
          </font>
       </Label>
    </children>

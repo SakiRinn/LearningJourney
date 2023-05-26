@@ -2,19 +2,25 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.qmul.learningjourney.controller.user.UserManagementController">
-    <fx:include source="../base-view.fxml" />
-    <TableView fx:id="table" layoutX="20.0" layoutY="6.0" prefHeight="200.0" prefWidth="400.0" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="275.0" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="180.0">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.14-internal"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="uk.qmul.learningjourney.controller.user.UserManagementController">
+    <fx:include source="../base-view.fxml"/>
+    <TableView fx:id="table" layoutX="20.0" layoutY="6.0" prefHeight="200.0" prefWidth="400.0"
+               AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="275.0" AnchorPane.rightAnchor="75.0"
+               AnchorPane.topAnchor="180.0">
         <columns>
-         <TableColumn editable="false" prefWidth="75.0" resizable="false" text="Type" />
-            <TableColumn editable="false" prefWidth="100.0" resizable="false" text="ID" />
-            <TableColumn editable="false" prefWidth="120.0" resizable="false" text="Name" />
-            <TableColumn editable="false" prefWidth="150.0" resizable="false" text="Password" />
+            <TableColumn editable="false" prefWidth="75.0" resizable="false" text="Type"/>
+            <TableColumn editable="false" prefWidth="100.0" resizable="false" text="ID"/>
+            <TableColumn editable="false" prefWidth="120.0" resizable="false" text="Name"/>
+            <TableColumn editable="false" prefWidth="150.0" resizable="false" text="Password"/>
         </columns>
     </TableView>
-   <ComboBox fx:id="choiceBox" prefWidth="200.0" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="275.0" />
-   <Button mnemonicParsing="false" onMouseClicked="#deleteUser" text="Delete" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="500.0" />
-   <Separator orientation="VERTICAL" prefHeight="45.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="590.0" />
-   <Button mnemonicParsing="false" onMousePressed="#toUserRegisterPage" text="Register" AnchorPane.bottomAnchor="35.0" AnchorPane.rightAnchor="115.0" />
+    <ComboBox fx:id="choiceBox" layoutX="277.0" prefHeight="23.0" prefWidth="200.0" AnchorPane.bottomAnchor="35.0"
+              AnchorPane.leftAnchor="275.0"/>
+    <Button mnemonicParsing="false" onMouseClicked="#deleteUser" prefWidth="80.0" text="Delete"
+            AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="520.0"/>
+    <Separator orientation="VERTICAL" prefHeight="45.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="620.0"/>
+    <Button mnemonicParsing="false" onMousePressed="#toUserRegisterPage" prefWidth="80.0" text="Register"
+            AnchorPane.bottomAnchor="35.0" AnchorPane.rightAnchor="75.0"/>
 </AnchorPane>

@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import uk.qmul.learningjourney.model.user.User;
 import uk.qmul.learningjourney.util.DataIO;
@@ -53,7 +54,8 @@ public class Context {
         Context.stage = stage;
         Scene scene = new Scene(fxmlLoader.load(), 720, 449);
         stage.setScene(scene);
-        stage.setTitle("QM+ Log in ");
+        stage.setTitle("Learning Journey Login");
+        stage.getIcons().add(new Image(MainApplication.class.getResourceAsStream("image/icon.png")));
         stage.setResizable(false);
         stage.show();
     }
@@ -135,7 +137,7 @@ public class Context {
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         homeScene = scene;
         sceneStack.add(scene);
-        stage.setTitle("QM+ Student");
+        stage.setTitle("Learning Journey Student");
         stage.setScene(scene);
         stage.show();
     }
@@ -151,7 +153,7 @@ public class Context {
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         homeScene = scene;
         sceneStack.add(scene);
-        stage.setTitle("QM+ Teacher");
+        stage.setTitle("Learning Journey Teacher");
         stage.setScene(scene);
         stage.show();
     }

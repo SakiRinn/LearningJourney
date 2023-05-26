@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.String?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0"
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0"
             prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="uk.qmul.learningjourney.controller.BaseController">
     <children>
@@ -20,24 +20,25 @@
                         <Image url="@../image/qm-logo.png"/>
                     </image>
                 </ImageView>
-                <Label alignment="CENTER" prefHeight="25.0" text="The Online Learning Environment for QM"
-                       textAlignment="CENTER" textFill="WHITE" AnchorPane.bottomAnchor="0.0"
-                       AnchorPane.leftAnchor="180.0" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="0.0">
+                <Label alignment="CENTER" prefHeight="25.0" text="Learning Journey" textAlignment="CENTER"
+                       textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="180.0"
+                       AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="0.0">
                     <font>
-                        <Font name="Calibri Bold" size="22.0" />
+                        <Font name="Calibri Bold" size="30.0"/>
                     </font>
                 </Label>
             </children>
         </AnchorPane>
         <AnchorPane layoutX="168.0" prefWidth="433.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="110.0">
             <children>
-                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0e337380" height="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="800.0" AnchorPane.topAnchor="45.0" />
+                <Separator prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                           AnchorPane.topAnchor="40.0"/>
                 <HBox alignment="CENTER_LEFT" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                     <children>
                         <Button fx:id="homeButton" mnemonicParsing="false" onAction="#onHome" prefHeight="30.0"
                                 styleClass="rounded" text="Home">
                             <HBox.margin>
-                                <Insets left="10.0" right="10.0"/>
+                                <Insets left="20.0" right="10.0"/>
                             </HBox.margin>
                             <font>
                                 <Font name="Berlin Sans FB" size="16.0"/>
@@ -146,7 +147,7 @@
             </children>
         </AnchorPane>
         <Button fx:id="logoutButton" layoutX="83.0" layoutY="431.0" mnemonicParsing="false" onAction="#onLogout"
-                prefHeight="30.0" prefWidth="120.0" styleClass="accent" text="Logout" AnchorPane.bottomAnchor="80.0"
+                prefHeight="30.0" prefWidth="120.0" styleClass="accent" text="Logout" AnchorPane.bottomAnchor="40.0"
                 AnchorPane.leftAnchor="20.0">
             <font>
                 <Font name="System Bold" size="16.0"/>

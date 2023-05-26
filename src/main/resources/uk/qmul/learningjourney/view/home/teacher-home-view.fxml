@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.qmul.learningjourney.controller.home.TeacherHomeController">
-    <fx:include source="../base-view.fxml" />
-    <AnchorPane layoutX="281.0" layoutY="175.0" prefHeight="300.0" prefWidth="475.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="240.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="180.0">
+<?import javafx.scene.text.Font?>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="uk.qmul.learningjourney.controller.home.TeacherHomeController">
+    <fx:include source="../base-view.fxml"/>
+    <AnchorPane layoutX="281.0" layoutY="175.0" prefHeight="300.0" prefWidth="475.0" AnchorPane.bottomAnchor="30.0"
+                AnchorPane.leftAnchor="240.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="180.0">
         <children>
-            <Button mnemonicParsing="false" onMouseClicked="#onCourseSchedule" prefWidth="165.0" text="Course Schedule" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="80.0">
+            <Button mnemonicParsing="false" onMouseClicked="#onCourseSchedule" prefWidth="165.0" text="Course Schedule"
+                    AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="80.0">
                 <font>
-                    <Font size="16.0" />
+                    <Font size="16.0"/>
                 </font>
             </Button>
-            <Button layoutX="85.0" layoutY="110.0" mnemonicParsing="false" onMouseClicked="#toGradeCheckPage" prefWidth="165.0" text="Check Grades" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="80.0">
+            <Button layoutX="85.0" layoutY="110.0" mnemonicParsing="false" onMouseClicked="#toGradeCheckPage"
+                    prefWidth="165.0" text="Check Grades" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="80.0">
                 <font>
                     <Font size="16.0" />
                 </font>
@@ -30,9 +34,4 @@
             </Button>
         </children>
     </AnchorPane>
-    <Text fill="#4000ff" layoutX="71.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Teacher">
-        <font>
-            <Font name="Serif Bold Italic" size="29.0" />
-        </font>
-    </Text>
 </AnchorPane>
