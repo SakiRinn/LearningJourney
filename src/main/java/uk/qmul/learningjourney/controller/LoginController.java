@@ -10,22 +10,36 @@ import uk.qmul.learningjourney.model.user.Teacher;
 
 import java.io.IOException;
 
-
+/**
+ * Controller of login-view
+ *
+ * @author Shuocheng Guo
+ */
 public class LoginController {
-
+    /**
+     * ID
+     */
     @FXML
     private TextField t_num;
+    /**
+     * Password
+     */
     @FXML
     private TextField p_pswd;
 
-    //清除事件
+    /**
+     * Event controller of clear button
+     */
     @FXML
     public void onClear() {
         t_num.setText("");
         p_pswd.setText("");
     }
 
-    //登录
+    /**
+     * Event controller of login button
+     * @throws IOException IOException
+     */
     @FXML
     public void onLogin() throws IOException {
         String num = t_num.getText();

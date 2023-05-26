@@ -8,13 +8,29 @@ import uk.qmul.learningjourney.util.DataIO;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Define student entity
+ */
 public class Student extends User {
-
+    /**
+     * student's college
+     */
     private String college;
+    /**
+     * student's major
+     */
     private String major;
+    /**
+     * student's class ID
+     */
     private String classId;
-
+    /**
+     * attended courses
+     */
     private ArrayList<String> courses;
+    /**
+     * student's achievement list
+     */
     private ArrayList<Achievement> achievement;
 
     public Student() {
@@ -86,6 +102,11 @@ public class Student extends User {
         this.achievement = achievement;
     }
 
+    /**
+     * For JSON operation
+     *
+     * @return {@link ArrayList}<{@link Course}>
+     */
     @JsonIgnore
     public ArrayList<Course> getCourseList() {
         ArrayList<Course> courses = new ArrayList<>();
