@@ -17,6 +17,8 @@ The external packages used can be viewed in `pom.xml`, mainly include:
 * Jackson 2.14.2
 * JavaFX 17.0.2
 * Junit 5
+* FrameMaker 2.3.23
+* Poi 4.0.1
 
 By the way, we use **IntelliJ IDEA 2023.1.2** as the development tool (IDE).
 
