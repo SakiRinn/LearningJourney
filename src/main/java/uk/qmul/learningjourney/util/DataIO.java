@@ -153,7 +153,7 @@ public class DataIO {
             for (int i = 1; i <= 14 * 5; i++) {
                 context.put("course" + i, map.getOrDefault(i, ""));
             }
-            //输出到本地目录
+
             File folder = new File("output");
             if (!folder.exists())
                 folder.mkdirs();
