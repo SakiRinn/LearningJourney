@@ -56,23 +56,19 @@ public class UserRegisterController extends BaseController {
             if (newValue.equals("Student")) {
                 studentPane.setVisible(true);
                 teacherPane.setVisible(false);
-                registerButton.setOnMouseClicked(event -> {
-                    if (Context.showConfirmation("Have you confirmed all the information?"))
-                        registerStudent();
-                });
+                registerButton.setOnMouseClicked(event -> registerStudent());
             } else if (newValue.equals("Teacher")) {
                 studentPane.setVisible(false);
                 teacherPane.setVisible(true);
-                registerButton.setOnMouseClicked(event -> {
-                    if (Context.showConfirmation("Have you confirmed all the information?"))
-                        registerTeacher();
-                });
+                registerButton.setOnMouseClicked(event -> registerTeacher());
             } else
                 throw new NotImplementedError();
         });
     }
 
     public void registerStudent() {
+        if (!Context.showConfirmation("Have you confirmed all the information?"))
+            return;
         try {
             UserUtil.saveUser(new Student(studentId.getText(), studentName.getText(), studentPassword.getText(),
                     studentCollege.getText(), studentMajor.getText(), studentClassId.getText()));
@@ -88,6 +84,8 @@ public class UserRegisterController extends BaseController {
     }
 
     public void registerTeacher() {
+        if (!Context.showConfirmation("Have you confirmed all the information?"))
+            return;
         try {
             UserUtil.saveUser(new Teacher(teacherId.getText(), teacherName.getText(), teacherPassword.getText(),
                     isAdmin.isSelected()));

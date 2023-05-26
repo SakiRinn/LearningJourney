@@ -1,5 +1,6 @@
 package uk.qmul.learningjourney.controller.user;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -59,6 +60,10 @@ public class UserManagementController extends BaseController {
         if (!Context.showConfirmation("Are you sure to delete?"))
             return;
         User selected = choiceBox.getSelectionModel().getSelectedItem();
+        if (selected == null) {
+            Context.showError("You must choose a user to delete!");
+            return;
+        }
         try {
             ArrayList<String> teachingCourses = (selected instanceof Teacher) ? ((Teacher) selected).getCourses() : null;
             ArrayList<User> users = UserUtil.loadUsers();

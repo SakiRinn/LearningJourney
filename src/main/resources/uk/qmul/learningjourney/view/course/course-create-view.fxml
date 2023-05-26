@@ -14,25 +14,27 @@
     <AnchorPane layoutX="270.0" layoutY="200.0" prefHeight="300.0" prefWidth="475.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="180.0">
         <children>
             <Label layoutX="66.0" layoutY="34.0" text="ID" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="20.0" />
-            <Label layoutX="76.0" layoutY="44.0" text="Name" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="70.0" />
-            <Label layoutX="86.0" layoutY="54.0" text="Credit" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="120.0" />
-            <Label layoutX="50.0" layoutY="174.0" text="Room" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="170.0" />
+            <Label layoutX="76.0" layoutY="44.0" text="Name" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="60.0" />
+            <Label layoutX="86.0" layoutY="54.0" text="Credit" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="100.0" />
+            <Label layoutX="50.0" layoutY="174.0" text="Room" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="140.0" />
+            <Label layoutX="60.0" layoutY="150.0" text="Semester" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="180.0" />
             <TextField fx:id="id" layoutX="175.0" layoutY="16.0" AnchorPane.leftAnchor="175.0" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="20.0" />
-            <TextField fx:id="name" layoutX="175.0" layoutY="66.0" AnchorPane.leftAnchor="175.0" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="70.0" />
-            <TextField fx:id="credit" layoutX="138.0" layoutY="115.0" prefHeight="26.0" prefWidth="74.0" AnchorPane.leftAnchor="135.0" AnchorPane.topAnchor="120.0" />
-            <ComboBox fx:id="weekBox" layoutX="41.0" layoutY="261.0" prefHeight="26.0" prefWidth="60.0" visibleRowCount="2" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="260.0" />
+            <TextField fx:id="name" layoutX="175.0" layoutY="66.0" AnchorPane.leftAnchor="175.0" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="60.0" />
+            <TextField fx:id="credit" layoutX="138.0" layoutY="115.0" prefHeight="26.0" prefWidth="74.0" AnchorPane.leftAnchor="135.0" AnchorPane.topAnchor="100.0" />
+            <ComboBox fx:id="weekBox" layoutX="41.0" layoutY="261.0" prefHeight="26.0" prefWidth="70.0" visibleRowCount="4" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="260.0" />
             <Label layoutX="50.0" layoutY="227.0" text="Schedule" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="220.0" />
-            <TextField fx:id="room" layoutX="135.0" layoutY="170.0" prefHeight="26.0" prefWidth="74.0" promptText="e.g. 3-438" AnchorPane.leftAnchor="135.0" AnchorPane.topAnchor="170.0" />
+            <TextField fx:id="room" layoutX="135.0" layoutY="170.0" prefHeight="26.0" prefWidth="74.0" promptText="e.g. 3-438" AnchorPane.leftAnchor="135.0" AnchorPane.topAnchor="140.0" />
             <TextField fx:id="classNum" layoutX="135.0" layoutY="248.0" prefHeight="26.0" prefWidth="89.0" promptText="e.g. 1, 2, 3" AnchorPane.leftAnchor="120.0" AnchorPane.topAnchor="260.0" />
             <Button layoutX="135.0" layoutY="225.0" mnemonicParsing="false" onMouseClicked="#addSchedule" prefHeight="18.0" prefWidth="50.0" styleClass="rounded" text="Add" AnchorPane.leftAnchor="135.0" AnchorPane.topAnchor="220.0" />
-            <Separator layoutX="111.0" layoutY="122.0" orientation="VERTICAL" prefHeight="174.0" prefWidth="19.0" rotate="90.0" AnchorPane.bottomAnchor="13.600000000000023" AnchorPane.leftAnchor="111.0" />
-         <TableView fx:id="schedule" layoutX="255.0" layoutY="109.0" prefHeight="172.0" prefWidth="200.0" AnchorPane.bottomAnchor="20.0">
-           <columns>
-             <TableColumn editable="false" prefWidth="74.0" text="Week" />
-             <TableColumn editable="false" prefWidth="125.0" sortable="false" text="Class Num." />
-           </columns>
-         </TableView>
-            
+            <Separator layoutX="111.0" layoutY="122.0" orientation="VERTICAL" prefHeight="174.0" prefWidth="19.0" rotate="90.0" AnchorPane.bottomAnchor="13.600000000000023" AnchorPane.leftAnchor="111.0" AnchorPane.topAnchor="130.0" />
+            <TableView fx:id="scheduleTable" layoutX="255.0" layoutY="109.0" prefHeight="172.0" prefWidth="200.0" AnchorPane.bottomAnchor="20.0">
+                <columns>
+                    <TableColumn fx:id="week" editable="false" prefWidth="74.0" text="Week" />
+                    <TableColumn fx:id="numbers" editable="false" prefWidth="125.0" sortable="false" text="Class Num." />
+                </columns>
+            </TableView>
+            <ComboBox fx:id="semesterBox" layoutX="50.0" layoutY="270.0" prefHeight="26.0" prefWidth="74.0" visibleRowCount="4" AnchorPane.leftAnchor="135.0" AnchorPane.topAnchor="180.0" />
+
         </children>
     </AnchorPane>
 </AnchorPane>

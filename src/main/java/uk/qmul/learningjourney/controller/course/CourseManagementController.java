@@ -51,6 +51,10 @@ public class CourseManagementController extends BaseController {
         if (!Context.showConfirmation("Are you sure to delete?"))
             return;
         Course selected = choiceBox.getSelectionModel().getSelectedItem();
+        if (selected == null) {
+            Context.showError("You must choose a course to delete!");
+            return;
+        }
         try {
             ArrayList<Course> courses = (ArrayList<Course>) DataIO.loadObjects(Course.class);
             courses.removeIf(c -> c.getId().equals(selected.getId()));
