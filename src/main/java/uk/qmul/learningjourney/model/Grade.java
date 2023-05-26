@@ -7,11 +7,28 @@ import uk.qmul.learningjourney.util.GradeUtil;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Definition of Student's grade
+ *
+ * @author Lyuhua Wu
+ */
 public class Grade {
 
+    /**
+     * ID of the course
+     */
     private String courseId;
+    /**
+     * Owned student
+     */
     private String student;
+    /**
+     * Score (max: 100)
+     */
     private int score;
+    /**
+     * GPA (max: 4.0)
+     */
     private double GPA;
 
     public Grade() {
@@ -60,6 +77,11 @@ public class Grade {
         this.GPA = GPA;
     }
 
+    /**
+     * Based on the `courseId` property, get the credits of this course
+     *
+     * @return double
+     */
     @JsonIgnore
     public double getCredit() {
         try {
@@ -73,6 +95,11 @@ public class Grade {
         return 0.0;
     }
 
+    /**
+     * Based on the `courseId` property, get the course name
+     *
+     * @return double
+     */
     @JsonIgnore
     public String getCourseName() {
         ArrayList<Course> courses;

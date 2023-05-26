@@ -5,10 +5,16 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import uk.qmul.learningjourney.Context;
 import uk.qmul.learningjourney.controller.BaseController;
+import uk.qmul.learningjourney.controller.course.CourseCreateController;
 import uk.qmul.learningjourney.util.GradeUtil;
 
 import java.io.IOException;
 
+/**
+ * The controller of the view file `grade-view.fxml`.
+ *
+ * @author Lyuhua Wu
+ */
 public class GradeController extends BaseController {
 
     @FXML
@@ -19,6 +25,16 @@ public class GradeController extends BaseController {
         gpa.setText(Double.valueOf(GradeUtil.getWeightedGPA()).toString());
     }
 
+    /**
+     * Jump to the view `grade-list-view.fxml`.
+     * <p>
+     *     This function is bound to a button and is called when the button is clicked.
+     * </p>
+     *
+     * @see CourseCreateController
+     *
+     * @param event Mouse click
+     */
     @FXML
     public void toListPage(MouseEvent event) {
         try {
@@ -28,6 +44,16 @@ public class GradeController extends BaseController {
         }
     }
 
+    /**
+     * Jump to the view `grade-analysis-view.fxml`.
+     * <p>
+     *     This function is bound to a button and is called when the button is clicked.
+     * </p>
+     *
+     * @see CourseCreateController
+     *
+     * @param event Mouse click
+     */
     @FXML
     public void toAnalysisPage(MouseEvent event) {
         try {

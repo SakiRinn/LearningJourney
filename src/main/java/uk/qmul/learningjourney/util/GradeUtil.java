@@ -10,10 +10,24 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Utility class for user operation
+ * <p>
+ *     Mainly include calculating functions related to grades.
+ * </p>
+ *
+ * @author Lyuhua Wu
+ */
 public class GradeUtil {
 
+    /**
+     * Format of grade output (2 decimal places)
+     */
     public static DecimalFormat df = new DecimalFormat("#.##");
 
+    /**
+     * @return {@link HashMap}<{@link String}, {@link Double}> `Student-Score` mapping table
+     */
     private static HashMap<String, Double> getScoreMap() {
         HashMap<String, Double> map = new HashMap<>();
         try {
@@ -26,6 +40,10 @@ public class GradeUtil {
         return map;
     }
 
+    /**
+     * @return {@link ArrayList}<{@link Grade}> Grade of the current student
+     * @see #getGrades(Student student)
+     */
     public static ArrayList<Grade> getGrades() {
         if (!(Context.user instanceof Student))
             throw new RuntimeException("Only students can use this function!");
@@ -34,6 +52,12 @@ public class GradeUtil {
         return getGrades(student);
     }
 
+    /**
+     * Get grades for specific students
+     *
+     * @param student a specific student
+     * @return {@link ArrayList}<{@link Grade}> Grade of the student
+     */
     public static ArrayList<Grade> getGrades(Student student) {
         if (!(Context.user instanceof Student))
             throw new RuntimeException("Only students can use this function!");
@@ -52,6 +76,10 @@ public class GradeUtil {
         return grades;
     }
 
+    /**
+     * @return double Weighted average score of the current student
+     * @see #getWeightedScore(Student student)
+     */
     public static double getWeightedScore() {
         double totalScore = 0.0;
         for (Grade grade : getGrades())
@@ -59,6 +87,12 @@ public class GradeUtil {
         return Double.parseDouble(df.format(totalScore / getTotalCredit()));
     }
 
+    /**
+     * Get weighted average score for specific students
+     *
+     * @param student a specific student
+     * @return {@link ArrayList}<{@link Grade}> Weighted average score of the student
+     */
     public static double getWeightedScore(Student student) {
         double totalScore = 0.0;
         for (Grade grade : getGrades(student))
@@ -66,10 +100,20 @@ public class GradeUtil {
         return Double.parseDouble(df.format(totalScore / getTotalCredit()));
     }
 
+    /**
+     * Convert score to GPA
+     *
+     * @param score Score to be converted
+     * @return double corresponding GPA
+     */
     public static double score2GPA(int score) {
         return Double.parseDouble(df.format((score > 60) ? (4 - 3 * Math.pow(100 - score, 2) / 1600) : 0.0));
     }
 
+    /**
+     * @return double Weighted Average GPA of the current student
+     * @see #getWeightedGPA(Student student)
+     */
     public static double getWeightedGPA() {
         double totalGPA = 0.0;
         for (Grade grade : getGrades())
@@ -77,6 +121,12 @@ public class GradeUtil {
         return Double.parseDouble(df.format(totalGPA / getTotalCredit()));
     }
 
+    /**
+     * Get weighted average GPA for specific students
+     *
+     * @param student a specific student
+     * @return {@link ArrayList}<{@link Grade}> Weighted average GPA of the student
+     */
     public static double getWeightedGPA(Student student) {
         double totalGPA = 0.0;
         for (Grade grade : getGrades(student))
@@ -84,6 +134,10 @@ public class GradeUtil {
         return Double.parseDouble(df.format(totalGPA / getTotalCredit()));
     }
 
+    /**
+     * @return int The ranking of the current student
+     * @see #getRank(Student student)
+     */
     public static int getRank() {
         if (!(Context.user instanceof Student))
             throw new RuntimeException("Only students can get the credit!");
@@ -101,6 +155,12 @@ public class GradeUtil {
         return rank;
     }
 
+    /**
+     * Get the ranking for specific students
+     *
+     * @param student a specific student
+     * @return {@link ArrayList}<{@link Grade}> The ranking of the student
+     */
     public static int getRank(Student student) {
         if (!(Context.user instanceof Student))
             throw new RuntimeException("Only students can use this function!");
@@ -117,6 +177,9 @@ public class GradeUtil {
         return rank;
     }
 
+    /**
+     * @return double The total credit of the current student
+     */
     public static double getTotalCredit() {
         if (!(Context.user instanceof Student))
             throw new RuntimeException("Only students can use this function!");
@@ -133,6 +196,12 @@ public class GradeUtil {
         return totalCredit;
     }
 
+    /**
+     * Get all grades for a specific course
+     *
+     * @param course a specific course
+     * @return {@link ArrayList}<{@link Grade}> The list of this course
+     */
     public static ArrayList<Grade> getCourseGrades(Course course) {
         ArrayList<Grade> grades = new ArrayList<>();
         try {

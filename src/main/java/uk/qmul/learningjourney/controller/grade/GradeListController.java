@@ -15,6 +15,11 @@ import uk.qmul.learningjourney.util.GradeUtil;
 
 import java.io.IOException;
 
+/**
+ * The controller of the view file `grade-list-view.fxml`.
+ *
+ * @author Lyuhua Wu
+ */
 public class GradeListController extends BaseController {
 
     @FXML
@@ -33,6 +38,11 @@ public class GradeListController extends BaseController {
         table.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("GPA"));
     }
 
+    /**
+     * Exporting transcripts.
+     *
+     * @param event Mouse click
+     */
     @FXML
     public void export(MouseEvent event) {
         try {

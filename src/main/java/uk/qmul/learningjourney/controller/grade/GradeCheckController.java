@@ -17,6 +17,11 @@ import uk.qmul.learningjourney.util.GradeUtil;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * The controller of the view file `grade-check-view.fxml`.
+ *
+ * @author Lyuhua Wu
+ */
 public class GradeCheckController extends BaseController {
 
     @FXML
@@ -47,6 +52,9 @@ public class GradeCheckController extends BaseController {
         showCourseGrades();
     }
 
+    /**
+     * Display all grades for all courses taught by the current teacher in a table.
+     */
     public void showCourseGrades() {
         ArrayList<Grade> grades = new ArrayList<>();
         for (Course course : ((Teacher) Context.user).getCourseList())
@@ -59,6 +67,9 @@ public class GradeCheckController extends BaseController {
         table.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("GPA"));
     }
 
+    /**
+     * Display all grades for a specific course in a table.
+     */
     public void showCourseGrades(Course course) {
         ObservableList<Grade> gradeList = FXCollections.observableArrayList(GradeUtil.getCourseGrades(course));
         table.getItems().setAll(gradeList);

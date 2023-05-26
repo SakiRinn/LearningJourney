@@ -12,6 +12,11 @@ import uk.qmul.learningjourney.util.UserUtil;
 import java.io.IOException;
 import java.text.DecimalFormat;
 
+/**
+ * The controller of the view file `grade-analysis-view.fxml`.
+ *
+ * @author Lyuhua Wu
+ */
 public class GradeAnalysisController extends BaseController {
 
     @FXML
@@ -46,6 +51,4 @@ public class GradeAnalysisController extends BaseController {
         ranking.setText(GradeUtil.getRank() + " / " + numStudent);
         percentage.setText(new DecimalFormat("#.##").format((double) GradeUtil.getRank() / numStudent * 100) + "%");
     }
-
-
 }
