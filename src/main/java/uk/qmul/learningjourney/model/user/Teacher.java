@@ -54,6 +54,11 @@ public class Teacher extends User {
         this.courses = courses;
     }
 
+    /**
+     * Get a list of all teaching courses based on the `courses` attribute.
+     *
+     * @return {@link ArrayList}<{@link Course}> List of teaching courses
+     */
     @JsonIgnore
     public ArrayList<Course> getCourseList() {
         ArrayList<Course> courses = new ArrayList<>();

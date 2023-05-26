@@ -103,9 +103,9 @@ public class Student extends User {
     }
 
     /**
-     * For JSON operation
+     * Get a list of all learning courses based on the `courses` attribute.
      *
-     * @return {@link ArrayList}<{@link Course}>
+     * @return {@link ArrayList}<{@link Course}> List of learning courses
      */
     @JsonIgnore
     public ArrayList<Course> getCourseList() {

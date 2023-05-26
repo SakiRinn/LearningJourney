@@ -41,6 +41,11 @@ public class UserUtil {
         mapper.writerFor(new TypeReference<List<User>>(){}).writeValue(file, list);
     }
 
+    /**
+     * Save and <b>overwrite</b> all stored users.
+     * @param users Updated list of users
+     * @throws IOException
+     */
     public static void saveUsers(ArrayList<User> users) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(SerializationFeature.INDENT_OUTPUT, true);
@@ -49,10 +54,22 @@ public class UserUtil {
         mapper.writerFor(new TypeReference<List<User>>(){}).writeValue(file, users);
     }
 
+    /**
+     * Load stored users
+     *
+     * @return {@link ArrayList}<{@link User}>
+     * @throws IOException
+     */
     public static ArrayList<User> loadUsers() throws IOException {
         return (ArrayList<User>) DataIO.loadObjects(User.class);
     }
 
+    /**
+     * Load stored students
+     *
+     * @return {@link ArrayList}<{@link User}>
+     * @throws IOException
+     */
     public static ArrayList<Student> loadStudents() throws IOException {
         ArrayList<Student> students = new ArrayList<>();
         for (User user : loadUsers()) {
@@ -62,6 +79,12 @@ public class UserUtil {
         return students;
     }
 
+    /**
+     * Load stored teachers
+     *
+     * @return {@link ArrayList}<{@link User}>
+     * @throws IOException
+     */
     public static ArrayList<Teacher> loadTeachers() throws IOException {
         ArrayList<Teacher> teachers = new ArrayList<>();
         for (User user : loadUsers()) {
