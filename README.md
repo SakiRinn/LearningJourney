@@ -4,8 +4,6 @@
 
 EBU6304-Software Engineering Project of Group 48
 
-***
-
 ## Environment
 
 The project is built on Maven and the recommended configuration is
