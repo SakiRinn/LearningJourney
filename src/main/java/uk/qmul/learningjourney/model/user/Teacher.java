@@ -1,18 +1,23 @@
 package uk.qmul.learningjourney.model.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import uk.qmul.learningjourney.Context;
 import uk.qmul.learningjourney.model.Course;
 import uk.qmul.learningjourney.util.DataIO;
-import uk.qmul.learningjourney.util.GradeUtil;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Define teacher entity
+ */
 public class Teacher extends User {
-
+    /**
+     * whether the user is admin
+     */
     private boolean isAdmin;
+    /**
+     * list of courses
+     */
     private ArrayList<String> courses;
 
     public Teacher() {

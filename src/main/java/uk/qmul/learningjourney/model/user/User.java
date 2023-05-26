@@ -4,15 +4,27 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
+/**
+ * Define user entity
+ */
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
 @JsonSubTypes(value = {
         @JsonSubTypes.Type(value = Teacher.class, name = "Teacher"),
         @JsonSubTypes.Type(value = Student.class, name = "Student"),
 })
-public abstract class User {
 
+public abstract class User {
+    /**
+     * user ID
+     */
     protected String id;
+    /**
+     * user name
+     */
     protected String name;
+    /**
+     * user password
+     */
     protected String password;
 
     public User() {
